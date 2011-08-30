@@ -93,4 +93,22 @@ def createEDKSconfigFile(modelFilename):
 
 
 if __name__ == '__main__':
-   createEDKSconfigFile('tohoku_3.model')
+   import sys
+   if len(sys.argv) == 2:
+      vel_model_Filename = sys.argv[1]
+      createEDKSconfigFile(vel_model_Filename)
+
+   else:
+      print "  usage: \n"
+      print "        " + sys.argv[0] + "  edksVelocityModel.model"
+      exit()
+
+
+
+
+
+
+
+
+
+
