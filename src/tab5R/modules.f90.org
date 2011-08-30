@@ -1,0 +1,31 @@
+	MODULE model
+	integer, parameter	:: MXMD=10
+	integer			:: N, Np, M
+	real, 	allocatable	:: vp0(:), vs0(:), rh0(:), th0(:)
+	real, 	allocatable	::  vp(:),  vs(:),  rh(:),  th(:)
+	real, 	allocatable	:: lambda, mu
+	real, 	allocatable	:: delta, gamma
+	END MODULE model
+	
+	MODULE parameters
+	integer nx, ny
+	character (len=256)	:: model_filename
+	real			:: x0, y0, h0
+	real			:: strike, dip, rake
+	real			:: lhd
+	real			:: xmin, xmax, ymin, ymax
+	integer			:: nk
+	real			:: htol, kmax
+	END MODULE parameters
+
+	MODULE model_non_alloc
+	integer, parameter	:: MXMD=10
+	integer			:: N, Np, M
+	real, 	dimension(MXMD)	:: vp, vs, rh, th
+	real, 	dimension(MXMD)	:: lambda, mu
+	real, 	dimension(MXMD)	:: delta, gamma
+	END MODULE model
+
+MODULE interfaces
+
+END MODULE interfaces

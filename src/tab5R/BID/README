@@ -1,0 +1,8 @@
+IN SIDONIA (ifort)
+-If either LINE A or LINE B in bessj0.f90 are
+ commented out, we have no longer the pb.
+-If the two lines are out of the where, RAS !!
+-If the dimension in bid2 is lowered, also ...
+
+
+- Also, if kval is < 8 in bid2, no prob

@@ -1,0 +1,57 @@
+F90  = ifort
+F90  = gfortran
+BINDIR = ../../bin
+MP     =  -mp
+OPT    = -g
+FFLAGS = -frecord-marker=4 ${OPT} -fopenmp
+LFLAGS = -frecord-marker=4 ${OPT} -fopenmp
+
+TARG = sum_layered
+
+OBJS = sum_layered.o \
+	read_edks.o \
+	mom2disp.o \
+	src2mom.o \
+	patch2pts.o \
+	write_disp.o \
+	read_patch.o \
+	read_receivers.o
+
+all: $(TARG) $(OBJS)
+
+interfaces.o: interfaces.f90
+	${F90} ${FFLAGS} -c interfaces.f90
+
+write_disp.o: write_disp.f90
+	${F90} ${FFLAGS} -c write_disp.f90
+
+read_edks.o: read_edks.f90 interfaces.o
+	${F90} ${FFLAGS} -c read_edks.f90
+
+read_receivers.o: read_receivers.f90
+	${F90} ${FFLAGS} -c read_receivers.f90
+
+read_patch.o: read_patch.f90
+	${F90} ${FFLAGS} -c read_patch.f90
+
+src2mom.o: src2mom.f90 interfaces.o
+	${F90} ${FFLAGS} -c src2mom.f90 -o src2mom.o
+
+patch2pts.o: patch2pts.f90
+	${F90} ${FFLAGS} -c patch2pts.f90 -o patch2pts.o
+
+mom2disp.o: mom2disp.f90 interfaces.o
+	${F90} ${FFLAGS} -c mom2disp.f90 -o mom2disp.o
+
+sum_layered.o: sum_layered.f90 interfaces.o
+	${F90} ${FFLAGS} -c sum_layered.f90 -o sum_layered.o
+
+$(TARG): $(OBJS)
+	${F90} ${FFLAGS} $(OBJS) -o ${BINDIR}/$(TARG)
+
+clean:
+		rm -rf *.o *.mod rii_files
+
+install: $(TARG)
+		mv -f $(TARG) $(BINDIR)
+

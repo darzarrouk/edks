@@ -1,0 +1,138 @@
+	include 'modules.inc'
+	include '../sum_layered/edks.inc'
+
+	program build_edks
+	
+!	use f90_unix 	!needed on the NAG compiler
+	use model
+	use defs_module
+	implicit none
+
+	! local variables
+	integer, parameter      :: UNIT_LOGFILE = 7
+	integer, parameter      :: UNIT_ASCII_FILENAME = 9
+	character (len=256)	:: log_filename, edks_name
+	character (len=256)	:: model_filename
+	
+	integer			:: narg
+ 	integer			:: iargc
+	character (len=256)	:: argum
+	type (edks_type)	:: edks
+
+	integer			:: jd, jr, jk, nr
+	integer			:: jskip
+	integer, parameter	:: NSKIP = 9
+	real			:: depthj, dr, rmin, rmax
+
+	character (len=128),allocatable	:: ascii_filename(:)
+
+!	read the command line arguments
+	narg = iargc()
+	if (narg .ne. 2) then
+		write(*,'(a)') 'Synthax: build_edks log_filename edks_name'
+		call exit(1)
+	endif
+
+
+	call getarg(1, argum)
+	read(argum, '(a)',err=10) log_filename
+	call getarg(2, argum)
+	read(argum, '(a)',err=10) edks_name
+	
+	open (status = "old", unit = UNIT_LOGFILE, file = log_filename)
+	read(UNIT_LOGFILE, err = 20, end = 20, fmt = *) model_filename
+	read(UNIT_LOGFILE, err = 20, end = 20, fmt = *) edks % ndepth
+
+	allocate( edks % depths(edks % ndepth))
+	allocate(ascii_filename(edks % ndepth))
+
+	read(UNIT_LOGFILE, err = 20, end = 20, fmt = *) (edks % depths(jd), jd=1,edks % ndepth)
+	edks % depthmin = edks % depths(1)
+	edks % depthmax = edks % depths(1)
+
+	do jd = 1,edks % ndepth
+		write(*,*) "reading: ", jd
+		read(UNIT_LOGFILE, err = 20, end = 20, fmt = *) depthj, dr, rmax, ascii_filename(jd)
+
+		edks % depthmin = min(edks % depthmin, edks % depths(jd))
+		edks % depthmax = max(edks % depthmax, edks % depths(jd))
+	end do
+        close(UNIT_LOGFILE)
+
+
+	! read the model  (vp, vs, rho, thickness)
+	call read_model(model_filename)
+
+	edks % prefix   = edks_name
+	edks % date	= "01/01/2000"
+	edks % version  = "-1.0"
+	edks % comment  = "blablabla"
+	edks % nlayer   = N
+
+	allocate(edks % rho(N))
+	allocate(edks % alpha(N))
+	allocate(edks % beta(N))
+	allocate(edks % thickness(N))
+	
+	edks % rho   	 = rh0
+	edks % alpha 	 = vp0
+	edks % beta  	 = vs0
+	edks % thickness = th0
+
+	open (status = "old", unit = UNIT_ASCII_FILENAME, file = ascii_filename(1))
+!	the skip should be made properly
+	do jskip = 1, NSKIP
+		read(UNIT_ASCII_FILENAME, err = 30, end = 30, fmt = *) 
+	enddo
+	read( UNIT_ASCII_FILENAME, err = 30, end = 30, fmt = *) nr, rmin, rmax
+	close(UNIT_ASCII_FILENAME)
+
+! 	In fact in the present version, nr should be the sama for all the depths
+
+	edks % ndista   = nr
+	edks % distamin = rmin
+	edks % distamax = rmax
+	allocate (edks % zrtdsx(edks % ndepth, edks % ndista, 10))
+	allocate (edks % distas(edks % ndista))
+
+	do jd = 1, edks % ndepth
+		open (status = "old", unit = UNIT_ASCII_FILENAME, file = ascii_filename(jd))
+
+!		the skip should be made properly
+		do jskip = 1, NSKIP
+			read(UNIT_ASCII_FILENAME, err = 30, end = 30, fmt = *) 
+		enddo
+
+		read(UNIT_ASCII_FILENAME, err = 30, end = 30, fmt = *) nr, rmin, rmax
+		read(UNIT_ASCII_FILENAME, err = 30, end = 30, fmt = *)
+		read(UNIT_ASCII_FILENAME, err = 30, end = 30, fmt = *)
+		read(UNIT_ASCII_FILENAME, err = 30, end = 30, fmt = *)
+
+		if (nr .ne. edks % ndista) then
+			write(*,'(a)') "Error: Variable number of distances !!!"
+			call exit(1)
+		endif
+
+		do jr = 1, nr
+			read(UNIT_ASCII_FILENAME, err = 30, end = 30, fmt=*) 	&
+			edks % depths(jd), edks % distas(jr), (edks % zrtdsx(jd, jr, jk), jk=1,10)
+		end do
+
+		close(UNIT_ASCII_FILENAME)
+	end do
+
+	call write_edks(edks_name, edks)
+
+	stop
+
+ 10     write(*,'(a)') '!!! Error decoding the command-line parameters'
+	write(*,'(a)') 'Synthax: build_edks log_filename edks_name'
+	stop
+
+ 20     print *, "Error: reading the log file"
+	stop
+
+ 30     print *, "Error: reading the ascii file: ", ascii_filename(jd)
+	stop
+
+	end program build_edks
