@@ -70,7 +70,7 @@ def EDKSboss(comm, EDKSparam, TagIn, TagOut):
 
    # the partitioning is done by depths.
    depths = EDKSparam.pop('depths')    
-
+   depths.sort(reverse = True) # So depths.pop() goes from small to high depth
    # check for errors
    if rank != 0:
       raise ValueError("EDKSboss can only be run in root process.")
