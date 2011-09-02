@@ -1,0 +1,68 @@
+import numpy as NP
+from layered_disloc import layered_disloc
+import pylab as PL
+
+def test1():
+   # units
+   km = 1000.0 # in meters
+   # definitions
+   edks = 'tohoku_3.edks'
+   prefix = 'Test_tohoku_3_'
+   BIN_EDKS = '${HOME}/dev/edks/bin'
+   # define grid
+   xmin = -200 * km
+   xmax = 200 * km
+   Nx = 100
+   x = NP.linspace(xmin,xmax,Nx)
+   ymin = -100 * km
+   ymax = 100 * km
+   Ny = 100
+   y = NP.linspace(ymin,ymax,Ny)
+
+   XX, YY = NP.meshgrid(x,y)
+
+   # reshape to form vectors.
+   x = NP.reshape(XX, (Ny*Nx,), order = 'F')
+   y = NP.reshape(YY, (Ny*Nx,), order = 'F')
+
+   # source coordinates
+   xS = NP.array([-50.0]) * km
+   yS = NP.array([-100.0]) * km
+   zS = NP.array([30]) * km
+   aS = NP.array([300 * 100]) * km * km
+   strike = NP.array([0.0])
+   dip = NP.array([89.99])
+   SSlip = NP.array([1.0]) # in meters
+   DSlip = NP.array([0.0]) # in meters
+
+   # calculate the GF's
+   rake = 0 * NP.ones(SSlip.shape)
+   slip = 1 * NP.ones(SSlip.shape)
+   GFeSS, GFnSS, GFzSS = layered_disloc(xS, yS, zS, strike, dip, rake, slip, aS, x, y,\
+                                     edks, prefix, BIN_EDKS)  
+
+   rake = 90 * NP.ones(SSlip.shape)
+   slip = 1 * NP.ones(SSlip.shape)
+   GFeDS, GFnDS, GFzDS = layered_disloc(xS, yS, zS, strike, dip, rake, slip, aS, x, y,\
+                                     edks, prefix, BIN_EDKS)
+
+   # compute forward displacement calculation.
+
+   dE = GFeSS * SSlip[0] + GFeDS * DSlip[0]
+   dN = GFnSS * SSlip[0] + GFnDS * DSlip[0]
+   dZ = GFzSS * SSlip[0] + GFzDS * DSlip[0]
+
+
+   # plot the vector fields.
+   import pylab as PL
+   PL.figure()
+   PL.quiver(x, y, dE, dN)
+   PL.axis('equal')
+   PL.figure()
+   PL.quiver(x, y, dZ * 0.0, dZ)
+   PL.axis('equal')
+
+   PL.show()
+
+if __name__ == '__main__':
+   test1()

@@ -39,7 +39,6 @@ do iw = 1, npw
    wax = iw*dw - dw/2
    xso = wax*cosd
    zso = wax*sind + z
-
    do iy = 1, npy
 
       yso = iy*dy - dy/2 - L/2 

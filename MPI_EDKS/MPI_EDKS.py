@@ -14,6 +14,7 @@
 
 """
 
+from LogFile import LogFile
 from os import system
 from mpi4py import MPI
 import edks
@@ -76,6 +77,9 @@ def EDKSboss(comm, EDKSparam, TagIn, TagOut):
       raise ValueError("EDKSboss can only be run in root process.")
       return None
 
+   Logger = EDKSparam['Logger']
+   Logger.addLine('I am Boss with rank = %i, I have %i Workers'%(rank, size - 1))
+
    # create dictionary to keep track of active processes
    ranks = range(1,size)
    flags = [ True for elem in ranks ]
@@ -89,28 +93,30 @@ def EDKSboss(comm, EDKSparam, TagIn, TagOut):
       # listen for a process reporting results
       # for the moment i dont need to do anything with results.
       dataRECV = comm.recv( source = MPI.ANY_SOURCE, tag = TagIn )
+      pRank = dataRECV['rank']
       if dataRECV.has_key('result'):
          results.append( dataRECV['result'] )         
+         Logger.addLine('received results from Worker %i'%(pRank))
       else:
-         print "Worker ", dataRECV['rank'], " being Initialized "
-
-      # get rank and send next depth to the process that just reported
-      pRank = dataRECV['rank']
+         Logger.addLine("Worker %i Initialized"%(pRank))
+         
+      # send next depth to the process that just reported
       if len(depths) > 0:
          dep = depths.pop()
          EDKSparam['dep'] = dep
          ToSend = {'ActiveProc': True, 'EDKSparam': EDKSparam}
-         print "Boss sending data to worker ", pRank
+         msg = "Boss sending depth %.3f to worker %i ...\n"%(dep, pRank)
+         msg += "    %i depths waiting for workers."%(len(depths))
+         Logger.addLine(msg)
          
       else:
          ToSend = {'ActiveProc': False} #shuts down the worker
          ActiveProcs[pRank] = False
-         print "Worker ", pRank, " being Terminated "
+         Logger.addLine("Worker %i being Terminated"%(pRank))
 
       comm.send( ToSend, dest = pRank, tag = TagOut ) 
    
-   # If I were saving results collected from all processes, here I 
-   # return them to the main in process 0
+   # return results
    return results
 
 
@@ -122,11 +128,20 @@ def MPI_EDKS(comm, EDKSparam, TagBoss2Worker = 1979, TagWorker2Boss = 28 ):
    size = comm.Get_size()
 
    if rank == 0 : # I am boss process
-      
+      Logger = LogFile('EDKS_status.log') # to keep track of what it is doing 
+      Logger.clearFile()
+      if not(EDKSparam.has_key('Logger')):
+         EDKSparam['Logger'] = Logger
+      else:
+         raise ValueError("EDKS parameter name 'Logger' is a reserved name")
+         return None
       # call the Boss process
       ndep = len(EDKSparam['depths'])
       ModPref = EDKSparam['ModPrefix']
+      # run EDKS calculations and save the EDKS log data
+      Logger.addLine('Starting EDKS kernels calculation')
       logData = EDKSboss( comm, EDKSparam, TagWorker2Boss, TagBoss2Worker )
+      Logger.addLine('EDKS kernels calculation done... Now saving EDKS log data.')
       logFilename = ModPref + '.log'
       logfile = open(logFilename, 'w')
       logfile.write(ModPref + '.model\n')
@@ -139,9 +154,10 @@ def MPI_EDKS(comm, EDKSparam, TagBoss2Worker = 1979, TagWorker2Boss = 28 ):
       for i in Idep:
          logfile.write(logData[i] + '\n')
       logfile.close()
-      print ndep, len(depths) 
+      Logger.addLine('running build_edks...')
       edksFilename = ModPref + '.edks'
       system(EDKSparam['BIN_build_edks'] + ' ' + logFilename + ' ' + edksFilename)
+      Logger.addLine("That's all folks !!!...")
    else : # I am a worker
 
       EDKSworker( comm, TagBoss2Worker, TagWorker2Boss )
