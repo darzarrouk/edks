@@ -24,21 +24,26 @@ def createEDKSconfigFile(modelFilename):
    DepUp = DepDown - LayerThick
    
    MaxDepth = eval(raw_input("Max depth for sources (km)? "))
-   dZ = eval(raw_input("Depth spacing for sources (km)? ")) 
-
    
    # go through each layer and compute the depths of the layer:
    SourceDepths = []
    for i in range(0, len(LayerThick) -1): # we dont want the halfspace yet.
       dH = LayerThick[i]
-      Ndepths = NP.max( [NP.ceil( 1.0*dH/dZ ) + 1. , 2.] )
+      msg = 'Layer %i with thickness %.3f, please indicate Number of sources (>1):'\
+             %(i+1, dH)
+      Ndepths = NP.array(eval(raw_input(msg)))
+      #Ndepths = NP.max( [NP.ceil( 1.0*dH/dZ ) + 1. , 2.] )
       dZeff = (1.0*dH) / Ndepths  
+      print '   --> depth spacing for layer is %.3f [km] ...'%(dZeff)
       depths = NP.linspace(DepUp[i] + dZeff/2.0,\
                            DepDown[i] - dZeff/2.0, Ndepths - 1)
       SourceDepths.extend(depths)
    if MaxDepth > NP.max(DepDown):
       dH = MaxDepth - NP.max(DepDown)
-      Ndepths = NP.max( [NP.ceil( 1.0*dH/dZ ) + 1. , 2.] )
+      msg = 'Layer %i with thickness %.3f, (Half space)'%(i+1, dH)\
+             + ' please indicate Number of sources (>1):'
+      Ndepths = NP.array(eval(raw_input(msg)))
+      #Ndepths = NP.max( [NP.ceil( 1.0*dH/dZ ) + 1. , 2.] )
       dZeff = (1.0*dH) / Ndepths
       depths = NP.linspace(NP.max(DepDown) + dZeff/2.0,\
                            MaxDepth - dZeff/2.0, Ndepths - 1)

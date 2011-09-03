@@ -12,11 +12,11 @@ def test1():
    # define grid
    xmin = -150 * km
    xmax = 150 * km
-   Nx = 1000
+   Nx = 250
    x = NP.linspace(xmin,xmax,Nx)
    ymin = -150 * km
    ymax = 150 * km
-   Ny = 1000
+   Ny = 250
    y = NP.linspace(ymin,ymax,Ny)
 
    XX, YY = NP.meshgrid(x,y)
