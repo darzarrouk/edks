@@ -2,7 +2,7 @@ import os
 import struct # for reading and writing binary files.
 import numpy as NP
 def layered_disloc(xs, ys, zs, strike, dip, rake, slip, A, xr, yr, edks,\
-                   prefix, BIN_EDKS = '${HOME}/dev/edks/bin' ):
+                   prefix, BIN_EDKS = '${EDKS_BIN}' ):
    """
    [ux, uy, uz] = layered_disloc(xs, ys, zs, strike, dip, rake, slip,
                                  A, xr, yr, edks)
@@ -58,9 +58,7 @@ def layered_disloc(xs, ys, zs, strike, dip, rake, slip, A, xr, yr, edks,\
    # rotation to global coordinates 
    xs = xs - dD * coss
    ys = ys + dD * sins
-   print zs
    zs = zs - dZ
-   print zs
    # Define filenames:
    file_rec = prefix + '.rec'
    file_pat = prefix + '.pat'
