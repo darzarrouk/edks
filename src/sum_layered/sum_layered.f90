@@ -78,14 +78,9 @@ do ip = 1, np
 
    ! need to sum pts back to patch contributions where arrays are 
    ! indexed as ux(patch,receiver), uxs(pt_source,receiver)
-   PRINT *, 'uxs'
-   PRINT *, uxs
    ux(ip, :) = sum(uxs, dim=1)
    uy(ip, :) = sum(uys, dim=1)
    uz(ip, :) = sum(uzs, dim=1)
-
-   PRINT *, 'ux'
-   PRINT *, ux
 
 end do
 

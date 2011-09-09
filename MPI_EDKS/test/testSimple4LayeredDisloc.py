@@ -29,7 +29,7 @@ def test1():
    xS = NP.array([0.0, 0.0]) * km
    yS = NP.array([0.0, 0.0]) * km
    zS = NP.array([30, 30]) * km
-   aS = NP.array([300 * 100, 300 * 100]) * km * km
+   aS = NP.array([300 * 100, 100 * 300 * 100]) * km * km
    strike = NP.array([0.0, 0.0])
    dip = NP.array([90.0, 90.0])
    SSlip = NP.array([0.0, 0.0]) # in meters
@@ -54,6 +54,7 @@ def test1():
 
    print dE
 
+   return None
    dEE = NP.reshape(dE, (Ny, Nx))
    dNN = NP.reshape(dN, (Ny, Nx))
    dZZ = NP.reshape(dZ, (Ny, Nx))
