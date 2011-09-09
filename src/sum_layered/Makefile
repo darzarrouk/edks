@@ -1,10 +1,14 @@
 F90  = ifort
-F90  = gfortran
+#F90  = gfortran
 BINDIR = ../../bin
 MP     =  -mp
 OPT    = -g
-FFLAGS = -frecord-marker=4 ${OPT} -fopenmp
-LFLAGS = -frecord-marker=4 ${OPT} -fopenmp
+# uncomment for use with gfortran
+#FFLAGS = -frecord-marker=4 ${OPT} -fopenmp
+#LFLAGS = -frecord-marker=4 ${OPT} -fopenmp
+# uncomment for use with ifort 
+FFLAGS = ${OPT} -openmp
+LFLAGS = ${OPT} -openmp
 
 TARG = sum_layered
 
