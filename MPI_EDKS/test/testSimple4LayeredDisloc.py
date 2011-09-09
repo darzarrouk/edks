@@ -12,11 +12,11 @@ def test1():
    # define grid
    xmin = -150 * km
    xmax = 150 * km
-   Nx = 3
+   Nx = 2
    x = NP.linspace(xmin,xmax,Nx)
    ymin = -150 * km
    ymax = 150 * km
-   Ny = 3
+   Ny = 2
    y = NP.linspace(ymin,ymax,Ny)
 
    XX, YY = NP.meshgrid(x,y)
@@ -33,7 +33,7 @@ def test1():
    strike = NP.array([0.0, 0.0])
    dip = NP.array([90.0, 90.0])
    SSlip = NP.array([0.0, 0.0]) # in meters
-   DSlip = NP.array([1.0, 1.0]) # in meters
+   DSlip = NP.array([1.0, 10.0]) # in meters
 
    # calculate the GF's
    rake = 0 * NP.ones(SSlip.shape)

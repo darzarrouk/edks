@@ -19,7 +19,7 @@ real*4, allocatable :: rake(:), W(:), L(:), slip(:)
 real*4 :: dw, dy, M(6)
 real*4 :: wg, yg, zg
 
-integer*4 :: npw, npy, nrec, np, nspp, irec, i, ip
+integer*4 :: npw, npy, nrec, np, nspp, irec, i, ip, ir
 
 character (len=256) :: elem_filename, prefix
 character (len=32)  :: argum
@@ -64,7 +64,11 @@ call read_receivers(prefix, nrec, xr, yr)
 call read_patch(prefix, np, x, y, z, strike, dip, rake, W, L, slip)
 
 ! need to loop over all patches, get local coordinates and fill single arrays
-
+do ip = 1, np
+   do ir = 1, nrec
+      uxs(ip, ir) = 0.0
+   end do
+end do
 do ip = 1, np
 
    call patch2pts(strike(ip), dip(ip), rake(ip), slip(ip), W(ip), L(ip), &
@@ -74,10 +78,14 @@ do ip = 1, np
 
    ! need to sum pts back to patch contributions where arrays are 
    ! indexed as ux(patch,receiver), uxs(pt_source,receiver)
-
+   PRINT *, 'uxs'
+   PRINT *, uxs
    ux(ip, :) = sum(uxs, dim=1)
    uy(ip, :) = sum(uys, dim=1)
    uz(ip, :) = sum(uzs, dim=1)
+
+   PRINT *, 'ux'
+   PRINT *, ux
 
 end do
 

@@ -128,7 +128,7 @@ def layered_disloc(xs, ys, zs, strike, dip, rake, slip, A, xr, yr, edks,\
 
    # remove IO files.
    cmd = 'rm -f %s %s %s %s %s' %(file_rec, file_pat, file_dux, file_duy, file_duz)
-   os.system(cmd)  
+   #os.system(cmd)  
 
    # return the GF matrices
    return [ux, uy, uz]
