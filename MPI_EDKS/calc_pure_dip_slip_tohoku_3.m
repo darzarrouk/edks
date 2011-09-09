@@ -25,15 +25,15 @@ labelmec = 'Pure_strike_slip';
 %%% Sources  %%%
 %MM     = load('fault_geometry_my_format');
 %th     = load('slip_model_my_format');
-xs     = [0.]*km;
-ys     = [-500.]*km;
-zs     = [30.]*km;
-strike = [0.];
-dip    = [90.];
-area   = [1.]*km*km;
+xs     = [0. 0.]*km;
+ys     = [-500. -500.]*km;
+zs     = [30. 30.]*km;
+strike = [0. 0.];
+dip    = [90. 90.];
+area   = [1. 1.]*km*km;
 np     = length(xs);
-st_sl  = [2.e4];
-di_sl  = [0.];
+st_sl  = [2.e4 2.e4];
+di_sl  = [0. 0.];
 rake   = atan2(di_sl,st_sl)*180./pi;
 slip   = sqrt(st_sl.^2 + di_sl.^2);
 L      = sqrt(area);
@@ -46,15 +46,16 @@ label = sprintf('TH3_%s', labelmec);
 
 [uxt, uyt, uzt] = layered_disloc(xs, ys, zs, strike, dip, rake, slip, L, W, npw, npy, xrg(:), yrg(:), edks);
 
-if(np > 1)
-    EXT = reshape(sum(uxt'),ny,nx);
-    EYT = reshape(sum(uyt'),ny,nx);
-    EZT = reshape(sum(uzt'),ny,nx);
-else
-    EXT = reshape(uxt,ny,nx);
-    EYT = reshape(uyt,ny,nx);
-    EZT = reshape(uzt,ny,nx);  
-end
+print uxt
+%if(np > 1)
+%    EXT = reshape(sum(uxt'),ny,nx);
+%    EYT = reshape(sum(uyt'),ny,nx);
+%    EZT = reshape(sum(uzt'),ny,nx);
+%else
+%    EXT = reshape(uxt,ny,nx);
+%    EYT = reshape(uyt,ny,nx);
+%    EZT = reshape(uzt,ny,nx);  
+%end
 
 % Output
 xfile = [label, '_Ux'];
@@ -89,38 +90,3 @@ end
 end
 fclose(fp)
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Figures
-label = 'test2';
-figure(1, 'Position',[1,500,1,500]);
-pcolor(xr/1e3,yr/1e3, EXT);
-shading interp
-colorbar
-title([label ': East displacement [m]']);
-xlabel('East distance [km]')
-ylabel('North distance [km]')
-print([label '_out_dE.png'])
-
-figure(2, 'Position',[1,500,1,500]);
-pcolor(xr/1e3,yr/1e3, EYT);
-shading interp
-colorbar
-title([label ': North displacement [m]']);
-xlabel('East distance [km]')
-ylabel('North distance [km]')
-print([label '_out_dN.png'])
-
-figure(3, 'Position',[1,500,1,500]);
-pcolor(xr/1e3,yr/1e3, EZT);
-shading interp
-colorbar
-title([label ': Up displacement [m]']);
-xlabel('East distance [km]')
-ylabel('North distance [km]')
-print([label '_out_dU.png'])
-
-%%%
-R = [xs/km, ys/km, zs/km, strike, dip, rake, slip, L/km, W/km];
-save -ascii R R
-% awk '{printf "%7.2f %7.2f %7.2f %6.1f %6.1f %6.1f %6.1f %6.1f %6.1f\n", $1, $2, $3, $4, $5, $6, $7, $8, $9}' R | head

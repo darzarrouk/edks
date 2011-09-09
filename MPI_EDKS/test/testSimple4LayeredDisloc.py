@@ -12,11 +12,11 @@ def test1():
    # define grid
    xmin = -150 * km
    xmax = 150 * km
-   Nx = 250
+   Nx = 3
    x = NP.linspace(xmin,xmax,Nx)
    ymin = -150 * km
    ymax = 150 * km
-   Ny = 250
+   Ny = 3
    y = NP.linspace(ymin,ymax,Ny)
 
    XX, YY = NP.meshgrid(x,y)
@@ -26,14 +26,14 @@ def test1():
    y = NP.reshape(YY, (Ny*Nx,))
 
    # source coordinates
-   xS = NP.array([0.0]) * km
-   yS = NP.array([0.0]) * km
-   zS = NP.array([30]) * km
-   aS = NP.array([300 * 100]) * km * km
-   strike = NP.array([0.0])
-   dip = NP.array([90.0])
-   SSlip = NP.array([0.0]) # in meters
-   DSlip = NP.array([1.0]) # in meters
+   xS = NP.array([0.0, 0.0]) * km
+   yS = NP.array([0.0, 0.0]) * km
+   zS = NP.array([30, 30]) * km
+   aS = NP.array([300 * 100, 300 * 100]) * km * km
+   strike = NP.array([0.0, 0.0])
+   dip = NP.array([90.0, 90.0])
+   SSlip = NP.array([0.0, 0.0]) # in meters
+   DSlip = NP.array([1.0, 1.0]) # in meters
 
    # calculate the GF's
    rake = 0 * NP.ones(SSlip.shape)
@@ -51,6 +51,8 @@ def test1():
    dE = GFeSS * SSlip[0] + GFeDS * DSlip[0]
    dN = GFnSS * SSlip[0] + GFnDS * DSlip[0]
    dZ = GFzSS * SSlip[0] + GFzDS * DSlip[0]
+
+   print dE
 
    dEE = NP.reshape(dE, (Ny, Nx))
    dNN = NP.reshape(dN, (Ny, Nx))
