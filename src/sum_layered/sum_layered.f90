@@ -65,11 +65,6 @@ call read_patch(prefix, np, x, y, z, strike, dip, rake, W, L, slip)
 
 ! need to loop over all patches, get local coordinates and fill single arrays
 do ip = 1, np
-   do ir = 1, nrec
-      uxs(ip, ir) = 0.0
-   end do
-end do
-do ip = 1, np
 
    call patch2pts(strike(ip), dip(ip), rake(ip), slip(ip), W(ip), L(ip), &
                   x(ip), y(ip), z(ip), npw, npy, xsp, ysp, zsp, M)  

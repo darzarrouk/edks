@@ -1,5 +1,5 @@
-#FCOMP  = gfortran
-FCOMP = ifort
+FCOMP  = gfortran
+#FCOMP = ifort
 BINDIR = ../../bin
 #FFLAGS = -g90 -C
 #FFLAGS = -O4 -C
@@ -8,9 +8,9 @@ BINDIR = ../../bin
 #FFLAGS = -O3 -bytereclen
 #FFLAGS = -04
 # uncomment for use with gfortran
-#FFLAGS = -frecord-marker=4 -O4
+FFLAGS = -frecord-marker=4 -O4
 # uncomment for use with ifort
-FFLAGS = ''
+#FFLAGS = ''
 
 
 all:		tab4E build_edks

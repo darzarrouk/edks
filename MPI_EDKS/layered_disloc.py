@@ -87,6 +87,7 @@ def layered_disloc(xs, ys, zs, strike, dip, rake, slip, A, xr, yr, edks,\
  
    # call sum_layered
    cmd = '%s/sum_layered %s %s %i %i %i %i' %(BIN_EDKS, edks, prefix, nrec, np, npw, npy)
+   print cmd
    os.system(cmd)
     
    # read sum_layered output Greens function
