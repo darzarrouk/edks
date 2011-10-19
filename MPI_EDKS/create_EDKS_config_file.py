@@ -38,9 +38,10 @@ def createEDKSconfigFile(modelFilename):
       depths = NP.linspace(DepUp[i] + dZeff/2.0,\
                            DepDown[i] - dZeff/2.0, Ndepths - 1)
       SourceDepths.extend(depths)
+
    if MaxDepth > NP.max(DepDown):
       dH = MaxDepth - NP.max(DepDown)
-      msg = 'Layer %i with thickness %.3f, (Half space)'%(i+1, dH)\
+      msg = 'Layer %i with thickness %.3f, (Half space)'%(len(LayerThick), dH)\
              + ' please indicate Number of sources (>1):'
       Ndepths = NP.array(eval(raw_input(msg)))
       #Ndepths = NP.max( [NP.ceil( 1.0*dH/dZ ) + 1. , 2.] )
