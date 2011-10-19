@@ -26,8 +26,8 @@ def test1():
    y = NP.reshape(YY, (Ny*Nx,), order = 'F')
 
    # source coordinates
-   xS = NP.array([-50.0]) * km
-   yS = NP.array([-100.0]) * km
+   xS = NP.array([-10.0]) * km
+   yS = NP.array([+10.0]) * km
    zS = NP.array([30]) * km
    aS = NP.array([300 * 100]) * km * km
    strike = NP.array([0.0])

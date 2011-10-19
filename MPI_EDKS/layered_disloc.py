@@ -10,7 +10,7 @@ def layered_disloc(xs, ys, zs, strike, dip, rake, slip, A, xr, yr, edks,\
    
     --- INPUT ---
     --- SOURCE INFO
-    --- 0D NUMPY arrays, length = number of fault patches
+    --- 1D NUMPY arrays, length = number of fault patches
     xs       m, east coord to center of fault patch
     ys       m, north coord to center of fault patch
     zs       m,depth coord to center of fault patch (+ down) 

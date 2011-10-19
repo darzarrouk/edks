@@ -178,7 +178,7 @@ def Main(configFilename):
       MPI_EDKS(comm, EDKSconfig)
    else:
       msg = "number of processors must be > 1"
-      raiseValueError(msg)  
+      raise ValueError(msg)  
 
 if __name__ == '__main__':
    import sys

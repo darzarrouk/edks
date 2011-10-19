@@ -27,7 +27,9 @@ def runEDKS(params):
    # $BIN/tab4E ${MODEL} ${DEPTH} ${DELTAR} ${RMAX} ${output_filename}
    cmd = '%(BIN_tab4E)s %(ModPrefix)s.model %(dep)f ' % params
    cmd += '%(dR)f %(Rmax)f %(output_filename)s > /dev/null' % params
+   #cmd += '%(dR)f %(Rmax)f %(output_filename)s' % params
    import os
+   print cmd
    os.system(cmd)
    
    # get the number of lines in the output_file

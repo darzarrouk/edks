@@ -58,7 +58,7 @@ def createEDKSconfigFile(modelFilename):
    # define the rest of the variables
    Rmax = eval(raw_input("Maximum horizontal source - receiver distance (km)? "))  
    dR = eval(raw_input("Step for Horizontal  source - receiver distance (km)? ")) 
-   BIN_DIR = '${HOME}/dev/edks/bin'
+   BIN_DIR = '${EDKS_HOME}/bin'
    ans = raw_input("Folder with EDKS binaries [" + BIN_DIR + "] ?")
    if len(ans) > 0:
       BIN_DIR = ans
