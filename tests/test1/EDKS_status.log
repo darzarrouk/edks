@@ -1,0 +1,279 @@
+Wed Oct 19 15:28:51 2011:
+-> Log file initialization time
+
+Wed Oct 19 15:28:51 2011:
+-> Starting EDKS kernels calculation
+Wed Oct 19 15:28:51 2011:
+-> I am Boss with rank = 0, I have 4 Workers
+Wed Oct 19 15:28:51 2011:
+-> Worker 4 Initialized
+Wed Oct 19 15:28:51 2011:
+-> Boss sending depth 9.000 to worker 4 ...
+    49 depths waiting for workers.
+Wed Oct 19 15:28:51 2011:
+-> Worker 2 Initialized
+Wed Oct 19 15:28:51 2011:
+-> Boss sending depth 9.283 to worker 2 ...
+    48 depths waiting for workers.
+Wed Oct 19 15:28:51 2011:
+-> Worker 1 Initialized
+Wed Oct 19 15:28:51 2011:
+-> Boss sending depth 9.575 to worker 1 ...
+    47 depths waiting for workers.
+Wed Oct 19 15:28:51 2011:
+-> Worker 3 Initialized
+Wed Oct 19 15:28:51 2011:
+-> Boss sending depth 9.876 to worker 3 ...
+    46 depths waiting for workers.
+Wed Oct 19 15:28:58 2011:
+-> received results from Worker 1
+Wed Oct 19 15:28:58 2011:
+-> Boss sending depth 10.186 to worker 1 ...
+    45 depths waiting for workers.
+Wed Oct 19 15:28:58 2011:
+-> received results from Worker 3
+Wed Oct 19 15:28:58 2011:
+-> Boss sending depth 10.506 to worker 3 ...
+    44 depths waiting for workers.
+Wed Oct 19 15:28:58 2011:
+-> received results from Worker 2
+Wed Oct 19 15:28:58 2011:
+-> Boss sending depth 10.836 to worker 2 ...
+    43 depths waiting for workers.
+Wed Oct 19 15:28:58 2011:
+-> received results from Worker 4
+Wed Oct 19 15:28:58 2011:
+-> Boss sending depth 11.177 to worker 4 ...
+    42 depths waiting for workers.
+Wed Oct 19 15:29:03 2011:
+-> received results from Worker 2
+Wed Oct 19 15:29:03 2011:
+-> Boss sending depth 11.528 to worker 2 ...
+    41 depths waiting for workers.
+Wed Oct 19 15:29:03 2011:
+-> received results from Worker 3
+Wed Oct 19 15:29:03 2011:
+-> Boss sending depth 11.890 to worker 3 ...
+    40 depths waiting for workers.
+Wed Oct 19 15:29:03 2011:
+-> received results from Worker 4
+Wed Oct 19 15:29:03 2011:
+-> Boss sending depth 12.264 to worker 4 ...
+    39 depths waiting for workers.
+Wed Oct 19 15:29:03 2011:
+-> received results from Worker 1
+Wed Oct 19 15:29:03 2011:
+-> Boss sending depth 12.650 to worker 1 ...
+    38 depths waiting for workers.
+Wed Oct 19 15:29:08 2011:
+-> received results from Worker 4
+Wed Oct 19 15:29:08 2011:
+-> Boss sending depth 13.047 to worker 4 ...
+    37 depths waiting for workers.
+Wed Oct 19 15:29:08 2011:
+-> received results from Worker 1
+Wed Oct 19 15:29:08 2011:
+-> Boss sending depth 13.457 to worker 1 ...
+    36 depths waiting for workers.
+Wed Oct 19 15:29:09 2011:
+-> received results from Worker 3
+Wed Oct 19 15:29:09 2011:
+-> Boss sending depth 13.880 to worker 3 ...
+    35 depths waiting for workers.
+Wed Oct 19 15:29:09 2011:
+-> received results from Worker 2
+Wed Oct 19 15:29:09 2011:
+-> Boss sending depth 14.316 to worker 2 ...
+    34 depths waiting for workers.
+Wed Oct 19 15:29:13 2011:
+-> received results from Worker 2
+Wed Oct 19 15:29:13 2011:
+-> Boss sending depth 14.766 to worker 2 ...
+    33 depths waiting for workers.
+Wed Oct 19 15:29:13 2011:
+-> received results from Worker 1
+Wed Oct 19 15:29:13 2011:
+-> Boss sending depth 15.231 to worker 1 ...
+    32 depths waiting for workers.
+Wed Oct 19 15:29:13 2011:
+-> received results from Worker 4
+Wed Oct 19 15:29:13 2011:
+-> Boss sending depth 15.709 to worker 4 ...
+    31 depths waiting for workers.
+Wed Oct 19 15:29:14 2011:
+-> received results from Worker 3
+Wed Oct 19 15:29:14 2011:
+-> Boss sending depth 16.203 to worker 3 ...
+    30 depths waiting for workers.
+Wed Oct 19 15:29:17 2011:
+-> received results from Worker 2
+Wed Oct 19 15:29:17 2011:
+-> Boss sending depth 16.712 to worker 2 ...
+    29 depths waiting for workers.
+Wed Oct 19 15:29:17 2011:
+-> received results from Worker 1
+Wed Oct 19 15:29:17 2011:
+-> Boss sending depth 17.238 to worker 1 ...
+    28 depths waiting for workers.
+Wed Oct 19 15:29:17 2011:
+-> received results from Worker 4
+Wed Oct 19 15:29:17 2011:
+-> Boss sending depth 17.779 to worker 4 ...
+    27 depths waiting for workers.
+Wed Oct 19 15:29:17 2011:
+-> received results from Worker 3
+Wed Oct 19 15:29:17 2011:
+-> Boss sending depth 18.338 to worker 3 ...
+    26 depths waiting for workers.
+Wed Oct 19 15:29:21 2011:
+-> received results from Worker 1
+Wed Oct 19 15:29:21 2011:
+-> Boss sending depth 18.914 to worker 1 ...
+    25 depths waiting for workers.
+Wed Oct 19 15:29:21 2011:
+-> received results from Worker 4
+Wed Oct 19 15:29:21 2011:
+-> Boss sending depth 19.509 to worker 4 ...
+    24 depths waiting for workers.
+Wed Oct 19 15:29:21 2011:
+-> received results from Worker 2
+Wed Oct 19 15:29:21 2011:
+-> Boss sending depth 20.122 to worker 2 ...
+    23 depths waiting for workers.
+Wed Oct 19 15:29:21 2011:
+-> received results from Worker 3
+Wed Oct 19 15:29:21 2011:
+-> Boss sending depth 20.754 to worker 3 ...
+    22 depths waiting for workers.
+Wed Oct 19 15:29:24 2011:
+-> received results from Worker 4
+Wed Oct 19 15:29:24 2011:
+-> Boss sending depth 21.407 to worker 4 ...
+    21 depths waiting for workers.
+Wed Oct 19 15:29:24 2011:
+-> received results from Worker 3
+Wed Oct 19 15:29:24 2011:
+-> Boss sending depth 22.080 to worker 3 ...
+    20 depths waiting for workers.
+Wed Oct 19 15:29:24 2011:
+-> received results from Worker 2
+Wed Oct 19 15:29:24 2011:
+-> Boss sending depth 22.774 to worker 2 ...
+    19 depths waiting for workers.
+Wed Oct 19 15:29:24 2011:
+-> received results from Worker 1
+Wed Oct 19 15:29:24 2011:
+-> Boss sending depth 23.489 to worker 1 ...
+    18 depths waiting for workers.
+Wed Oct 19 15:29:27 2011:
+-> received results from Worker 2
+Wed Oct 19 15:29:27 2011:
+-> Boss sending depth 24.228 to worker 2 ...
+    17 depths waiting for workers.
+Wed Oct 19 15:29:27 2011:
+-> received results from Worker 3
+Wed Oct 19 15:29:27 2011:
+-> Boss sending depth 24.989 to worker 3 ...
+    16 depths waiting for workers.
+Wed Oct 19 15:29:27 2011:
+-> received results from Worker 1
+Wed Oct 19 15:29:27 2011:
+-> Boss sending depth 25.774 to worker 1 ...
+    15 depths waiting for workers.
+Wed Oct 19 15:29:27 2011:
+-> received results from Worker 4
+Wed Oct 19 15:29:27 2011:
+-> Boss sending depth 26.585 to worker 4 ...
+    14 depths waiting for workers.
+Wed Oct 19 15:29:30 2011:
+-> received results from Worker 1
+Wed Oct 19 15:29:30 2011:
+-> Boss sending depth 27.420 to worker 1 ...
+    13 depths waiting for workers.
+Wed Oct 19 15:29:30 2011:
+-> received results from Worker 2
+Wed Oct 19 15:29:30 2011:
+-> Boss sending depth 28.282 to worker 2 ...
+    12 depths waiting for workers.
+Wed Oct 19 15:29:30 2011:
+-> received results from Worker 3
+Wed Oct 19 15:29:30 2011:
+-> Boss sending depth 29.171 to worker 3 ...
+    11 depths waiting for workers.
+Wed Oct 19 15:29:30 2011:
+-> received results from Worker 4
+Wed Oct 19 15:29:30 2011:
+-> Boss sending depth 30.088 to worker 4 ...
+    10 depths waiting for workers.
+Wed Oct 19 15:29:32 2011:
+-> received results from Worker 1
+Wed Oct 19 15:29:32 2011:
+-> Boss sending depth 31.033 to worker 1 ...
+    9 depths waiting for workers.
+Wed Oct 19 15:29:32 2011:
+-> received results from Worker 3
+Wed Oct 19 15:29:32 2011:
+-> Boss sending depth 32.009 to worker 3 ...
+    8 depths waiting for workers.
+Wed Oct 19 15:29:33 2011:
+-> received results from Worker 4
+Wed Oct 19 15:29:33 2011:
+-> Boss sending depth 33.015 to worker 4 ...
+    7 depths waiting for workers.
+Wed Oct 19 15:29:33 2011:
+-> received results from Worker 2
+Wed Oct 19 15:29:33 2011:
+-> Boss sending depth 34.052 to worker 2 ...
+    6 depths waiting for workers.
+Wed Oct 19 15:29:35 2011:
+-> received results from Worker 1
+Wed Oct 19 15:29:35 2011:
+-> Boss sending depth 35.123 to worker 1 ...
+    5 depths waiting for workers.
+Wed Oct 19 15:29:35 2011:
+-> received results from Worker 3
+Wed Oct 19 15:29:35 2011:
+-> Boss sending depth 36.226 to worker 3 ...
+    4 depths waiting for workers.
+Wed Oct 19 15:29:35 2011:
+-> received results from Worker 4
+Wed Oct 19 15:29:35 2011:
+-> Boss sending depth 37.365 to worker 4 ...
+    3 depths waiting for workers.
+Wed Oct 19 15:29:35 2011:
+-> received results from Worker 2
+Wed Oct 19 15:29:35 2011:
+-> Boss sending depth 38.539 to worker 2 ...
+    2 depths waiting for workers.
+Wed Oct 19 15:29:37 2011:
+-> received results from Worker 1
+Wed Oct 19 15:29:37 2011:
+-> Boss sending depth 39.751 to worker 1 ...
+    1 depths waiting for workers.
+Wed Oct 19 15:29:37 2011:
+-> received results from Worker 3
+Wed Oct 19 15:29:37 2011:
+-> Boss sending depth 41.000 to worker 3 ...
+    0 depths waiting for workers.
+Wed Oct 19 15:29:37 2011:
+-> received results from Worker 4
+Wed Oct 19 15:29:37 2011:
+-> Worker 4 being Terminated
+Wed Oct 19 15:29:37 2011:
+-> received results from Worker 2
+Wed Oct 19 15:29:37 2011:
+-> Worker 2 being Terminated
+Wed Oct 19 15:29:38 2011:
+-> received results from Worker 1
+Wed Oct 19 15:29:38 2011:
+-> Worker 1 being Terminated
+Wed Oct 19 15:29:38 2011:
+-> received results from Worker 3
+Wed Oct 19 15:29:38 2011:
+-> Worker 3 being Terminated
+Wed Oct 19 15:29:38 2011:
+-> EDKS kernels calculation done... Now saving EDKS log data.
+Wed Oct 19 15:29:38 2011:
+-> running build_edks...
+Wed Oct 19 15:29:39 2011:
+-> That's all folks !!!...

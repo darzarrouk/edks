@@ -156,6 +156,7 @@ def MPI_EDKS(comm, EDKSparam, TagBoss2Worker = 1979, TagWorker2Boss = 28 ):
       logfile.close()
       Logger.addLine('running build_edks...')
       edksFilename = ModPref + '.edks'
+      system('rm -rf %s hdr.%s'%(edksFilename, edksFilename))
       system(EDKSparam['BIN_build_edks'] + ' ' + logFilename + ' ' + edksFilename)
       Logger.addLine("That's all folks !!!...")
    else : # I am a worker

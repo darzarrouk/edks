@@ -1,0 +1,1 @@
+This tests creates an equispaced grid at the free surface and compares the results of the Okada 1985 calculations with the one obtained using EDKS with a Layered Homogeneus Half space. This is done in 2 ways, The first with just one layer property, and the other one with 5 layers with equal properties. 
