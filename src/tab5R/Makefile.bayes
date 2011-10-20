@@ -1,4 +1,4 @@
-FCOMP  = gfortran44
+FCOMP  = gfortran
 #FCOMP = ifort
 BINDIR = ../../bin
 #FFLAGS = -g90 -C

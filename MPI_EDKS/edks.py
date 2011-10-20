@@ -47,8 +47,8 @@ def readEDKSconfigFile(filename):
    file = open(filename,'r')
    lines = file.readlines()
    for line in lines:
+      line = line.split()
       if len(line) > 0 and line[0] != '#':
-         line = line.split()
          data[line[0]] = line[1:]
    # now remove from list and transform to float if necessary 
    data['BIN_tab4E'] = data['BIN_tab4E'][0]
