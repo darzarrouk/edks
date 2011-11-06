@@ -1,5 +1,5 @@
 #F90  = ifort
-F90  = gfortran44
+F90  = gfortran
 BINDIR = ../../bin
 MP     =  -mp
 OPT    = -g

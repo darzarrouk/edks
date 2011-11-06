@@ -34,7 +34,7 @@ integer*4           :: iargc, narg
 narg = iargc()
 if(narg .ne. 6) then
    write(*,'(a)') ' '
-   write(*,'(a)') 'Usage: sum_layered_tri edks_name geom_prefix #receivers #patches #ntsp #nspp'
+   write(*,'(a)') 'Usage: sum_layered_sub edks_name geom_prefix #receivers #patches #ntsp #nspp'
    write(*,'(a)') ' '
    call exit(1)
 endif
