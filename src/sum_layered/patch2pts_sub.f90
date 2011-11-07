@@ -5,24 +5,22 @@ use defs_module
 
 implicit none
 
-real*4 :: strike(:), dip(:), rake(:)
-real*4 :: x(:), y(:), z(:), slip(:), M(6)
-real*4 :: xs(:), ys(:), zs(:), area(:)
+integer*4 :: ipt, ntsp, nspp, ip, isub, nsrc
+
+real*4 :: strike(ntsp), dip(ntsp), rake(ntsp)
+real*4 :: x(ntsp), y(ntsp), z(ntsp), slip(ntsp), M(6)
+real*4 :: xs(nspp), ys(nspp), zs(nspp), area(ntsp)
 
 real*4 :: strikes, dips, rakes, areas, slips
 
-integer*4 :: ident(:)
+integer*4 :: ident(ntsp)
 
-integer*4 :: ipt, ntsp, nspp, ip, isub, nsrc
 
 ! needs to parse original monster file to extract the subtriangles for a given master triangle
-
 xs = 0.0
 ys = 0.0
 zs = 0.0
-
 ipt = 0
-
 do isub = 1, ntsp
     if (ident(isub) == ip) then
         ipt = ipt+1
