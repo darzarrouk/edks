@@ -20,6 +20,8 @@ from ICM.Geometry import TriangleCalculator
 from ICM.Simplices import Point
 from ICM.Simplices import Line
 from ICM.Simplices import Triangle
+from ICM.CoordinateSystem import PointCoordinates
+
 import string
 
 def main(TriPropFile, TriPointsFile, ReceiverFile, useRecvDir = False, Amax = None):
@@ -72,54 +74,62 @@ def main(TriPropFile, TriPointsFile, ReceiverFile, useRecvDir = False, Amax = No
       
    # save log
    log.addLine('data successfully loaded from file ' + PickleDataFile)
+   
+
 
    # now compute the coordinates of all the subtriangles
-   # HERE
+   log.addLine(' Subdividing triangular Mesh ')
 
-   # Compute TriDict and check for normal orientation
-   TriDict = {}
-   Tcalc = TriangleCalculator(TriCS)
-   upDir = NP.array([0, 0, 1])
-
-   for Tid in Tcon.keys():
+   eST = []
+   nST = []
+   dST = []
+   aST = []
+   idST = []
+   for Tid in T_IDs:
+      # initialize coordinate system for triangles
+      TriCS = PointCoordinates(CoordSystemName = 'TriangleCS',\
+                         xyzNames = ['E', 'N', 'U'])
+      idP1 = Tprop[Tid]['idP1']
+      idP2 = Tprop[Tid]['idP2']
+      idP3 = Tprop[Tid]['idP3']
+      TriCS.addPoint(Tpoints[idP1]['e'], Tpoints[idP1]['n'], -1.0*Tpoints[idP1]['dep'],\
+                   idP1)
+      TriCS.addPoint(Tpoints[idP2]['e'], Tpoints[idP2]['n'], -1.0*Tpoints[idP2]['dep'],\
+                   idP2)
+      TriCS.addPoint(Tpoints[idP3]['e'], Tpoints[idP3]['n'], -1.0*Tpoints[idP3]['dep'],\
+                   idP3)
+      # instantiate Triangle calculator
+      Tcalc = TriangleCalculator(TriCS)
+                   
       # instantiate the Points
-      P1 = Point(Tcon[Tid][0])
-      P2 = Point(Tcon[Tid][1])
-      P3 = Point(Tcon[Tid][2])
+      P1 = Point(idP1)
+      P2 = Point(idP2)
+      P3 = Point(idP3)
       # instantiate the lines which form the sides of the triangle
       L12 = Line(P1, P2, 'L12')
       L23 = Line(P2, P3, 'L23')
       L31 = Line(P3, P1, 'L31')
       # instantiate the triangle
-      TriDict[Tid] = Triangle(L12, L23, L31, Tid)
-
+      Tri = Triangle(L12, L23, L31, Tid)
       # Check for consistent orientation of the triangles (normal must point up)
       # if the normal of the triangle is pointing down, i reverse its orientation.
-      n = Tcalc.unitNormal(TriDict[Tid])
+      upDir = NP.array([0, 0, 1])
+      n = Tcalc.unitNormal(Tri)
       if (NP.dot(upDir, n) < 0):
-         TriDict[Tid].reverseOrientation()
+         Tri.reverseOrientation()
 
-   log.addLine(' Subdividing triangular Mesh ')
-   # Now compute the location of the subfaults for all the Triangles
-   # Subfaults locations are computed by subdividing triangles into similar ones, 
-   # until stop criterion is met. The location is the centroid of the subTriangles.
-   # the id of the subtriangles is the same as the one for the Master triangle.
-   T_Ce = []
-   T_Cn = []
-   T_Cz = []
-   T_A = []
-   T_IDs = []
-   for Tid in TriDict.keys():
-      Tri = TriDict[Tid]
+      # compute the subfaults for the triangle
       Ce, Cn, Cz, A = getReducedTrianglesProp(Tri, TriCS, Amax = Amax)
-      T_Ce.extend( T_Ce )
-      T_Cn.extend( T_Cn )
-      T_Cz.extend( T_Cz )
-      T_A.extend( A )
-      T_IDs.extend( [Tid] * len(A) ) # all IDs of subfaults are the same fot Tid
+      eST.extend(Ce)
+      nST.extend(Cn)
+      dST.extend(-1.0 * Cz)
+      aST.extend(A)
+      idST.extend( [Tid] * len(A) )
 
-   msg = 'Triangle %s has %i subsources...'%(Tid, len(T_A))
-   log.addLine(msg)
+      msg = 'Triangle %s has %i subsources...'%(Tid, len(aST))
+      log.addLine(msg)
+   
+   # HEREEE
    
    # assemble the array with the east and north coordinates of the observation points
    obsID = ObsDict.keys()
