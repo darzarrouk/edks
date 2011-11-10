@@ -26,8 +26,8 @@ def test1():
    y = NP.reshape(YY, (Ny*Nx,))
 
    # source coordinates
-   NPatches = 256
-   NumSourcesPerPatch = 4096*2
+   NPatches = 3
+   NumSourcesPerPatch = 1024
    Nsources = NumSourcesPerPatch * NPatches
    xS = 0.0 * NP.ones(Nsources) * km
    yS = 0.0 * NP.ones(Nsources) * km

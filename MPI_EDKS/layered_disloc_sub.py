@@ -2,7 +2,7 @@ import os
 import struct # for reading and writing binary files.
 import numpy as NP
 def layered_disloc_sub(IDs, xs, ys, zs, strike, dip, rake, slip, A, xr, yr, edks,\
-                   prefix, BIN_EDKS = '${EDKS_BIN}' ):
+                   prefix, BIN_EDKS = '${EDKS_BIN}'):
    """
    [ux, uy, uz] = layered_disloc(xs, ys, zs, strike, dip, rake, slip,
                                  A, xr, yr, edks)
