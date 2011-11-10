@@ -21,10 +21,22 @@ from ICM.Simplices import Point
 from ICM.Simplices import Line
 from ICM.Simplices import Triangle
 from ICM.CoordinateSystem import PointCoordinates
+from layered_disloc_sub import layered_disloc_sub
 
 import string
 
-def main(TriPropFile, TriPointsFile, ReceiverFile, useRecvDir = False, Amax = None):
+def calcGreenFunctions_EDKS_subTriangles(TriPropFile, TriPointsFile, ReceiverFile,\
+                                         method_par):
+   """
+   method_par has to contain the following info:
+      useRecvDir : [False|True]
+      Amax : [None|+float]
+      EDKSunits : float (units to go from current length units to meters)
+      EDKSfilename : name of the EDKS file with the kernels.
+      prefix : a name prefix for the output files.
+   """
+
+
    log = LogFile('log.calcEDKSsubGreenFunctions.txt')
    log.clearFile()
    log.addLine('loading data...')
@@ -85,6 +97,9 @@ def main(TriPropFile, TriPointsFile, ReceiverFile, useRecvDir = False, Amax = No
    dST = []
    aST = []
    idST = []
+   strikeST = []
+   dipST = []
+   slipST = []
    for Tid in T_IDs:
       # initialize coordinate system for triangles
       TriCS = PointCoordinates(CoordSystemName = 'TriangleCS',\
@@ -125,49 +140,62 @@ def main(TriPropFile, TriPointsFile, ReceiverFile, useRecvDir = False, Amax = No
       dST.extend(-1.0 * Cz)
       aST.extend(A)
       idST.extend( [Tid] * len(A) )
+       # get angles
+      phi, phiDir = Tcalc.strike(Tri)
+      strikeST.extend(phi * NP.ones(len(A)))
+      dip, dipDir = Tcalc.dip(Tri)
+      dipST.extend(dip * NP.ones(len(A)))
+      # assign unit slip
+      slipST.extend(1.0 * NP.ones(len(A)))
 
       msg = 'Triangle %s has %i subsources...'%(Tid, len(aST))
       log.addLine(msg)
    
-   # HEREEE
-   
    # assemble the array with the east and north coordinates of the observation points
-   obsID = ObsDict.keys()
-
-   e = []
-   n = []
-   for key in obsID:
-       Pcoord = ObsDict[key].getPoint(ObsCS)
-       e.append(Pcoord[0])
-       n.append(Pcoord[1])
-
-   e = NP.array(e)
-   n = NP.array(n)
+   eR = []
+   nR = []
+   for Rid in R_IDs: 
+       eR.append(Recv[Rid]['e'])
+       nR.append(Recv[Rid]['e'])
+   msg = '%i receivers to compute displacements...' %(len(eR))
+   log.addLine(msg)
 
 
    # Convert units
    Units2meters = method_par['EDKSunits']
-   T_Ce = NP.array(T_Ce) * Units2meters
-   T_Cn = NP.array(T_Cn) * Units2meters
-   T_Cdep = -1.0 * NP.array(T_Cz) * Units2meters
-   T_A = NP.array(T_A) * Units2meters * Units2meters
+   eST = NP.array(eST) * Units2meters
+   nST = NP.array(nST) * Units2meters
+   dST = NP.array(dST) * Units2meters
+   aST = NP.array(aST) * Units2meters * Units2meters
+   eR = NP.array(eR) * Units2meters
+   nR = NP.array(nR) * Units2meters
 
+   # the rest just convert to arrays.
+   strikeST = NP.array(strikeST)
+   dipST = NP.array(dipST)
+   slipST = NP.array(slipST)
    
-
-
-
-
-
+   # run layered_disloc_sub on all the subtriangles
    edks = method_par['EDKSfilename']
+   prefix = method_par['prefix']
+
+   # strike slip GFs
+   log.addLine('calculating Strike-Slip Green functions...')
+   prefixSS = prefix + '_SS_'
+   rakeST = 0.0 * NP.ones(len(eST))
+   GeSS, GnSS, GnSS = layered_disloc_sub(idST, eST, nST, dST, strikeST, dipST,\
+                      rakeST, slipST, aST, eR, nR, edks, prefixSS)  
+
+   # strike slip GFs
+   log.addLine('calculating upDip-Slip Green functions...')
+   prefixDS = prefix + '_DS_'
+   rakeST = 90.0 * NP.ones(len(eST))   
+   GeDS, GnDS, GnDS = layered_disloc_sub(idST, eST, nST, dST, strikeST, dipST,\
+                      rakeST, slipST, aST, eR, nR, edks, prefixDS)  
+
+
+   # save the GF matrices.
    
-
-   GF = EDKSsub_Tri_GF(TriDict, TriCS, ObsDict, ObsCS, Amax,\
-                                              edks, Units2meters)      
-   else:
-      msg = ' Invalid method %s ...' %(method)
-      log.addLine(msg)
-
-
    
 
 
