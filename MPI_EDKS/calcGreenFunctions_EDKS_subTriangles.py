@@ -133,7 +133,6 @@ def calcGreenFunctions_EDKS_subTriangles(TriPropFile, TriPointsFile, ReceiverFil
       n = Tcalc.unitNormal(Tri)
       if (NP.dot(upDir, n) < 0):
          Tri.reverseOrientation()
-
       # compute the subfaults for the triangle
       Ce, Cn, Cz, A = getReducedTrianglesProp(Tri, TriCS, Amax = Amax)
       eST.extend(Ce)
@@ -157,7 +156,7 @@ def calcGreenFunctions_EDKS_subTriangles(TriPropFile, TriPointsFile, ReceiverFil
    nR = []
    for Rid in R_IDs: 
        eR.append(Recv[Rid]['e'])
-       nR.append(Recv[Rid]['e'])
+       nR.append(Recv[Rid]['n'])
    msg = '%i receivers to compute displacements...' %(len(eR))
    log.addLine(msg)
 
@@ -269,7 +268,7 @@ def calcGreenFunctions_EDKS_subTriangles(TriPropFile, TriPointsFile, ReceiverFil
    return
 
 ###
-def getReducedTrianglesProp(Tri, TriCS, Amax = None, depT2cLTratio = 12.0):
+def getReducedTrianglesProp(Tri, TriCS, Amax = None, depT2cLTratio = 4.0):
    """
    get the Triangle and its coordinate system, recursively subdivide it until 
    all the subdivided triangles have an area less or equal Amax. 
@@ -295,9 +294,9 @@ def getReducedTrianglesProp(Tri, TriCS, Amax = None, depT2cLTratio = 12.0):
    """
    # calculate the Area of the triangle
    Tcalc = TriangleCalculator(TriCS)
+   Area = Tcalc.Area(Tri)
    # get subdivideFlag for the triangle
    if Amax != None:
-      Area = Tcalc.Area(Tri)
       subdivideFlag = Amax < Area # True if Amax < Area => it gets subdivided
    else: # Amax == None
       # get the Triangle's point coordinates
@@ -306,19 +305,14 @@ def getReducedTrianglesProp(Tri, TriCS, Amax = None, depT2cLTratio = 12.0):
       # get the minimum depth
       Pdepths = [NP.abs(Pcoord[2]) for Pcoord in Pcoords] # Z is positive up.
       depT = NP.min(Pdepths)
-      # geth the length os the longest side of the triangle
-      Lside = []
-      for i in [0,1,2]:
-         Pi = Pcoords[i]
-         j = NP.mod(i+1,3)
-         Pj = Pcoords[j]
-         Lij = NP.sqrt( NP.sum( (Pj - Pi)*(Pj - Pi) ) )
-         Lside.append( Lij )
-      cLT = NP.max( Lside ) * 2.0 * NP.sqrt(3.0)/3.0 # diameter of the circumscribed
-                                                     # circle in an equilateral triangle
-                                                     # of side NP.max(Lside)
+      # the caracteristic length of the Maximum triangle from Saint-venant's principle
+      cLT = 1.0 * depT / depT2cLTratio
+      DiC = NP.sqrt(3.0) * cLT / 3.0 # diameter of the inscribed circle in equi Tri
+      Amax = NP.pi * DiC * DiC / 4.0  #  The Maximum area of the triangle is the area of 
+                                      # the inscibed circle in an equilateral triangle 
+                                      # with side equal to cLT
       # calculate the subdivideFlag
-      subdivideFlag =  depT2cLTratio * cLT > depT
+      subdivideFlag = Amax < Area 
       
    # to store the triangles center and area
    Ce = []
