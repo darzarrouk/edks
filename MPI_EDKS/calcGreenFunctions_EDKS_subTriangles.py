@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """
     by Francisco Hernan Ortega Culaciati, Nov 09, 2011
     Seismological Laboratory
@@ -62,7 +63,7 @@ def calcGreenFunctions_EDKS_subTriangles(TriPropFile, TriPointsFile, ReceiverFil
    fields = ['id', 'lon', 'lat', 'e',  'n', 'dep']
    for line in file:   
       line = string.split(line) 
-      for i in range(1:len(fields)):
+      for i in range(1,len(fields)):
          line[i] = float( line[i] )
       Tpoints[line[0]] = dict(zip(fields, line))
    file.close()
@@ -78,14 +79,14 @@ def calcGreenFunctions_EDKS_subTriangles(TriPropFile, TriPointsFile, ReceiverFil
       fields = ['id', 'e', 'n'] 
    for line in file:
       line = string.split(line)
-      for i in range(1:len(fields)):
+      for i in range(1, len(fields)):
          line[i] = float( line[i] )
       Recv[line[0]] = dict(zip(fields, line))
       R_IDs.append( line[0] )
    file.close()
       
    # save log
-   log.addLine('data successfully loaded from file ' + PickleDataFile)
+   log.addLine('data successfully loaded ... ')
    
 
 
@@ -148,7 +149,7 @@ def calcGreenFunctions_EDKS_subTriangles(TriPropFile, TriPointsFile, ReceiverFil
       # assign unit slip
       slipST.extend(1.0 * NP.ones(len(A)))
 
-      msg = 'Triangle %s has %i subsources...'%(Tid, len(aST))
+      msg = 'Triangle %s has %i subsources...'%(Tid, len(A))
       log.addLine(msg)
    
    # assemble the array with the east and north coordinates of the observation points
@@ -183,24 +184,92 @@ def calcGreenFunctions_EDKS_subTriangles(TriPropFile, TriPointsFile, ReceiverFil
    log.addLine('calculating Strike-Slip Green functions...')
    prefixSS = prefix + '_SS_'
    rakeST = 0.0 * NP.ones(len(eST))
-   GeSS, GnSS, GnSS = layered_disloc_sub(idST, eST, nST, dST, strikeST, dipST,\
+   GeSS, GnSS, GuSS = layered_disloc_sub(idST, eST, nST, dST, strikeST, dipST,\
                       rakeST, slipST, aST, eR, nR, edks, prefixSS)  
 
    # strike slip GFs
    log.addLine('calculating upDip-Slip Green functions...')
    prefixDS = prefix + '_DS_'
    rakeST = 90.0 * NP.ones(len(eST))   
-   GeDS, GnDS, GnDS = layered_disloc_sub(idST, eST, nST, dST, strikeST, dipST,\
+   GeDS, GnDS, GuDS = layered_disloc_sub(idST, eST, nST, dST, strikeST, dipST,\
                       rakeST, slipST, aST, eR, nR, edks, prefixDS)  
 
 
    # save the GF matrices.
    
-   
+   # write the matrices
+   # GeDS
+   file = open('GeDS.txt','w')
+   Nrows, Ncols = GeDS.shape
+   print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
+   for row in range(0,Nrows):
+      for col in range(0,Ncols):
+         value = '%s ' %(GeDS[row][col])
+         file.write(value)
+      file.write('\n')
+   file.close()
 
+   #GeSS
+   file = open('GeSS.txt','w')
+   Nrows, Ncols = GeSS.shape
+   print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
+   for row in range(0,Nrows):
+      for col in range(0,Ncols):
+         value = '%s ' %(GeSS[row][col])
+         file.write(value)
+      file.write('\n')
+   file.close()
+
+   #####
+   # GnDS
+   file = open('GnDS.txt','w')
+   Nrows, Ncols = GnDS.shape
+   print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
+   for row in range(0,Nrows):
+      for col in range(0,Ncols):
+         value = '%s ' %(GnDS[row][col])
+         file.write(value)
+      file.write('\n')
+   file.close()
+
+   #GnSS
+   file = open('GnSS.txt','w')
+   Nrows, Ncols = GnSS.shape
+   print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
+   for row in range(0,Nrows):
+      for col in range(0,Ncols):
+         value = '%s ' %(GnSS[row][col])
+         file.write(value)
+      file.write('\n')
+   file.close()
+
+   #####
+   # GuDS
+   file = open('GuDS.txt','w')
+   Nrows, Ncols = GuDS.shape
+   print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
+   for row in range(0,Nrows):
+      for col in range(0,Ncols):
+         value = '%s ' %(GuDS[row][col])
+         file.write(value)
+      file.write('\n')
+   file.close()
+
+   #GuSS
+   file = open('GuSS.txt','w')
+   Nrows, Ncols = GuSS.shape
+   print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
+   for row in range(0,Nrows):
+      for col in range(0,Ncols):
+         value = '%s ' %(GuSS[row][col])
+         file.write(value)
+      file.write('\n')
+   file.close()
+
+   return
 
 ###
-def getReducedTrianglesProp(Tri, TriCS, Amax = None, depT2cLTratio = 4.0):
+def getReducedTrianglesProp(Tri, TriCS, Amax = None, depT2cLTratio = 12.0):
    """
    get the Triangle and its coordinate system, recursively subdivide it until 
    all the subdivided triangles have an area less or equal Amax. 
@@ -245,7 +314,9 @@ def getReducedTrianglesProp(Tri, TriCS, Amax = None, depT2cLTratio = 4.0):
          Pj = Pcoords[j]
          Lij = NP.sqrt( NP.sum( (Pj - Pi)*(Pj - Pi) ) )
          Lside.append( Lij )
-      cLT = NP.max( Lside )
+      cLT = NP.max( Lside ) * 2.0 * NP.sqrt(3.0)/3.0 # diameter of the circumscribed
+                                                     # circle in an equilateral triangle
+                                                     # of side NP.max(Lside)
       # calculate the subdivideFlag
       subdivideFlag =  depT2cLTratio * cLT > depT
       
@@ -363,3 +434,12 @@ def calcMidPoint(ei, ni, zi, ej, nj, zj):
    return [em, nm, zm]
 
 
+if __name__ == '__main__':
+
+   from EDKSsubParams import *
+   parNames = ['useRecvDir', 'Amax', 'EDKSunits', 'EDKSfilename', 'prefix']
+   parValues = [ useRecvDir ,  Amax ,  EDKSunits ,  EDKSfilename ,  prefix ]
+   method_par = dict(zip(parNames, parValues))
+
+   calcGreenFunctions_EDKS_subTriangles(TriPropFile, TriPointsFile, ReceiverFile,\
+                                         method_par)
