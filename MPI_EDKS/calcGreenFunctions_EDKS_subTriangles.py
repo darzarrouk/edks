@@ -88,7 +88,14 @@ def calcGreenFunctions_EDKS_subTriangles(TriPropFile, TriPointsFile, ReceiverFil
    # save log
    log.addLine('data successfully loaded ... ')
    
-
+   # assemble the array with the east and north coordinates of the observation points
+   eR = []
+   nR = []
+   for Rid in R_IDs: 
+       eR.append(Recv[Rid]['e'])
+       nR.append(Recv[Rid]['n'])
+   msg = '%i receivers to compute displacements...' %(len(eR))
+   log.addLine(msg)
 
    # now compute the coordinates of all the subtriangles
    log.addLine(' Subdividing triangular Mesh ')
@@ -134,7 +141,12 @@ def calcGreenFunctions_EDKS_subTriangles(TriPropFile, TriPointsFile, ReceiverFil
       if (NP.dot(upDir, n) < 0):
          Tri.reverseOrientation()
       # compute the subfaults for the triangle
-      Ce, Cn, Cz, A = getReducedTrianglesProp(Tri, TriCS, Amax = Amax)
+      # get the maximum Area for the triangle
+      if Amax == None:
+         TriAmax = getAmax4Triangle(Tri, TriCS, eR, nR)
+      else:
+         TriAmax = Amax
+      Ce, Cn, Cz, A = getReducedTrianglesProp(Tri, TriCS, TriAmax)
       eST.extend(Ce)
       nST.extend(Cn)
       dST.extend(-1.0 * Cz)
@@ -151,16 +163,7 @@ def calcGreenFunctions_EDKS_subTriangles(TriPropFile, TriPointsFile, ReceiverFil
       msg = 'Triangle %s has %i subsources...'%(Tid, len(A))
       log.addLine(msg)
    
-   # assemble the array with the east and north coordinates of the observation points
-   eR = []
-   nR = []
-   for Rid in R_IDs: 
-       eR.append(Recv[Rid]['e'])
-       nR.append(Recv[Rid]['n'])
-   msg = '%i receivers to compute displacements...' %(len(eR))
-   log.addLine(msg)
-
-
+   
    # Convert units
    Units2meters = method_par['EDKSunits']
    eST = NP.array(eST) * Units2meters
@@ -266,6 +269,37 @@ def calcGreenFunctions_EDKS_subTriangles(TriPropFile, TriPointsFile, ReceiverFil
    file.close()
 
    return
+
+###
+def getAmax4Triangle(Tri, TriCS, eR, nR, depR = 0.0, dist2cLTratio = 4.0):
+   """
+   get the maximum area of a triangle so its point source representation is 
+   accurate. We do this based on the Saint Venant's principle.
+   """
+   from ICM.Geometry import TriangleCalculator
+   Tcalc = TriangleCalculator(TriCS)
+   # get the Triangle's point coordinates
+   Pids = Tri.getPointsID()
+   Pcoords = [TriCS.getPointCoord(Pid) for Pid in Pids]
+   # for each point get the minimum distance to a receiver
+   minDistP2recv = NP.inf
+   for Pcoord in Pcoords:
+      eP, nP, dP = Pcoord
+      dP2Recv = NP.sqrt( (eP - eR)*(eP - eR) \
+                       + (nP - nR)*(nP - nR) \
+                       + (dP - depR)*(dP - depR) )
+      aux = NP.min(dP2Recv)
+      if aux < minDistP2recv:
+         minDistP2recv = aux
+   # we calculate the maximum area of the triangle by calculating the area of the
+   # inscribed circle in an equilateral triangle with a characteristic length cLT
+   # given by the Saint Venant's principle based on the minimum distance between 
+   # the triangle and the receivers.
+   cLT = 1.0 * minDistP2recv / dist2cLTratio
+   DiC = NP.sqrt(3.0) * cLT / 3.0 # diameter of the inscribed circle in equi Tri
+   Amax = NP.pi * DiC * DiC / 4.0  
+   return Amax
+   
 
 ###
 def getReducedTrianglesProp(Tri, TriCS, Amax = None, depT2cLTratio = 4.0):
