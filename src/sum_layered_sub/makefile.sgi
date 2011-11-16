@@ -1,14 +1,9 @@
-#F90  = ifort
-F90  = gfortran44
-BINDIR = ../../bin
+F90  = f90
+BINDIR = $(HOME)/BIN_SGI 
 MP     =  -mp
-OPT    = -g
-# uncomment for use with gfortran
-FFLAGS = -frecord-marker=4 ${OPT} -fopenmp
-LFLAGS = -frecord-marker=4 ${OPT} -fopenmp
-# uncomment for use with ifort 
-#FFLAGS = ${OPT} -openmp
-#LFLAGS = ${OPT} -openmp
+OPT    = -O2
+FFLAGS = -bytereclen ${OPT} ${MP} 
+LFLAGS = -bytereclen ${OPT} ${MP}
 
 TARG = sum_layered
 
@@ -51,7 +46,7 @@ sum_layered.o: sum_layered.f90 interfaces.o
 	${F90} ${FFLAGS} -c sum_layered.f90 -o sum_layered.o
 
 $(TARG): $(OBJS)
-	${F90} ${FFLAGS} $(OBJS) -o ${BINDIR}/$(TARG)
+	${F90} ${FFLAGS} $(OBJS) -o $(TARG)
 
 clean:
 		rm -rf *.o *.mod rii_files

@@ -8,6 +8,7 @@ import string
 from ICM.Physics.Okada85.okada85 import calcOkada85
 import os
 from layered_disloc_sub import layered_disloc_sub
+from layered_disloc import layered_disloc
 import pylab as PL
 
 ###
@@ -19,11 +20,11 @@ def main():
    # create the equispaced grid in KMs for the receivers
    Xmin = -100
    Xmax = 100
-   Nx = 200
+   Nx = 50
    x = NP.linspace(Xmin, Xmax, Nx)
    Ymin = -100
    Ymax = 100
-   Ny = 200
+   Ny = 50
    y = NP.linspace(Ymin, Ymax, Ny)
    # create the mesh and reshape it to vectors.
    XX, YY = NP.meshgrid(x,y)
@@ -34,13 +35,13 @@ def main():
    # define the source coordinates and properties
    xS = NP.array([0.0])
    yS = NP.array([0.0])
-   zS = NP.array([25.0])
-   Ls = NP.array([40.])
-   Ws = NP.array([10. ])
+   zS = NP.array([48.0])
+   Ls = NP.array([2.])
+   Ws = NP.array([2. ])
    aS = NP.array([Ls * Ws]) # source area
    strike = NP.array([0.0]) 
    dip =  NP.array([90.0])
-   rake = NP.array([0.0])
+   rake = NP.array([90.0])
    slip = NP.array([1.0])
    # define the properties of the half space (I am taking the first layer from the Tohoku
    # Oki velocity model).
@@ -99,8 +100,8 @@ depths           %s
    print("calculating the displacements using layered_disloc_sub")
    # here I am going to divide the rectangle into several subfaults
    # this is only valid for strike = 0, dip = 90
-   NyS = 50
-   NzS = 50
+   NyS = 30
+   NzS = 30
    dy = 1.0 * Ls / NyS
    dz = 1.0 * Ws / NzS
    yS = NP.linspace(-Ls/2.0 + dy/2.0 , Ls/2.0 - dy/2.0, NyS-1) 
@@ -118,12 +119,41 @@ depths           %s
    IDs = ["MAIN" for i in range(0, len(xS))]
    EUx, EUy, EUz = layered_disloc_sub(IDs, xS*km, yS*km, zS*km, strike, dip, rake, slip,\
                  aS*km*km, xR*km, yR*km, 'test_1a.edks', 'test_1a') 
-   
+   EUx2, EUy2, EUz2 = layered_disloc(xS*km, yS*km, zS*km, strike, dip, rake, slip,\
+                 aS*km*km, xR*km, yR*km, 'test_1a.edks', 'test_1a')
+   NEUx = NP.sum(EUx2, 1)
+   NEUy = NP.sum(EUy2, 1)
+   NEUz = NP.sum(EUz2, 1)
+
+
+   PL.figure()
+   s = PL.subplot(1,3,1)
+   s.plot( NEUx, EUx, '.r')
+   valMin = NP.min([ NP.min(NEUx), NP.min(EUx)])
+   valMax = NP.max([ NP.max(NEUx), NP.max(EUx)])
+   s.plot([valMin, valMax], [valMin, valMax],'-k')
+   PL.axis('equal')
+
+   s = PL.subplot(1,3,2)
+   s.plot( NEUy, EUy, '.r')
+   valMin = NP.min([NP.min(NEUy), NP.min(EUy)])
+   valMax = NP.max([NP.max(NEUy), NP.max(EUy)])
+   s.plot([valMin, valMax], [valMin, valMax],'-k')
+   PL.axis('equal')
+
+   s = PL.subplot(1,3,3)
+   s.plot( NEUz, EUz, '.r')
+   valMin = NP.min([NP.min(NEUz), NP.min(EUz)])
+   valMax = NP.max([NP.max(NEUz), NP.max(EUz)])
+   s.plot([valMin, valMax], [valMin, valMax],'-k')
+   PL.axis('equal')
+
+
    PL.figure()
    s = PL.subplot(1,3,1)
    s.plot( OUx, EUx, '.r')
-   valMin = NP.min([NP.min(OUx), NP.min(EUx)])
-   valMax = NP.max([NP.max(OUx), NP.max(EUx)])
+   valMin = NP.min([ NP.min(OUx), NP.min(EUx)])
+   valMax = NP.max([ NP.max(OUx), NP.max(EUx)])
    s.plot([valMin, valMax], [valMin, valMax],'-k')
    PL.axis('equal')
 

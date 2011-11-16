@@ -25,8 +25,7 @@
 	end interface
 
 	interface
-        Subroutine mom2disp_sub(Ux, Uy, Uz, Xr, Yr, Xs, Ys, Zs, edks, M, nsrc)
-        !Subroutine mom2disp(Ux, Uy, Uz, Xr, Yr, Xs, Ys, Zs, edks, M)
+        Subroutine mom2disp(Ux, Uy, Uz, Xr, Yr, Xs, Ys, Zs, edks, M)
 
         Use defs_Module
 !       use f90_unix            !needed on the NAG compiler
@@ -39,11 +38,9 @@
         Real, Intent(in), target        :: Xr(:), Yr(:)                 ! nrec
         Real, Intent(in), target        :: Xs(:), Ys(:), Zs(:)          ! nsrc
         Real, Intent(in), target        :: M(6)                         ! 6
-        Integer, Intent(in), target        :: nsrc
         Type (edks_Type), Intent(in)    :: edks
 
-!        end subroutine mom2disp
-	end subroutine mom2disp_sub
+	end subroutine mom2disp
 	end interface
 
 end module my_interfaces

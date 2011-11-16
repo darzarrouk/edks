@@ -57,7 +57,7 @@
 !	local variables
 
 !	Source
-	Real			:: M(6)
+!	Real			:: M(6)
 	Real			:: rad_strike, rad_dip, rad_rake
 
 !	Others

@@ -1,5 +1,5 @@
 ! Include	'edks.inc'
-Subroutine mom2disp(Ux, Uy, Uz, Xr, Yr, Xs, Ys, Zs, edks, MM)
+Subroutine mom2disp(Ux, Uy, Uz, Xr, Yr, Xs, Ys, Zs, edks, M)
 Use defs_Module 
 
 ! use f90_unix    	!needed on the NAG compiler
@@ -11,7 +11,6 @@ Real, Intent(out)		:: Ux(:,:), Uy(:,:), Uz(:,:)	! nsrc x nrec
 ! Mandatory input arguments
 Real, Intent(in), target       	:: Xr(:), Yr(:)			! nrec
 Real, Intent(in), target        :: Xs(:), Ys(:), Zs(:)		! nsrc
-Real, Intent(in), target       	:: MM(:,:)			! nsrc x 6
 Type (edks_Type), Intent(in)	:: edks
 
 ! This subroutine computes the displacements produced by a horizontal
@@ -24,7 +23,7 @@ Type (edks_Type), Intent(in)	:: edks
 ! EDKS: 		name of the array containig the precalculated elementary 
 ! 		displacements depending on the structure sources's depths
 !
-! MECHANISM: 	The  source mechanism should be given as a moment tensor M(:,6)
+! MECHANISM: 	The  source mechanism is assumed fixed for all sources
 !
 ! SOURCE GEOMETRY
 !
@@ -44,8 +43,8 @@ Type (edks_Type), Intent(in)	:: edks
 ! distances and displacements are given in meters.
 ! x grows towards the east 	Xs, Xr, Ux
 ! y grows towards the north	Ys, Yr, Uy
-! z grows DOWNWARDS		Zs
-! z grows UPWARDS		        Uz
+! z grows DOWNWAzrtdsx(5)		Zs
+! z grows UPWAzrtdsx(5)		        Uz
 !
 
 Integer			:: nsrc
@@ -61,17 +60,6 @@ Real,	Parameter	:: EPSILON 	= 1e-10
 Real	 		:: zrtdsx(10),   zrtdsxd1(10),    zrtdsxd2(10)
 Real	 		:: zrtdsxh1d1(10), zrtdsxh1d2(10)
 Real	 		:: zrtdsxh2d1(10), zrtdsxh2d2(10)
-Real			:: ZSS, RSS, TSS, ZDS, RDS, TDS, ZDD, RDD, ZEX, REX
-Equivalence		(zrtdsx( 1), ZDD)
-Equivalence		(zrtdsx( 2), ZDS)
-Equivalence		(zrtdsx( 3), ZSS)
-Equivalence		(zrtdsx( 4), RDD)
-Equivalence		(zrtdsx( 5), RDS)
-Equivalence		(zrtdsx( 6), RSS)
-Equivalence		(zrtdsx( 7), TDS)
-Equivalence		(zrtdsx( 8), TSS)
-Equivalence		(zrtdsx( 9), ZEX)
-Equivalence		(zrtdsx(10), REX)
 
 Integer			:: jhbest, jhseco
 Integer			:: jdbest, jdseco
@@ -87,20 +75,21 @@ Integer			:: jsrc, jrec, j
 ! Others
 Real			:: r, saz, caz, s2az, c2az
 
-!Counters
-Integer                 :: ix, iy
-
 ! loop on the sources
 nsrc = Size(Xs)
 nrec = Size(Xr)
 
-!$OMP PARALLEL DEFAULT(PRIVATE) SHARED(MM, Ux, Uy, Uz, Xs, Ys, Zs, Xr, Yr, edks, nrec, nsrc)
+! initialize the displacements
+Ux = 0.0
+Uy = 0.0
+Uz = 0.0
+   
+!$OMP PARALLEL DEFAULT(PRIVATE) SHARED(M, Ux, Uy, Uz, Xs, Ys, Zs, Xr, Yr, edks, nrec, nsrc)
 !$OMP DO 
 Do j = 1,nrec*nsrc
    jrec = int((j-1)/nsrc+1.0)
    jsrc = j-(jrec-1)*nsrc
    
-   M  = MM(jsrc,:)
    x0 = Xs(jsrc)
    y0 = Ys(jsrc)
    z0 = Zs(jsrc)
@@ -110,11 +99,6 @@ Do j = 1,nrec*nsrc
    
    x = Xr(jrec)
    y = Yr(jrec)
-   
-   ! initialize the displacements
-   Ux(jsrc, jrec) = 0.
-   Uy(jsrc, jrec) = 0.
-   Uz(jsrc, jrec) = 0.
    
    ! geometry source-receiver
    r  = Sqrt((x-x0)**2+(y-y0)**2)
@@ -129,7 +113,7 @@ Do j = 1,nrec*nsrc
    
    ! interpolation in depths and distances
    
-   Call best2(edks % distas, edks % ndista, r, jdbest, jdseco)
+   Call best2a(edks % distas, edks % ndista, r, jdbest, jdseco)
    ratiod 	= (r - edks % distas(jdbest))/(edks % distas(jdseco) - edks % distas(jdbest))
    
    zrtdsxh1d1 	= edks % zrtdsx(jhbest,jdbest,1:10)
@@ -144,31 +128,31 @@ Do j = 1,nrec*nsrc
    ! The coefficients created by tab5 are in Xiaobi's notation
    ! The equations just below follow Herrman's notation; hence
 
-   ZDS=-ZDS
-   RDS=-RDS
-   TSS=-TSS
+   zrtdsx(2)=-zrtdsx(2)
+   zrtdsx(5)=-zrtdsx(5)
+   zrtdsx(8)=-zrtdsx(8)
    ! Vertical component  (positive down)
-   ws =   M(2)*( ZSS*c2az/2. - ZDD/6. + ZEX/3.) &
-        + M(3)*(-ZSS*c2az/2. - ZDD/6. + ZEX/3.) &
-        + M(1)*( ZDD + ZEX)/3.  &
-        + M(6)*  ZSS*s2az &
-        + M(4)*  ZDS*caz &
-        + M(5)*  ZDS*saz
+   ws =   M(2)*( zrtdsx(3)*c2az/2. - zrtdsx(1)/6. + zrtdsx(9)/3.) &
+        + M(3)*(-zrtdsx(3)*c2az/2. - zrtdsx(1)/6. + zrtdsx(9)/3.) &
+        + M(1)*( zrtdsx(1) + zrtdsx(9))/3.  &
+        + M(6)*  zrtdsx(3)*s2az &
+        + M(4)*  zrtdsx(2)*caz &
+        + M(5)*  zrtdsx(2)*saz
    
    ! Radial component    (positive away from the source)
-   qr = M(2)*( RSS*c2az/2. - RDD/6. + REX/3.) &
-        + M(3)*(-RSS*c2az/2. - RDD/6. + REX/3.) &
-        + M(1)*( RDD + REX)/3.  &
-        + M(6)*  RSS*s2az &
-        + M(4)*  RDS*caz &
-        + M(5)*  RDS*saz 
+   qr = M(2)*( zrtdsx(6)*c2az/2. - zrtdsx(4)/6. + zrtdsx(10)/3.) &
+        + M(3)*(-zrtdsx(6)*c2az/2. - zrtdsx(4)/6. + zrtdsx(10)/3.) &
+        + M(1)*( zrtdsx(4) + zrtdsx(10))/3.  &
+        + M(6)*  zrtdsx(6)*s2az &
+        + M(4)*  zrtdsx(5)*caz &
+        + M(5)*  zrtdsx(5)*saz 
    
    ! Tangential component (positive if clockwise from zenithal view)
-   vt =   M(2)*TSS*s2az/2. &
-        - M(3)*TSS*s2az/2. &
-        - M(6)*TSS*c2az &
-        + M(4)*TDS*saz &
-        - M(5)*TDS*caz 
+   vt =   M(2)*zrtdsx(8)*s2az/2. &
+        - M(3)*zrtdsx(8)*s2az/2. &
+        - M(6)*zrtdsx(8)*c2az &
+        + M(4)*zrtdsx(7)*saz &
+        - M(5)*zrtdsx(7)*caz 
 
    ! Cartesian components (x:east, y=north, z=up)
    Ux(jsrc,jrec) =  qr*saz + vt*caz
@@ -225,3 +209,64 @@ endif
 
 Return
 end Subroutine best2
+
+
+Subroutine best2a(vect, nv, val, jbest, jseco)
+
+Integer		:: nv
+Real		:: vect(nv)
+Real		:: val
+
+!	local variables
+
+Integer 	:: jh, jbest, jseco, jswap, jstart, jend
+Real		:: dhbest, dhseco, dhswap
+Real		:: step
+
+step = vect(2)-vect(1)
+jstart = val/step - 3
+jstart = max(jstart, 1)
+jstart = min(nv-1, jstart)
+
+jend   = jstart + 6
+jend   = min(jend, nv)
+
+jbest = jstart;
+jseco = jbest + 1;
+
+dhbest = Abs(val - vect(jbest))
+dhseco = Abs(val - vect(jseco))
+
+Do jh = jstart+2, jend
+   If(dhbest > dhseco) Then
+      dhswap = dhseco
+      dhseco = dhbest
+      dhbest = dhswap
+      
+      jswap  = jseco
+      jseco  = jbest
+      jbest  = jswap
+   Endif
+   
+   dhswap = Abs(val - vect(jh))
+   
+   If(dhswap < dhseco) Then
+      dhseco = dhswap
+      jseco  = jh
+      
+   Endif
+End Do
+
+If(dhbest > dhseco) Then
+   dhswap = dhseco
+   dhseco = dhbest
+   dhbest = dhswap
+   jswap  = jseco
+   jseco  = jbest
+   jbest  = jswap
+Endif
+
+Return
+
+End Subroutine best2a
+

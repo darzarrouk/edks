@@ -142,11 +142,11 @@ def calcGreenFunctions_EDKS_subTriangles(TriPropFile, TriPointsFile, ReceiverFil
          Tri.reverseOrientation()
       # compute the subfaults for the triangle
       # get the maximum Area for the triangle
-      #if Amax == None:
-      #   TriAmax = getAmax4Triangle(Tri, TriCS, eR, nR)
-      #else:
-      #   TriAmax = Amax
-      Ce, Cn, Cz, A = getReducedTrianglesProp(Tri, TriCS, eR, nR)
+      if Amax == None:
+         TriAmax = getAmax4Triangle(Tri, TriCS, eR, nR)
+      else:
+         TriAmax = Amax
+      Ce, Cn, Cz, A = getReducedTrianglesProp(Tri, TriCS, TriAmax)
       eST.extend(Ce)
       nST.extend(Cn)
       dST.extend(-1.0 * Cz)
@@ -162,15 +162,7 @@ def calcGreenFunctions_EDKS_subTriangles(TriPropFile, TriPointsFile, ReceiverFil
 
       msg = 'Triangle %s has %i subsources...'%(Tid, len(A))
       log.addLine(msg)
-  
-   import pylab as PL
-   PL.plot(-NP.array(nST), eST, 'k.', markersize = 2)
-   PL.plot(-NP.array(nR), eR, 'or')
-
-   PL.axis('equal')
-  
-   PL.show()
- 
+   
    
    # Convert units
    Units2meters = method_par['EDKSunits']
@@ -181,6 +173,11 @@ def calcGreenFunctions_EDKS_subTriangles(TriPropFile, TriPointsFile, ReceiverFil
    eR = NP.array(eR) * Units2meters
    nR = NP.array(nR) * Units2meters
 
+   #import pylab as PL
+   #PL.plot(-nST, eST, '.k', markersize = 2)
+   #PL.plot(-nR, eR, 'or')
+   #PL.show() 
+   
    # the rest just convert to arrays.
    strikeST = NP.array(strikeST)
    dipST = NP.array(dipST)
@@ -279,7 +276,7 @@ def calcGreenFunctions_EDKS_subTriangles(TriPropFile, TriPointsFile, ReceiverFil
    return
 
 ###
-def getAmax4Triangle(Tri, TriCS, eR, nR, depR = 0.0, dist2cLTratio = 5.0):
+def getAmax4Triangle(Tri, TriCS, eR, nR, depR = 0.0, dist2cLTratio = 4.0):
    """
    get the maximum area of a triangle so its point source representation is 
    accurate. We do this based on the Saint Venant's principle.
@@ -306,12 +303,11 @@ def getAmax4Triangle(Tri, TriCS, eR, nR, depR = 0.0, dist2cLTratio = 5.0):
    cLT = 1.0 * minDistP2recv / dist2cLTratio
    DiC = NP.sqrt(3.0) * cLT / 3.0 # diameter of the inscribed circle in equi Tri
    Amax = NP.pi * DiC * DiC / 4.0  
-   print minDistP2recv 
    return Amax
    
 
 ###
-def getReducedTrianglesProp(Tri, TriCS, eR, nR, Amax = None, depT2cLTratio = 4.0):
+def getReducedTrianglesProp(Tri, TriCS, Amax = None, depT2cLTratio = 4.0):
    """
    get the Triangle and its coordinate system, recursively subdivide it until 
    all the subdivided triangles have an area less or equal Amax. 
@@ -342,9 +338,20 @@ def getReducedTrianglesProp(Tri, TriCS, eR, nR, Amax = None, depT2cLTratio = 4.0
    if Amax != None:
       subdivideFlag = Amax < Area # True if Amax < Area => it gets subdivided
    else: # Amax == None
-      TriAmax = getAmax4Triangle(Tri, TriCS, eR, nR)
+      # get the Triangle's point coordinates
+      Pids = Tri.getPointsID()
+      Pcoords = [TriCS.getPointCoord(Pid) for Pid in Pids]
+      # get the minimum depth
+      Pdepths = [NP.abs(Pcoord[2]) for Pcoord in Pcoords] # Z is positive up.
+      depT = NP.min(Pdepths)
+      # the caracteristic length of the Maximum triangle from Saint-venant's principle
+      cLT = 1.0 * depT / depT2cLTratio
+      DiC = NP.sqrt(3.0) * cLT / 3.0 # diameter of the inscribed circle in equi Tri
+      Amax = NP.pi * DiC * DiC / 4.0  #  The Maximum area of the triangle is the area of 
+                                      # the inscibed circle in an equilateral triangle 
+                                      # with side equal to cLT
       # calculate the subdivideFlag
-      subdivideFlag = TriAmax < Area 
+      subdivideFlag = Amax < Area 
       
    # to store the triangles center and area
    Ce = []
@@ -359,13 +366,13 @@ def getReducedTrianglesProp(Tri, TriCS, eR, nR, Amax = None, depT2cLTratio = 4.0
       Cn.append(Centroid[1])
       Cz.append(Centroid[2])# Depth is positive downwards,U is positive upwards.
       A.append(Area)
-      return [Ce, Cn, Cz, A]
+      return [NP.array(Ce), NP.array(Cn), NP.array(Cz), NP.array(A)]
    else: # we split into 4 child triangles and work recursively
       T1, T2, T3, T4, TCS = splitTriangle(Tri, TriCS)
-      Ce1, Cn1 , Cz1, A1 = getReducedTrianglesProp(T1, TCS, eR, nR, Amax)
-      Ce2, Cn2 , Cz2, A2 = getReducedTrianglesProp(T2, TCS, eR, nR, Amax)
-      Ce3, Cn3 , Cz3, A3 = getReducedTrianglesProp(T3, TCS, eR, nR, Amax)
-      Ce4, Cn4 , Cz4, A4 = getReducedTrianglesProp(T4, TCS, eR, nR, Amax)
+      Ce1, Cn1 , Cz1, A1 = getReducedTrianglesProp(T1, TCS, Amax)
+      Ce2, Cn2 , Cz2, A2 = getReducedTrianglesProp(T2, TCS, Amax)
+      Ce3, Cn3 , Cz3, A3 = getReducedTrianglesProp(T3, TCS, Amax)
+      Ce4, Cn4 , Cz4, A4 = getReducedTrianglesProp(T4, TCS, Amax)
       Ce.extend(Ce1)
       Ce.extend(Ce2)
       Ce.extend(Ce3)

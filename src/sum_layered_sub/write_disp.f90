@@ -19,9 +19,9 @@ fname3  = trim(prefix)//'_uz.dis'
 
 nbyt = nrc*4*np
 
-open(20, file=fname1, form='unformatted', status='unknown', access='direct', recl=nbyt)
-open(21, file=fname2, form='unformatted', status='unknown', access='direct', recl=nbyt)
-open(22, file=fname3, form='unformatted', status='unknown', access='direct', recl=nbyt)
+open(20, file=fname1, form='unformatted', status='REPLACE', access='direct', recl=nbyt)
+open(21, file=fname2, form='unformatted', status='REPLACE', access='direct', recl=nbyt)
+open(22, file=fname3, form='unformatted', status='REPLACE', access='direct', recl=nbyt)
 
 write(20,rec=1) ((ux(ip, irec), irec = 1, nrc), ip = 1, np)
 write(21,rec=1) ((uy(ip, irec), irec = 1, nrc), ip = 1, np)
