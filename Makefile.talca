@@ -1,7 +1,10 @@
-all: sum_layered_sub tab4e
+all: sum_layered_sub sum_layered tab4e
+
+sum_layered:
+	cd ./src/sum_layered; make -B -f Makefile.jokull
 
 sum_layered_sub:
-	cd ./src/sum_layered; make -B -f Makefile_sub.jokull
+	cd ./src/sum_layered_sub; make -B -f Makefile_sub.jokull
 
 
 tab4e:
@@ -9,5 +12,6 @@ tab4e:
 
 clean: 
 	cd ./bin; rm -rf *
-	cd ./src/sum_layered; make clean -f Makefile_sub.jokull
+	cd ./src/sum_layered; make clean -f Makefile.jokull
+	cd ./src/sum_layered_sub; make clean -f Makefile_sub.jokull
 	cd ./src/tab5R; make clean -f Makefile.jokull
