@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import numpy as NP
-from layered_disloc_sub import layered_disloc_sub
+from layered_disloc import layered_disloc
 import string 
 
 def read_srcFile(filename):
@@ -12,7 +12,6 @@ def read_srcFile(filename):
    strike = []
    dip = []
    area = []
-   IDs = []
    for line in file:
       line = string.split(line)
       e.append( float( line[0] ) )
@@ -21,7 +20,7 @@ def read_srcFile(filename):
       strike.append( float( line[3] ) )
       dip.append( float( line[4] ) )
       area.append( float( line[5] ) )
-      IDs.append( line[6] )
+
    file.close()
    # convert to numpy arrays
    e = NP.array(e)
@@ -30,7 +29,7 @@ def read_srcFile(filename):
    strike = NP.array(strike)
    dip = NP.array(dip)
    area = NP.array(area)
-   return [e, n, dep, strike, dip , area, IDs]
+   return [e, n, dep, strike, dip , area]
 
 
 def read_recvFile(filename):
@@ -55,7 +54,7 @@ def calc_layered_GF(recvFilename, srcFilename, edks, OutPrefix, units2m = 1000):
    # location of binaries
    BIN_EDKS = '${EDKS_HOME}/bin'
    # load source properties
-   eS, nS, depS, sS, dS , aS , idS= read_srcFile(srcFilename)
+   eS, nS, depS, sS, dS , aS = read_srcFile(srcFilename)
 
    # load receivers
    eR, nR = read_recvFile(recvFilename)
@@ -72,13 +71,13 @@ def calc_layered_GF(recvFilename, srcFilename, edks, OutPrefix, units2m = 1000):
    # left lateral strike slip unit dislocation
    rake = 0 * NP.ones(eS.shape)
    slip = 1 * NP.ones(eS.shape)
-   GFeSS, GFnSS, GFzSS = layered_disloc_sub(eS, nS, depS, sS, dS, rake, slip,\
+   GFeSS, GFnSS, GFzSS = layered_disloc(eS, nS, depS, sS, dS, rake, slip,\
                           aS, eR, nR, edks, OutPrefix, BIN_EDKS)  
 
    # thrust (updip) dip slip unit dislocation
    rake = 90 * NP.ones(eS.shape)
    slip = 1 * NP.ones(eS.shape)
-   GFeDS, GFnDS, GFzDS = layered_disloc_sub(eS, nS, depS, sS, dS, rake, slip,\
+   GFeDS, GFnDS, GFzDS = layered_disloc(eS, nS, depS, sS, dS, rake, slip,\
                           aS, eR, nR, edks, OutPrefix, BIN_EDKS)         
 
 
