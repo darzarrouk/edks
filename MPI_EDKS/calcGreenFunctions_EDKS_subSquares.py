@@ -47,7 +47,6 @@ def calcGreenFunctions_EDKS_subSquares(SquaresPropFile, ReceiverFile,\
    for line in file:
       line = string.split(line)
       for i in range(0,6): # all the left ones are float
-         print i
          line[i] = float( line[i] )
       Rprop[line[-1]] = dict(zip(fields, line))
       Rec_IDs.append(line[-1])
