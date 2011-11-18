@@ -27,7 +27,7 @@ from layered_disloc_sub import layered_disloc_sub
 import string
 
 def calcGreenFunctions_EDKS_subTriangles(TriPropFile, TriPointsFile, ReceiverFile,\
-                                         method_par):
+                                         method_par, plotGeometry):
    """
    method_par has to contain the following info:
       useRecvDir : [False|True]
@@ -100,6 +100,10 @@ def calcGreenFunctions_EDKS_subTriangles(TriPropFile, TriPointsFile, ReceiverFil
    # now compute the coordinates of all the subtriangles
    log.addLine(' Subdividing triangular Mesh ')
 
+   if plotGeometry:
+      MasterTriangles4Plot = []
+
+
    eST = []
    nST = []
    dST = []
@@ -160,6 +164,9 @@ def calcGreenFunctions_EDKS_subTriangles(TriPropFile, TriPointsFile, ReceiverFil
       # assign unit slip
       slipST.extend(1.0 * NP.ones(len(A)))
 
+      if plotGeometry:
+         MasterTriangles4Plot.append([Tri, TriCS])
+
       msg = 'Triangle %s has %i subsources...'%(Tid, len(A))
       log.addLine(msg)
    
@@ -173,7 +180,20 @@ def calcGreenFunctions_EDKS_subTriangles(TriPropFile, TriPointsFile, ReceiverFil
    eR = NP.array(eR) * Units2meters
    nR = NP.array(nR) * Units2meters
 
-   #import pylab as PL
+   if plotGeometry:
+      import pylab as PL
+      import mpl_toolkits.mplot3d.axes3d as plot3
+      fig = PL.figure(1)
+      s = plot3.Axes3D(fig)
+      s.plot3D(eST/Units2meters, nST/Units2meters, -1.0*dST/Units2meters, '.r',\
+		markersize = 2) 
+      for MasterTriangle in MasterTriangles4Plot:
+         Mtri, MtriCS = MasterTriangle
+         plotTriangle(Mtri, MtriCS, s, color = 'k')
+
+      s.plot(1.0 * eR/Units2meters, 1.0 * nR/Units2meters, 'og')
+      PL.show()
+
    #PL.plot(-nST, eST, '.k', markersize = 2)
    #PL.plot(-nR, eR, 'or')
    #PL.show() 
@@ -289,7 +309,8 @@ def getAmax4Triangle(Tri, TriCS, eR, nR, depR = 0.0, dist2cLTratio = 4.0):
    # for each point get the minimum distance to a receiver
    minDistP2recv = NP.inf
    for Pcoord in Pcoords:
-      eP, nP, dP = Pcoord
+      eP, nP, zP = Pcoord
+      dP = -1.0 * zP
       dP2Recv = NP.sqrt( (eP - eR)*(eP - eR) \
                        + (nP - nR)*(nP - nR) \
                        + (dP - depR)*(dP - depR) )
@@ -467,6 +488,21 @@ def calcMidPoint(ei, ni, zi, ej, nj, zj):
    return [em, nm, zm]
 
 
+###
+def plotTriangle(T, TCS, s, color = 'k'):
+   # plot the triangle
+   P1, P2, P3 = T.getPoints()
+   x1, y1, u1 = TCS.getPointCoord(P1.id)
+   x2, y2, u2 = TCS.getPointCoord(P2.id)
+   x3, y3, u3 = TCS.getPointCoord(P3.id)
+
+   x = [x1, x2, x3, x1]
+   y = [y1, y2, y3, y1]
+   u = [u1, u2, u3, u1]
+   s.plot(x, y, u, color)
+
+
+
 if __name__ == '__main__':
 
    from EDKSsubParams import *
@@ -475,4 +511,6 @@ if __name__ == '__main__':
    method_par = dict(zip(parNames, parValues))
 
    calcGreenFunctions_EDKS_subTriangles(TriPropFile, TriPointsFile, ReceiverFile,\
-                                         method_par)
+                                         method_par, plotGeometry)
+
+

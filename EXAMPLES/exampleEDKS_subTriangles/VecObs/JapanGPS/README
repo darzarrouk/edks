@@ -1,0 +1,7 @@
+netinfo file is supposed to be all the stations on day 69 70 and 71 of 2011 as are
+available at Sunday March 13, 2011.
+copied from /net/talca/nobackup1/ortega/Work/Projects/Simons/SendaiEQ/GPSdata/data_20110313/30min_sol/concatenated/netinfo
+
+
+then execute awk '{print $1, $3, $2}' netinfo > japanGPSlocation.idlonlat
+edit japanGPSlocation.idlonlat and add header "id lon lat"
