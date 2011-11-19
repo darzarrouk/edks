@@ -1,0 +1,14 @@
+setup the required data in EDKSsubParams.py
+then execute calcGreenFunctions_EDKS_subTriangles.py 
+
+each matrix is G_{Nobs}x{Ntriangles}
+
+the order of columns and rows follows the same order as the input files specified in EDKSsubParams
+
+SS : rake = 0 (left lateral)
+DS : rake = 90 (updip)
+
+
+IMPORTANT: !!!!!
+
+     ITO data has some specific directions, so i saved 2 GF matrices (G_SS_proj.txt and G_DS_proj.txt) that are the projected GFs into the direction of the measured displacement. So use this two (G_SS_proj.txt and G_DS_proj.txt) to fit the ITO measurements.

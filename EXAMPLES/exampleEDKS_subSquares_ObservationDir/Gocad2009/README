@@ -1,0 +1,4 @@
+ortega@bayes Mainshock_3Dsquares_ShiftedUp2.8KM$ awk '{print $1, $2, $3 - 2.8, $4, $5, $6, $7}' ../Mainshock_3Dsquares/Mainshock_TohokuOki_V3.ts.3DsquareGrid.END > Mainshock_TohokuOki_V3.ts.3DsquareGrid_ShiftedUp2.8KM.END
+
+ortega@bayes Mainshock_3Dsquares_ShiftedUp2.8KM$ awk '{print $1, $2, $3 - 2.8, $4, $5, $6, $7}' ../Mainshock_3Dsquares/Mainshock_TohokuOki_V3.ts.3DsquareGrid.lonlatdep > Mainshock_TohokuOki_V3.ts.3DsquareGrid_ShiftedUp2.8KM.lonlatdep
+

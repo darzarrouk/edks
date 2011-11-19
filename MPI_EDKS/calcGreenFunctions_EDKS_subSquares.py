@@ -20,6 +20,7 @@ from ICM.Logger import LogFile
 from ICM.Geometry import RectangleCalculator
 from ICM.Rectangles import rectanglePatch
 from layered_disloc_sub import layered_disloc_sub
+from projectGFmatrices import projectGFmatrices
 
 import string
 
@@ -75,9 +76,18 @@ def calcGreenFunctions_EDKS_subSquares(SquaresPropFile, ReceiverFile,\
    # assemble the array with the east and north coordinates of the observation points
    eR = []
    nR = []
+   if useRecvDir:
+      ODirE = []
+      ODirN = []
+      ODirU = []
    for Rid in R_IDs: 
        eR.append(Recv[Rid]['e'])
        nR.append(Recv[Rid]['n'])
+       if useRecvDir:
+          ODirE.append(Recv[Rid]['ODirE'])
+          ODirN.append(Recv[Rid]['ODirN'])
+          ODirU.append(Recv[Rid]['ODirU'])
+
    msg = '%i receivers to compute displacements...' %(len(eR))
    log.addLine(msg)
 
@@ -169,13 +179,19 @@ def calcGreenFunctions_EDKS_subSquares(SquaresPropFile, ReceiverFile,\
    GeSS, GnSS, GuSS = layered_disloc_sub(idSR, eSR, nSR, dSR, strikeSR, dipSR,\
                       rakeSR, slipSR, aSR, eR, nR, edks, prefixSS)  
 
-   # strike slip GFs
+   # dip slip GFs
    log.addLine('calculating upDip-Slip Green functions...')
    prefixDS = prefix + '_DS_'
    rakeSR = 90.0 * NP.ones(len(eSR))   
    GeDS, GnDS, GuDS = layered_disloc_sub(idSR, eSR, nSR, dSR, strikeSR, dipSR,\
                       rakeSR, slipSR, aSR, eR, nR, edks, prefixDS)  
 
+
+   # if useRecvDir is True I need to project the GF matrices
+   if useRecvDir:
+      G_SS, G_DS = projectGFmatrices(GeSS, GnSS, GuSS, GeDS, GnDS, GuDS,\
+ 				     ODirE, ODirN, ODirU)  
+ 
 
    # save the GF matrices.
    
@@ -247,6 +263,30 @@ def calcGreenFunctions_EDKS_subSquares(SquaresPropFile, ReceiverFile,\
          file.write(value)
       file.write('\n')
    file.close()
+
+   if useRecvDir:
+      #G_SS
+      file = open('G_SS_proj.txt','w')
+      Nrows, Ncols = G_SS.shape
+      print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
+      for row in range(0,Nrows):
+         for col in range(0,Ncols):
+            value = '%s ' %(G_SS[row][col])
+            file.write(value)
+         file.write('\n')
+      file.close()
+
+      #G_DS
+      file = open('G_DS_proj.txt','w')
+      Nrows, Ncols = G_DS.shape
+      print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
+      for row in range(0,Nrows):
+         for col in range(0,Ncols):
+            value = '%s ' %(G_DS[row][col])
+            file.write(value)
+         file.write('\n')
+      file.close()
+
 
    return
 

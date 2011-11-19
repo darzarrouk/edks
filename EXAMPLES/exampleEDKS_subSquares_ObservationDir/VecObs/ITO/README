@@ -1,0 +1,35 @@
+
+Begin forwarded message:
+
+From: 伊藤 喜宏 <yito@aob.gp.tohoku.ac.jp>
+Subject: Re: asking for OBPS data
+Date: November 2, 2011 2:08:34 AM PDT
+To: Junle Jiang <jjle@gps.caltech.edu>
+
+Dear Junle, 
+
+Thank you for your interest. 
+I'm sending our data, which are already published in GRL. 
+As mentioned in my GRL paper,  the observation error of the horizontal displacements at TJT1 and TJT2 is 20 m although that of the vertical displacement is less than 50 cm. 
+So, be careful if you use those. 
+
+TJT1_OBP    143:47.7516 38:12.5681  5 m uplift
+TJT1_ OBS1 143:47.0288 38:12.6599 62 m  N98E
+TJT1_OBS2  143:47.0696 38:12.6663 53 m  N81E
+TJT2_OBS1   143:39.3655 38:12.8064 91 m N138E 
+TJT2_OBS2 143:39.3340 38:12.7759 78 m N135E
+TJT2_OBP 143:39.4328 38:12.6943 52 m N104E
+
+The data of GJT3 are are submitted by Kido et al.
+I believe that it will be open in the near future.
+
+Best, 
+Yoshi
+
+2011_11_18: Things I did to the original data files.
+
+awk '{print $1, $2 + $3/60.0, $4 + $5/60.0, $6*100.0, $7}' ITO_disp.dat  > ITO_idLonLat.dat
+
+Then edit ITO_idLonLat.dat to replace the direction with a unit vector pointing in such a direction.
+
+

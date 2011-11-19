@@ -1,0 +1,7 @@
+id      lon_deg lon_min lat_deg lat_min disp[m] Dir
+TJT1_OBP  143   47.7516   38    12.5681  05     uplift
+TJT1_OBS1 143   47.0288   38    12.6599  62     N98E
+TJT1_OBS2 143   47.0696   38    12.6663  53     N81E
+TJT2_OBS1 143   39.3655   38    12.8064  91     N138E 
+TJT2_OBS2 143   39.3340   38    12.7759  78     N135E
+TJT2_OBP  143   39.4328   38    12.6943  52     N104E
