@@ -7,7 +7,7 @@ import numpy as NP
 import string
 from ICM.Physics.Okada85.okada85 import calcOkada85
 import os
-from layered_disloc import layered_disloc
+from layered_disloc_sub import layered_disloc_sub
 import pylab as PL
 
 ###
@@ -19,11 +19,11 @@ def main():
    # create the equispaced grid in KMs for the receivers
    Xmin = -100
    Xmax = 100
-   Nx = 200
+   Nx = 50
    x = NP.linspace(Xmin, Xmax, Nx)
    Ymin = -100
    Ymax = 100
-   Ny = 200
+   Ny = 50
    y = NP.linspace(Ymin, Ymax, Ny)
    # create the mesh and reshape it to vectors.
    XX, YY = NP.meshgrid(x,y)
@@ -94,16 +94,17 @@ depths           %s
    file.write(edks_config)
    file.close()
    # call MPI_EDKS to calculate the GFs.
-   cmd = "mpirun -n 5 MPI_EDKS.py test_1a.edks_config"
-   status = os.system(cmd)
-   if status != 0:
-      raise ValueError('Unable to compute the EDKS kernels !!!')
-   else:
-      os.system('rm -rf *.asc')
+   #cmd = "mpirun -n 5 MPI_EDKS.py test_1a.edks_config"
+   #status = os.system(cmd)
+   #if status != 0:
+   #   raise ValueError('Unable to compute the EDKS kernels !!!')
+   #else:
+   #   os.system('rm -rf *.asc')
    # now compute the displacements for the given sources at the receivers.
    # must have units in meters
    print("calculating the displacements using layered_disloc")
-   ux, uy, uz = layered_disloc(xS*km, yS*km, zS*km, strike, dip, rake, slip,\
+   idS = [str(bla) for bla in range(0, len(xS))]
+   ux, uy, uz = layered_disloc_sub(idS, xS*km, yS*km, zS*km, strike, dip, rake, slip,\
                  aS*km*km, xR*km, yR*km, 'test_1a.edks', 'test_1a') 
    
    # reassemble the matrices for comparison

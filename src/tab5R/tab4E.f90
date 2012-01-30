@@ -71,10 +71,10 @@
 	open(unit=10, file=output_filename, status='unknown')
 	write(10,'(a)') 'Model: 1st Nb layers, 2nd th, 3th vp, 4th vs, 5th rho'
 	write(10,'(i4)')	N-1
-	write(10,'(10f12.2)') 	th0
-	write(10,'(10f12.2)') 	vp0
-	write(10,'(10f12.2)') 	vs0
-	write(10,'(10f12.2)') 	rh0
+	write(10,'(100f12.2)') 	th0 ! neet to change so it is Nf12.2
+	write(10,'(100f12.2)') 	vp0 ! neet to change so it is Nf12.2
+	write(10,'(100f12.2)') 	vs0 ! neet to change so it is Nf12.2
+	write(10,'(100f12.2)') 	rh0 ! neet to change so it is Nf12.2
 	write(10,'(a)') 'Depth'
 	write(10,'(10f12.2)') 	depth
 	write(10,'(a)') 'Distances: nr, rmin, rmax'

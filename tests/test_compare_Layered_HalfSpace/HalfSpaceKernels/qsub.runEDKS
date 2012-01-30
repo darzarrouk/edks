@@ -1,0 +1,44 @@
+#!/bin/bash
+#PBS -N EDKS
+#PBS -l nodes=128
+#PBS -S /bin/bash
+#PBS -V
+#PBS -l walltime=48:00:00
+#PBS -q default
+#PBS -m ae
+#PBS -o out.$PBS_JOBID.$PBS_JOBNAME
+#PBS -e err.$PBS_JOBID.$PBS_JOBNAME
+
+source /etc/profile.d/env-modules.sh
+module load openmpi/gnu
+
+echo "MPI Used:" `which mpirun`
+
+#change the working directory (default is home directory)
+echo Working directory is $PBS_O_WORKDIR
+cd $PBS_O_WORKDIR 
+
+# Write out some information on the job
+echo Running on host `hostname`
+echo Time is `date`
+ 
+### Define number of processors
+NPROCS=`wc -l < $PBS_NODEFILE`
+echo This job has allocated $NPROCS cpus
+
+# Tell me which nodes it is run on
+echo " "
+echo This jobs runs on the following processors:
+echo `cat $PBS_NODEFILE`
+echo " "
+ 
+# 
+# Run the mpi job
+#
+
+# Setupo regcache for MX
+
+export MX_RCACHE=2
+
+# neet to cat this file with the command to execute
+mpirun MPI_EDKS.py tohoku_3.edks_config

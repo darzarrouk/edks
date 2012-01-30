@@ -1,5 +1,5 @@
 import numpy as NP
-from layered_disloc import layered_disloc
+from layered_disloc_sub import layered_disloc_sub
 import pylab as PL
 
 def test1():
@@ -34,16 +34,16 @@ def test1():
    dip = NP.array([89.99])
    SSlip = NP.array([1.0]) # in meters
    DSlip = NP.array([0.0]) # in meters
-
+   idS = ['0']
    # calculate the GF's
    rake = 0 * NP.ones(SSlip.shape)
    slip = 1 * NP.ones(SSlip.shape)
-   GFeSS, GFnSS, GFzSS = layered_disloc(xS, yS, zS, strike, dip, rake, slip, aS, x, y,\
+   GFeSS, GFnSS, GFzSS = layered_disloc_sub(idS, xS, yS, zS, strike, dip, rake, slip, aS, x, y,\
                                      edks, prefix, BIN_EDKS)  
 
    rake = 90 * NP.ones(SSlip.shape)
    slip = 1 * NP.ones(SSlip.shape)
-   GFeDS, GFnDS, GFzDS = layered_disloc(xS, yS, zS, strike, dip, rake, slip, aS, x, y,\
+   GFeDS, GFnDS, GFzDS = layered_disloc_sub(idS, xS, yS, zS, strike, dip, rake, slip, aS, x, y,\
                                      edks, prefix, BIN_EDKS)
 
    # compute forward displacement calculation.
