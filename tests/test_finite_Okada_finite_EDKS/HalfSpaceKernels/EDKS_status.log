@@ -1,894 +1,886 @@
-Thu Dec  1 17:08:35 2011:
+Fri Aug 17 00:03:13 2012:
 -> Log file initialization time
 
-Thu Dec  1 17:08:35 2011:
+Fri Aug 17 00:03:13 2012:
 -> Starting EDKS kernels calculation
-Thu Dec  1 17:08:35 2011:
--> I am Boss with rank = 0, I have 9 Workers
-Thu Dec  1 17:08:35 2011:
--> Worker 2 Initialized
-Thu Dec  1 17:08:35 2011:
--> Boss sending depth 2.600 to worker 2 ...
-    168 depths waiting for workers.
-Thu Dec  1 17:08:35 2011:
+Fri Aug 17 00:03:13 2012:
+-> I am Boss with rank = 0, I have 7 Workers
+Fri Aug 17 00:03:13 2012:
 -> Worker 1 Initialized
-Thu Dec  1 17:08:35 2011:
--> Boss sending depth 2.977 to worker 1 ...
-    167 depths waiting for workers.
-Thu Dec  1 17:08:35 2011:
--> Worker 5 Initialized
-Thu Dec  1 17:08:35 2011:
--> Boss sending depth 3.361 to worker 5 ...
-    166 depths waiting for workers.
-Thu Dec  1 17:08:35 2011:
--> Worker 6 Initialized
-Thu Dec  1 17:08:35 2011:
--> Boss sending depth 3.745 to worker 6 ...
-    165 depths waiting for workers.
-Thu Dec  1 17:08:35 2011:
--> Worker 7 Initialized
-Thu Dec  1 17:08:35 2011:
--> Boss sending depth 4.129 to worker 7 ...
-    164 depths waiting for workers.
-Thu Dec  1 17:08:35 2011:
--> Worker 9 Initialized
-Thu Dec  1 17:08:35 2011:
--> Boss sending depth 4.512 to worker 9 ...
-    163 depths waiting for workers.
-Thu Dec  1 17:08:35 2011:
+Fri Aug 17 00:03:13 2012:
+-> Boss sending depth 2.600 to worker 1 ...
+    168 depths waiting for workers.
+Fri Aug 17 00:03:13 2012:
 -> Worker 3 Initialized
-Thu Dec  1 17:08:35 2011:
--> Boss sending depth 4.896 to worker 3 ...
-    162 depths waiting for workers.
-Thu Dec  1 17:08:35 2011:
+Fri Aug 17 00:03:13 2012:
+-> Boss sending depth 2.977 to worker 3 ...
+    167 depths waiting for workers.
+Fri Aug 17 00:03:13 2012:
+-> Worker 7 Initialized
+Fri Aug 17 00:03:13 2012:
+-> Boss sending depth 3.361 to worker 7 ...
+    166 depths waiting for workers.
+Fri Aug 17 00:03:13 2012:
+-> Worker 5 Initialized
+Fri Aug 17 00:03:13 2012:
+-> Boss sending depth 3.745 to worker 5 ...
+    165 depths waiting for workers.
+Fri Aug 17 00:03:13 2012:
 -> Worker 4 Initialized
-Thu Dec  1 17:08:35 2011:
--> Boss sending depth 5.280 to worker 4 ...
+Fri Aug 17 00:03:13 2012:
+-> Boss sending depth 4.129 to worker 4 ...
+    164 depths waiting for workers.
+Fri Aug 17 00:03:13 2012:
+-> Worker 2 Initialized
+Fri Aug 17 00:03:13 2012:
+-> Boss sending depth 4.512 to worker 2 ...
+    163 depths waiting for workers.
+Fri Aug 17 00:03:13 2012:
+-> Worker 6 Initialized
+Fri Aug 17 00:03:13 2012:
+-> Boss sending depth 4.896 to worker 6 ...
+    162 depths waiting for workers.
+Fri Aug 17 00:06:12 2012:
+-> received results from Worker 6
+Fri Aug 17 00:06:12 2012:
+-> Boss sending depth 5.280 to worker 6 ...
     161 depths waiting for workers.
-Thu Dec  1 17:08:35 2011:
--> Worker 8 Initialized
-Thu Dec  1 17:08:35 2011:
--> Boss sending depth 5.664 to worker 8 ...
-    160 depths waiting for workers.
-Thu Dec  1 17:10:37 2011:
--> received results from Worker 8
-Thu Dec  1 17:10:37 2011:
--> Boss sending depth 6.048 to worker 8 ...
-    159 depths waiting for workers.
-Thu Dec  1 17:10:46 2011:
--> received results from Worker 4
-Thu Dec  1 17:10:46 2011:
--> Boss sending depth 6.431 to worker 4 ...
-    158 depths waiting for workers.
-Thu Dec  1 17:11:02 2011:
--> received results from Worker 3
-Thu Dec  1 17:11:02 2011:
--> Boss sending depth 6.815 to worker 3 ...
-    157 depths waiting for workers.
-Thu Dec  1 17:11:23 2011:
--> received results from Worker 9
-Thu Dec  1 17:11:23 2011:
--> Boss sending depth 7.199 to worker 9 ...
-    156 depths waiting for workers.
-Thu Dec  1 17:11:41 2011:
--> received results from Worker 7
-Thu Dec  1 17:11:41 2011:
--> Boss sending depth 7.583 to worker 7 ...
-    155 depths waiting for workers.
-Thu Dec  1 17:12:02 2011:
--> received results from Worker 6
-Thu Dec  1 17:12:02 2011:
--> Boss sending depth 7.966 to worker 6 ...
-    154 depths waiting for workers.
-Thu Dec  1 17:12:20 2011:
--> received results from Worker 5
-Thu Dec  1 17:12:20 2011:
--> Boss sending depth 8.401 to worker 5 ...
-    153 depths waiting for workers.
-Thu Dec  1 17:12:31 2011:
--> received results from Worker 8
-Thu Dec  1 17:12:31 2011:
--> Boss sending depth 8.836 to worker 8 ...
-    152 depths waiting for workers.
-Thu Dec  1 17:12:32 2011:
--> received results from Worker 4
-Thu Dec  1 17:12:32 2011:
--> Boss sending depth 9.271 to worker 4 ...
-    151 depths waiting for workers.
-Thu Dec  1 17:12:43 2011:
--> received results from Worker 3
-Thu Dec  1 17:12:43 2011:
--> Boss sending depth 9.706 to worker 3 ...
-    150 depths waiting for workers.
-Thu Dec  1 17:12:48 2011:
--> received results from Worker 1
-Thu Dec  1 17:12:48 2011:
--> Boss sending depth 10.140 to worker 1 ...
-    149 depths waiting for workers.
-Thu Dec  1 17:13:00 2011:
--> received results from Worker 9
-Thu Dec  1 17:13:00 2011:
--> Boss sending depth 10.575 to worker 9 ...
-    148 depths waiting for workers.
-Thu Dec  1 17:13:14 2011:
--> received results from Worker 7
-Thu Dec  1 17:13:14 2011:
--> Boss sending depth 11.010 to worker 7 ...
-    147 depths waiting for workers.
-Thu Dec  1 17:13:27 2011:
+Fri Aug 17 00:06:18 2012:
 -> received results from Worker 2
-Thu Dec  1 17:13:27 2011:
--> Boss sending depth 11.445 to worker 2 ...
-    146 depths waiting for workers.
-Thu Dec  1 17:13:29 2011:
--> received results from Worker 6
-Thu Dec  1 17:13:29 2011:
--> Boss sending depth 11.880 to worker 6 ...
-    145 depths waiting for workers.
-Thu Dec  1 17:13:43 2011:
+Fri Aug 17 00:06:18 2012:
+-> Boss sending depth 5.664 to worker 2 ...
+    160 depths waiting for workers.
+Fri Aug 17 00:06:30 2012:
+-> received results from Worker 4
+Fri Aug 17 00:06:30 2012:
+-> Boss sending depth 6.048 to worker 4 ...
+    159 depths waiting for workers.
+Fri Aug 17 00:07:02 2012:
 -> received results from Worker 5
-Thu Dec  1 17:13:43 2011:
+Fri Aug 17 00:07:02 2012:
+-> Boss sending depth 6.431 to worker 5 ...
+    158 depths waiting for workers.
+Fri Aug 17 00:07:18 2012:
+-> received results from Worker 7
+Fri Aug 17 00:07:18 2012:
+-> Boss sending depth 6.815 to worker 7 ...
+    157 depths waiting for workers.
+Fri Aug 17 00:07:46 2012:
+-> received results from Worker 3
+Fri Aug 17 00:07:46 2012:
+-> Boss sending depth 7.199 to worker 3 ...
+    156 depths waiting for workers.
+Fri Aug 17 00:08:24 2012:
+-> received results from Worker 1
+Fri Aug 17 00:08:24 2012:
+-> Boss sending depth 7.583 to worker 1 ...
+    155 depths waiting for workers.
+Fri Aug 17 00:08:40 2012:
+-> received results from Worker 2
+Fri Aug 17 00:08:40 2012:
+-> Boss sending depth 7.966 to worker 2 ...
+    154 depths waiting for workers.
+Fri Aug 17 00:08:43 2012:
+-> received results from Worker 4
+Fri Aug 17 00:08:43 2012:
+-> Boss sending depth 8.401 to worker 4 ...
+    153 depths waiting for workers.
+Fri Aug 17 00:08:59 2012:
+-> received results from Worker 6
+Fri Aug 17 00:08:59 2012:
+-> Boss sending depth 8.836 to worker 6 ...
+    152 depths waiting for workers.
+Fri Aug 17 00:09:06 2012:
+-> received results from Worker 5
+Fri Aug 17 00:09:06 2012:
+-> Boss sending depth 9.271 to worker 5 ...
+    151 depths waiting for workers.
+Fri Aug 17 00:09:16 2012:
+-> received results from Worker 7
+Fri Aug 17 00:09:16 2012:
+-> Boss sending depth 9.706 to worker 7 ...
+    150 depths waiting for workers.
+Fri Aug 17 00:09:37 2012:
+-> received results from Worker 3
+Fri Aug 17 00:09:37 2012:
+-> Boss sending depth 10.140 to worker 3 ...
+    149 depths waiting for workers.
+Fri Aug 17 00:10:10 2012:
+-> received results from Worker 1
+Fri Aug 17 00:10:10 2012:
+-> Boss sending depth 10.575 to worker 1 ...
+    148 depths waiting for workers.
+Fri Aug 17 00:10:23 2012:
+-> received results from Worker 4
+Fri Aug 17 00:10:23 2012:
+-> Boss sending depth 11.010 to worker 4 ...
+    147 depths waiting for workers.
+Fri Aug 17 00:10:29 2012:
+-> received results from Worker 6
+Fri Aug 17 00:10:29 2012:
+-> Boss sending depth 11.445 to worker 6 ...
+    146 depths waiting for workers.
+Fri Aug 17 00:10:30 2012:
+-> received results from Worker 2
+Fri Aug 17 00:10:30 2012:
+-> Boss sending depth 11.880 to worker 2 ...
+    145 depths waiting for workers.
+Fri Aug 17 00:10:32 2012:
+-> received results from Worker 5
+Fri Aug 17 00:10:32 2012:
 -> Boss sending depth 12.315 to worker 5 ...
     144 depths waiting for workers.
-Thu Dec  1 17:13:48 2011:
--> received results from Worker 4
-Thu Dec  1 17:13:48 2011:
--> Boss sending depth 12.750 to worker 4 ...
-    143 depths waiting for workers.
-Thu Dec  1 17:13:50 2011:
--> received results from Worker 8
-Thu Dec  1 17:13:50 2011:
--> Boss sending depth 13.185 to worker 8 ...
-    142 depths waiting for workers.
-Thu Dec  1 17:13:54 2011:
--> received results from Worker 3
-Thu Dec  1 17:13:54 2011:
--> Boss sending depth 13.620 to worker 3 ...
-    141 depths waiting for workers.
-Thu Dec  1 17:13:57 2011:
--> received results from Worker 1
-Thu Dec  1 17:13:57 2011:
--> Boss sending depth 14.054 to worker 1 ...
-    140 depths waiting for workers.
-Thu Dec  1 17:14:05 2011:
--> received results from Worker 9
-Thu Dec  1 17:14:05 2011:
--> Boss sending depth 14.489 to worker 9 ...
-    139 depths waiting for workers.
-Thu Dec  1 17:14:16 2011:
+Fri Aug 17 00:10:39 2012:
 -> received results from Worker 7
-Thu Dec  1 17:14:16 2011:
--> Boss sending depth 14.924 to worker 7 ...
+Fri Aug 17 00:10:39 2012:
+-> Boss sending depth 12.750 to worker 7 ...
+    143 depths waiting for workers.
+Fri Aug 17 00:11:04 2012:
+-> received results from Worker 3
+Fri Aug 17 00:11:04 2012:
+-> Boss sending depth 13.185 to worker 3 ...
+    142 depths waiting for workers.
+Fri Aug 17 00:11:26 2012:
+-> received results from Worker 1
+Fri Aug 17 00:11:26 2012:
+-> Boss sending depth 13.620 to worker 1 ...
+    141 depths waiting for workers.
+Fri Aug 17 00:11:36 2012:
+-> received results from Worker 4
+Fri Aug 17 00:11:36 2012:
+-> Boss sending depth 14.054 to worker 4 ...
+    140 depths waiting for workers.
+Fri Aug 17 00:11:37 2012:
+-> received results from Worker 5
+Fri Aug 17 00:11:37 2012:
+-> Boss sending depth 14.489 to worker 5 ...
+    139 depths waiting for workers.
+Fri Aug 17 00:11:37 2012:
+-> received results from Worker 2
+Fri Aug 17 00:11:37 2012:
+-> Boss sending depth 14.924 to worker 2 ...
     138 depths waiting for workers.
-Thu Dec  1 17:14:26 2011:
+Fri Aug 17 00:11:40 2012:
 -> received results from Worker 6
-Thu Dec  1 17:14:26 2011:
+Fri Aug 17 00:11:40 2012:
 -> Boss sending depth 15.359 to worker 6 ...
     137 depths waiting for workers.
-Thu Dec  1 17:14:28 2011:
--> received results from Worker 2
-Thu Dec  1 17:14:28 2011:
--> Boss sending depth 15.794 to worker 2 ...
+Fri Aug 17 00:11:42 2012:
+-> received results from Worker 7
+Fri Aug 17 00:11:42 2012:
+-> Boss sending depth 15.794 to worker 7 ...
     136 depths waiting for workers.
-Thu Dec  1 17:14:40 2011:
--> received results from Worker 5
-Thu Dec  1 17:14:40 2011:
--> Boss sending depth 16.320 to worker 5 ...
+Fri Aug 17 00:12:05 2012:
+-> received results from Worker 3
+Fri Aug 17 00:12:05 2012:
+-> Boss sending depth 16.320 to worker 3 ...
     135 depths waiting for workers.
-Thu Dec  1 17:14:42 2011:
--> received results from Worker 8
-Thu Dec  1 17:14:42 2011:
--> Boss sending depth 16.988 to worker 8 ...
+Fri Aug 17 00:12:24 2012:
+-> received results from Worker 1
+Fri Aug 17 00:12:24 2012:
+-> Boss sending depth 16.988 to worker 1 ...
     134 depths waiting for workers.
-Thu Dec  1 17:14:42 2011:
--> received results from Worker 4
-Thu Dec  1 17:14:42 2011:
--> Boss sending depth 17.656 to worker 4 ...
+Fri Aug 17 00:12:31 2012:
+-> received results from Worker 2
+Fri Aug 17 00:12:31 2012:
+-> Boss sending depth 17.656 to worker 2 ...
     133 depths waiting for workers.
-Thu Dec  1 17:14:45 2011:
--> received results from Worker 3
-Thu Dec  1 17:14:45 2011:
--> Boss sending depth 18.323 to worker 3 ...
+Fri Aug 17 00:12:32 2012:
+-> received results from Worker 6
+Fri Aug 17 00:12:32 2012:
+-> Boss sending depth 18.323 to worker 6 ...
     132 depths waiting for workers.
-Thu Dec  1 17:14:45 2011:
--> received results from Worker 1
-Thu Dec  1 17:14:45 2011:
--> Boss sending depth 18.991 to worker 1 ...
+Fri Aug 17 00:12:32 2012:
+-> received results from Worker 7
+Fri Aug 17 00:12:32 2012:
+-> Boss sending depth 18.991 to worker 7 ...
     131 depths waiting for workers.
-Thu Dec  1 17:14:52 2011:
--> received results from Worker 9
-Thu Dec  1 17:14:52 2011:
--> Boss sending depth 19.659 to worker 9 ...
+Fri Aug 17 00:12:33 2012:
+-> received results from Worker 4
+Fri Aug 17 00:12:33 2012:
+-> Boss sending depth 19.659 to worker 4 ...
     130 depths waiting for workers.
-Thu Dec  1 17:15:04 2011:
--> received results from Worker 7
-Thu Dec  1 17:15:04 2011:
--> Boss sending depth 20.327 to worker 7 ...
+Fri Aug 17 00:12:33 2012:
+-> received results from Worker 5
+Fri Aug 17 00:12:33 2012:
+-> Boss sending depth 20.327 to worker 5 ...
     129 depths waiting for workers.
-Thu Dec  1 17:15:11 2011:
--> received results from Worker 2
-Thu Dec  1 17:15:11 2011:
--> Boss sending depth 20.995 to worker 2 ...
+Fri Aug 17 00:12:55 2012:
+-> received results from Worker 3
+Fri Aug 17 00:12:55 2012:
+-> Boss sending depth 20.995 to worker 3 ...
     128 depths waiting for workers.
-Thu Dec  1 17:15:12 2011:
--> received results from Worker 6
-Thu Dec  1 17:15:12 2011:
--> Boss sending depth 21.663 to worker 6 ...
+Fri Aug 17 00:13:11 2012:
+-> received results from Worker 1
+Fri Aug 17 00:13:11 2012:
+-> Boss sending depth 21.663 to worker 1 ...
     127 depths waiting for workers.
-Thu Dec  1 17:15:21 2011:
--> received results from Worker 1
-Thu Dec  1 17:15:21 2011:
--> Boss sending depth 22.330 to worker 1 ...
+Fri Aug 17 00:13:13 2012:
+-> received results from Worker 5
+Fri Aug 17 00:13:13 2012:
+-> Boss sending depth 22.330 to worker 5 ...
     126 depths waiting for workers.
-Thu Dec  1 17:15:23 2011:
--> received results from Worker 8
-Thu Dec  1 17:15:23 2011:
--> Boss sending depth 22.998 to worker 8 ...
+Fri Aug 17 00:13:14 2012:
+-> received results from Worker 4
+Fri Aug 17 00:13:14 2012:
+-> Boss sending depth 22.998 to worker 4 ...
     125 depths waiting for workers.
-Thu Dec  1 17:15:23 2011:
--> received results from Worker 4
-Thu Dec  1 17:15:23 2011:
--> Boss sending depth 23.666 to worker 4 ...
+Fri Aug 17 00:13:15 2012:
+-> received results from Worker 7
+Fri Aug 17 00:13:15 2012:
+-> Boss sending depth 23.666 to worker 7 ...
     124 depths waiting for workers.
-Thu Dec  1 17:15:24 2011:
--> received results from Worker 5
-Thu Dec  1 17:15:24 2011:
--> Boss sending depth 24.334 to worker 5 ...
-    123 depths waiting for workers.
-Thu Dec  1 17:15:24 2011:
--> received results from Worker 3
-Thu Dec  1 17:15:24 2011:
--> Boss sending depth 25.002 to worker 3 ...
-    122 depths waiting for workers.
-Thu Dec  1 17:15:30 2011:
--> received results from Worker 9
-Thu Dec  1 17:15:30 2011:
--> Boss sending depth 25.670 to worker 9 ...
-    121 depths waiting for workers.
-Thu Dec  1 17:15:40 2011:
--> received results from Worker 7
-Thu Dec  1 17:15:40 2011:
--> Boss sending depth 26.337 to worker 7 ...
-    120 depths waiting for workers.
-Thu Dec  1 17:15:45 2011:
--> received results from Worker 2
-Thu Dec  1 17:15:45 2011:
--> Boss sending depth 27.005 to worker 2 ...
-    119 depths waiting for workers.
-Thu Dec  1 17:15:45 2011:
+Fri Aug 17 00:13:16 2012:
 -> received results from Worker 6
-Thu Dec  1 17:15:45 2011:
--> Boss sending depth 27.673 to worker 6 ...
-    118 depths waiting for workers.
-Thu Dec  1 17:15:52 2011:
--> received results from Worker 5
-Thu Dec  1 17:15:52 2011:
--> Boss sending depth 28.341 to worker 5 ...
-    117 depths waiting for workers.
-Thu Dec  1 17:15:52 2011:
--> received results from Worker 3
-Thu Dec  1 17:15:52 2011:
--> Boss sending depth 29.009 to worker 3 ...
-    116 depths waiting for workers.
-Thu Dec  1 17:15:53 2011:
--> received results from Worker 1
-Thu Dec  1 17:15:53 2011:
--> Boss sending depth 29.677 to worker 1 ...
-    115 depths waiting for workers.
-Thu Dec  1 17:15:54 2011:
--> received results from Worker 8
-Thu Dec  1 17:15:54 2011:
--> Boss sending depth 30.344 to worker 8 ...
-    114 depths waiting for workers.
-Thu Dec  1 17:15:55 2011:
--> received results from Worker 4
-Thu Dec  1 17:15:55 2011:
--> Boss sending depth 31.012 to worker 4 ...
-    113 depths waiting for workers.
-Thu Dec  1 17:16:01 2011:
--> received results from Worker 9
-Thu Dec  1 17:16:01 2011:
--> Boss sending depth 31.680 to worker 9 ...
-    112 depths waiting for workers.
-Thu Dec  1 17:16:12 2011:
--> received results from Worker 7
-Thu Dec  1 17:16:12 2011:
--> Boss sending depth 32.750 to worker 7 ...
-    111 depths waiting for workers.
-Thu Dec  1 17:16:15 2011:
+Fri Aug 17 00:13:16 2012:
+-> Boss sending depth 24.334 to worker 6 ...
+    123 depths waiting for workers.
+Fri Aug 17 00:13:17 2012:
 -> received results from Worker 2
-Thu Dec  1 17:16:15 2011:
+Fri Aug 17 00:13:17 2012:
+-> Boss sending depth 25.002 to worker 2 ...
+    122 depths waiting for workers.
+Fri Aug 17 00:13:33 2012:
+-> received results from Worker 3
+Fri Aug 17 00:13:33 2012:
+-> Boss sending depth 25.670 to worker 3 ...
+    121 depths waiting for workers.
+Fri Aug 17 00:13:48 2012:
+-> received results from Worker 5
+Fri Aug 17 00:13:48 2012:
+-> Boss sending depth 26.337 to worker 5 ...
+    120 depths waiting for workers.
+Fri Aug 17 00:13:48 2012:
+-> received results from Worker 6
+Fri Aug 17 00:13:48 2012:
+-> Boss sending depth 27.005 to worker 6 ...
+    119 depths waiting for workers.
+Fri Aug 17 00:13:48 2012:
+-> received results from Worker 1
+Fri Aug 17 00:13:48 2012:
+-> Boss sending depth 27.673 to worker 1 ...
+    118 depths waiting for workers.
+Fri Aug 17 00:13:49 2012:
+-> received results from Worker 2
+Fri Aug 17 00:13:49 2012:
+-> Boss sending depth 28.341 to worker 2 ...
+    117 depths waiting for workers.
+Fri Aug 17 00:13:49 2012:
+-> received results from Worker 7
+Fri Aug 17 00:13:49 2012:
+-> Boss sending depth 29.009 to worker 7 ...
+    116 depths waiting for workers.
+Fri Aug 17 00:13:53 2012:
+-> received results from Worker 4
+Fri Aug 17 00:13:53 2012:
+-> Boss sending depth 29.677 to worker 4 ...
+    115 depths waiting for workers.
+Fri Aug 17 00:14:06 2012:
+-> received results from Worker 3
+Fri Aug 17 00:14:06 2012:
+-> Boss sending depth 30.344 to worker 3 ...
+    114 depths waiting for workers.
+Fri Aug 17 00:14:23 2012:
+-> received results from Worker 6
+Fri Aug 17 00:14:23 2012:
+-> Boss sending depth 31.012 to worker 6 ...
+    113 depths waiting for workers.
+Fri Aug 17 00:14:24 2012:
+-> received results from Worker 1
+Fri Aug 17 00:14:24 2012:
+-> Boss sending depth 31.680 to worker 1 ...
+    112 depths waiting for workers.
+Fri Aug 17 00:14:26 2012:
+-> received results from Worker 5
+Fri Aug 17 00:14:26 2012:
+-> Boss sending depth 32.750 to worker 5 ...
+    111 depths waiting for workers.
+Fri Aug 17 00:14:26 2012:
+-> received results from Worker 2
+Fri Aug 17 00:14:26 2012:
 -> Boss sending depth 34.264 to worker 2 ...
     110 depths waiting for workers.
-Thu Dec  1 17:16:17 2011:
--> received results from Worker 6
-Thu Dec  1 17:16:17 2011:
--> Boss sending depth 35.777 to worker 6 ...
+Fri Aug 17 00:14:27 2012:
+-> received results from Worker 7
+Fri Aug 17 00:14:27 2012:
+-> Boss sending depth 35.777 to worker 7 ...
     109 depths waiting for workers.
-Thu Dec  1 17:16:24 2011:
--> received results from Worker 5
-Thu Dec  1 17:16:24 2011:
--> Boss sending depth 37.291 to worker 5 ...
+Fri Aug 17 00:14:32 2012:
+-> received results from Worker 4
+Fri Aug 17 00:14:32 2012:
+-> Boss sending depth 37.291 to worker 4 ...
     108 depths waiting for workers.
-Thu Dec  1 17:16:28 2011:
+Fri Aug 17 00:14:47 2012:
 -> received results from Worker 3
-Thu Dec  1 17:16:28 2011:
+Fri Aug 17 00:14:47 2012:
 -> Boss sending depth 38.805 to worker 3 ...
     107 depths waiting for workers.
-Thu Dec  1 17:16:29 2011:
--> received results from Worker 1
-Thu Dec  1 17:16:29 2011:
--> Boss sending depth 40.318 to worker 1 ...
+Fri Aug 17 00:15:06 2012:
+-> received results from Worker 6
+Fri Aug 17 00:15:06 2012:
+-> Boss sending depth 40.318 to worker 6 ...
     106 depths waiting for workers.
-Thu Dec  1 17:16:31 2011:
--> received results from Worker 8
-Thu Dec  1 17:16:31 2011:
--> Boss sending depth 41.832 to worker 8 ...
+Fri Aug 17 00:15:08 2012:
+-> received results from Worker 1
+Fri Aug 17 00:15:08 2012:
+-> Boss sending depth 41.832 to worker 1 ...
     105 depths waiting for workers.
-Thu Dec  1 17:16:32 2011:
--> received results from Worker 4
-Thu Dec  1 17:16:32 2011:
--> Boss sending depth 43.345 to worker 4 ...
+Fri Aug 17 00:15:12 2012:
+-> received results from Worker 5
+Fri Aug 17 00:15:12 2012:
+-> Boss sending depth 43.345 to worker 5 ...
     104 depths waiting for workers.
-Thu Dec  1 17:16:40 2011:
--> received results from Worker 9
-Thu Dec  1 17:16:40 2011:
--> Boss sending depth 44.859 to worker 9 ...
+Fri Aug 17 00:15:18 2012:
+-> received results from Worker 2
+Fri Aug 17 00:15:18 2012:
+-> Boss sending depth 44.859 to worker 2 ...
     103 depths waiting for workers.
-Thu Dec  1 17:16:55 2011:
+Fri Aug 17 00:15:24 2012:
 -> received results from Worker 7
-Thu Dec  1 17:16:55 2011:
+Fri Aug 17 00:15:24 2012:
 -> Boss sending depth 46.373 to worker 7 ...
     102 depths waiting for workers.
-Thu Dec  1 17:17:01 2011:
--> received results from Worker 2
-Thu Dec  1 17:17:01 2011:
--> Boss sending depth 47.886 to worker 2 ...
+Fri Aug 17 00:15:36 2012:
+-> received results from Worker 4
+Fri Aug 17 00:15:36 2012:
+-> Boss sending depth 47.886 to worker 4 ...
     101 depths waiting for workers.
-Thu Dec  1 17:17:07 2011:
--> received results from Worker 6
-Thu Dec  1 17:17:07 2011:
--> Boss sending depth 49.400 to worker 6 ...
-    100 depths waiting for workers.
-Thu Dec  1 17:17:23 2011:
--> received results from Worker 5
-Thu Dec  1 17:17:23 2011:
--> Boss sending depth 50.914 to worker 5 ...
-    99 depths waiting for workers.
-Thu Dec  1 17:17:34 2011:
+Fri Aug 17 00:15:59 2012:
 -> received results from Worker 3
-Thu Dec  1 17:17:34 2011:
--> Boss sending depth 52.427 to worker 3 ...
+Fri Aug 17 00:15:59 2012:
+-> Boss sending depth 49.400 to worker 3 ...
+    100 depths waiting for workers.
+Fri Aug 17 00:16:32 2012:
+-> received results from Worker 6
+Fri Aug 17 00:16:32 2012:
+-> Boss sending depth 50.914 to worker 6 ...
+    99 depths waiting for workers.
+Fri Aug 17 00:16:47 2012:
+-> received results from Worker 1
+Fri Aug 17 00:16:47 2012:
+-> Boss sending depth 52.427 to worker 1 ...
     98 depths waiting for workers.
-Thu Dec  1 17:17:44 2011:
--> received results from Worker 1
-Thu Dec  1 17:17:44 2011:
--> Boss sending depth 53.941 to worker 1 ...
+Fri Aug 17 00:17:13 2012:
+-> received results from Worker 5
+Fri Aug 17 00:17:13 2012:
+-> Boss sending depth 53.941 to worker 5 ...
     97 depths waiting for workers.
-Thu Dec  1 17:18:02 2011:
--> received results from Worker 8
-Thu Dec  1 17:18:02 2011:
--> Boss sending depth 55.455 to worker 8 ...
+Fri Aug 17 00:17:56 2012:
+-> received results from Worker 2
+Fri Aug 17 00:17:56 2012:
+-> Boss sending depth 55.455 to worker 2 ...
     96 depths waiting for workers.
-Thu Dec  1 17:18:25 2011:
--> received results from Worker 4
-Thu Dec  1 17:18:25 2011:
--> Boss sending depth 56.968 to worker 4 ...
+Fri Aug 17 00:19:25 2012:
+-> received results from Worker 7
+Fri Aug 17 00:19:25 2012:
+-> Boss sending depth 56.968 to worker 7 ...
     95 depths waiting for workers.
-Thu Dec  1 17:19:19 2011:
--> received results from Worker 9
-Thu Dec  1 17:19:19 2011:
--> Boss sending depth 58.482 to worker 9 ...
+Fri Aug 17 00:21:12 2012:
+-> received results from Worker 2
+Fri Aug 17 00:21:12 2012:
+-> Boss sending depth 58.482 to worker 2 ...
     94 depths waiting for workers.
-Thu Dec  1 17:20:44 2011:
--> received results from Worker 4
-Thu Dec  1 17:20:44 2011:
--> Boss sending depth 59.995 to worker 4 ...
+Fri Aug 17 00:21:49 2012:
+-> received results from Worker 7
+Fri Aug 17 00:21:49 2012:
+-> Boss sending depth 59.995 to worker 7 ...
     93 depths waiting for workers.
-Thu Dec  1 17:21:26 2011:
--> received results from Worker 9
-Thu Dec  1 17:21:26 2011:
--> Boss sending depth 61.509 to worker 9 ...
+Fri Aug 17 00:21:58 2012:
+-> received results from Worker 5
+Fri Aug 17 00:21:58 2012:
+-> Boss sending depth 61.509 to worker 5 ...
     92 depths waiting for workers.
-Thu Dec  1 17:21:27 2011:
--> received results from Worker 7
-Thu Dec  1 17:21:27 2011:
--> Boss sending depth 63.023 to worker 7 ...
+Fri Aug 17 00:22:16 2012:
+-> received results from Worker 4
+Fri Aug 17 00:22:16 2012:
+-> Boss sending depth 63.023 to worker 4 ...
     91 depths waiting for workers.
-Thu Dec  1 17:21:30 2011:
--> received results from Worker 8
-Thu Dec  1 17:21:30 2011:
--> Boss sending depth 64.536 to worker 8 ...
+Fri Aug 17 00:23:11 2012:
+-> received results from Worker 2
+Fri Aug 17 00:23:11 2012:
+-> Boss sending depth 64.536 to worker 2 ...
     90 depths waiting for workers.
-Thu Dec  1 17:22:30 2011:
--> received results from Worker 4
-Thu Dec  1 17:22:30 2011:
--> Boss sending depth 66.050 to worker 4 ...
+Fri Aug 17 00:23:24 2012:
+-> received results from Worker 5
+Fri Aug 17 00:23:24 2012:
+-> Boss sending depth 66.050 to worker 5 ...
     89 depths waiting for workers.
-Thu Dec  1 17:22:35 2011:
--> received results from Worker 8
-Thu Dec  1 17:22:35 2011:
--> Boss sending depth 67.564 to worker 8 ...
+Fri Aug 17 00:23:30 2012:
+-> received results from Worker 7
+Fri Aug 17 00:23:30 2012:
+-> Boss sending depth 67.564 to worker 7 ...
     88 depths waiting for workers.
-Thu Dec  1 17:22:39 2011:
--> received results from Worker 7
-Thu Dec  1 17:22:39 2011:
--> Boss sending depth 69.077 to worker 7 ...
-    87 depths waiting for workers.
-Thu Dec  1 17:22:48 2011:
--> received results from Worker 9
-Thu Dec  1 17:22:48 2011:
--> Boss sending depth 70.591 to worker 9 ...
-    86 depths waiting for workers.
-Thu Dec  1 17:23:10 2011:
--> received results from Worker 1
-Thu Dec  1 17:23:10 2011:
--> Boss sending depth 72.105 to worker 1 ...
-    85 depths waiting for workers.
-Thu Dec  1 17:23:21 2011:
--> received results from Worker 8
-Thu Dec  1 17:23:21 2011:
--> Boss sending depth 73.618 to worker 8 ...
-    84 depths waiting for workers.
-Thu Dec  1 17:23:22 2011:
+Fri Aug 17 00:23:32 2012:
 -> received results from Worker 4
-Thu Dec  1 17:23:22 2011:
--> Boss sending depth 75.132 to worker 4 ...
+Fri Aug 17 00:23:32 2012:
+-> Boss sending depth 69.077 to worker 4 ...
+    87 depths waiting for workers.
+Fri Aug 17 00:24:00 2012:
+-> received results from Worker 1
+Fri Aug 17 00:24:00 2012:
+-> Boss sending depth 70.591 to worker 1 ...
+    86 depths waiting for workers.
+Fri Aug 17 00:24:25 2012:
+-> received results from Worker 4
+Fri Aug 17 00:24:25 2012:
+-> Boss sending depth 72.105 to worker 4 ...
+    85 depths waiting for workers.
+Fri Aug 17 00:24:25 2012:
+-> received results from Worker 5
+Fri Aug 17 00:24:25 2012:
+-> Boss sending depth 73.618 to worker 5 ...
+    84 depths waiting for workers.
+Fri Aug 17 00:24:26 2012:
+-> received results from Worker 2
+Fri Aug 17 00:24:26 2012:
+-> Boss sending depth 75.132 to worker 2 ...
     83 depths waiting for workers.
-Thu Dec  1 17:23:22 2011:
+Fri Aug 17 00:24:28 2012:
 -> received results from Worker 7
-Thu Dec  1 17:23:22 2011:
+Fri Aug 17 00:24:28 2012:
 -> Boss sending depth 76.645 to worker 7 ...
     82 depths waiting for workers.
-Thu Dec  1 17:23:28 2011:
--> received results from Worker 9
-Thu Dec  1 17:23:28 2011:
--> Boss sending depth 78.159 to worker 9 ...
-    81 depths waiting for workers.
-Thu Dec  1 17:23:46 2011:
+Fri Aug 17 00:24:50 2012:
 -> received results from Worker 1
-Thu Dec  1 17:23:46 2011:
--> Boss sending depth 79.673 to worker 1 ...
-    80 depths waiting for workers.
-Thu Dec  1 17:23:52 2011:
+Fri Aug 17 00:24:50 2012:
+-> Boss sending depth 78.159 to worker 1 ...
+    81 depths waiting for workers.
+Fri Aug 17 00:25:05 2012:
 -> received results from Worker 7
-Thu Dec  1 17:23:52 2011:
--> Boss sending depth 81.186 to worker 7 ...
-    79 depths waiting for workers.
-Thu Dec  1 17:23:54 2011:
--> received results from Worker 4
-Thu Dec  1 17:23:54 2011:
--> Boss sending depth 82.700 to worker 4 ...
-    78 depths waiting for workers.
-Thu Dec  1 17:23:55 2011:
--> received results from Worker 8
-Thu Dec  1 17:23:55 2011:
--> Boss sending depth 84.214 to worker 8 ...
-    77 depths waiting for workers.
-Thu Dec  1 17:23:56 2011:
--> received results from Worker 9
-Thu Dec  1 17:23:56 2011:
--> Boss sending depth 85.727 to worker 9 ...
-    76 depths waiting for workers.
-Thu Dec  1 17:24:10 2011:
+Fri Aug 17 00:25:05 2012:
+-> Boss sending depth 79.673 to worker 7 ...
+    80 depths waiting for workers.
+Fri Aug 17 00:25:05 2012:
 -> received results from Worker 2
-Thu Dec  1 17:24:10 2011:
+Fri Aug 17 00:25:05 2012:
+-> Boss sending depth 81.186 to worker 2 ...
+    79 depths waiting for workers.
+Fri Aug 17 00:25:07 2012:
+-> received results from Worker 5
+Fri Aug 17 00:25:07 2012:
+-> Boss sending depth 82.700 to worker 5 ...
+    78 depths waiting for workers.
+Fri Aug 17 00:25:10 2012:
+-> received results from Worker 4
+Fri Aug 17 00:25:10 2012:
+-> Boss sending depth 84.214 to worker 4 ...
+    77 depths waiting for workers.
+Fri Aug 17 00:25:25 2012:
+-> received results from Worker 1
+Fri Aug 17 00:25:25 2012:
+-> Boss sending depth 85.727 to worker 1 ...
+    76 depths waiting for workers.
+Fri Aug 17 00:25:37 2012:
+-> received results from Worker 2
+Fri Aug 17 00:25:37 2012:
 -> Boss sending depth 87.241 to worker 2 ...
     75 depths waiting for workers.
-Thu Dec  1 17:24:13 2011:
--> received results from Worker 1
-Thu Dec  1 17:24:13 2011:
--> Boss sending depth 88.755 to worker 1 ...
+Fri Aug 17 00:25:38 2012:
+-> received results from Worker 5
+Fri Aug 17 00:25:38 2012:
+-> Boss sending depth 88.755 to worker 5 ...
     74 depths waiting for workers.
-Thu Dec  1 17:24:18 2011:
+Fri Aug 17 00:25:38 2012:
 -> received results from Worker 7
-Thu Dec  1 17:24:18 2011:
+Fri Aug 17 00:25:38 2012:
 -> Boss sending depth 90.268 to worker 7 ...
     73 depths waiting for workers.
-Thu Dec  1 17:24:18 2011:
+Fri Aug 17 00:25:39 2012:
 -> received results from Worker 4
-Thu Dec  1 17:24:18 2011:
+Fri Aug 17 00:25:39 2012:
 -> Boss sending depth 91.782 to worker 4 ...
     72 depths waiting for workers.
-Thu Dec  1 17:24:18 2011:
--> received results from Worker 8
-Thu Dec  1 17:24:18 2011:
--> Boss sending depth 93.295 to worker 8 ...
-    71 depths waiting for workers.
-Thu Dec  1 17:24:18 2011:
--> received results from Worker 9
-Thu Dec  1 17:24:18 2011:
--> Boss sending depth 94.809 to worker 9 ...
-    70 depths waiting for workers.
-Thu Dec  1 17:24:31 2011:
--> received results from Worker 2
-Thu Dec  1 17:24:31 2011:
--> Boss sending depth 96.323 to worker 2 ...
-    69 depths waiting for workers.
-Thu Dec  1 17:24:33 2011:
+Fri Aug 17 00:25:53 2012:
 -> received results from Worker 1
-Thu Dec  1 17:24:33 2011:
--> Boss sending depth 97.836 to worker 1 ...
-    68 depths waiting for workers.
-Thu Dec  1 17:24:35 2011:
--> received results from Worker 9
-Thu Dec  1 17:24:35 2011:
--> Boss sending depth 99.350 to worker 9 ...
-    67 depths waiting for workers.
-Thu Dec  1 17:24:36 2011:
--> received results from Worker 8
-Thu Dec  1 17:24:36 2011:
--> Boss sending depth 100.864 to worker 8 ...
-    66 depths waiting for workers.
-Thu Dec  1 17:24:37 2011:
+Fri Aug 17 00:25:53 2012:
+-> Boss sending depth 93.295 to worker 1 ...
+    71 depths waiting for workers.
+Fri Aug 17 00:26:03 2012:
 -> received results from Worker 4
-Thu Dec  1 17:24:37 2011:
--> Boss sending depth 102.377 to worker 4 ...
-    65 depths waiting for workers.
-Thu Dec  1 17:24:37 2011:
+Fri Aug 17 00:26:03 2012:
+-> Boss sending depth 94.809 to worker 4 ...
+    70 depths waiting for workers.
+Fri Aug 17 00:26:03 2012:
 -> received results from Worker 7
-Thu Dec  1 17:24:37 2011:
+Fri Aug 17 00:26:03 2012:
+-> Boss sending depth 96.323 to worker 7 ...
+    69 depths waiting for workers.
+Fri Aug 17 00:26:03 2012:
+-> received results from Worker 5
+Fri Aug 17 00:26:03 2012:
+-> Boss sending depth 97.836 to worker 5 ...
+    68 depths waiting for workers.
+Fri Aug 17 00:26:05 2012:
+-> received results from Worker 2
+Fri Aug 17 00:26:05 2012:
+-> Boss sending depth 99.350 to worker 2 ...
+    67 depths waiting for workers.
+Fri Aug 17 00:26:16 2012:
+-> received results from Worker 1
+Fri Aug 17 00:26:16 2012:
+-> Boss sending depth 100.864 to worker 1 ...
+    66 depths waiting for workers.
+Fri Aug 17 00:26:24 2012:
+-> received results from Worker 5
+Fri Aug 17 00:26:24 2012:
+-> Boss sending depth 102.377 to worker 5 ...
+    65 depths waiting for workers.
+Fri Aug 17 00:26:24 2012:
+-> received results from Worker 7
+Fri Aug 17 00:26:24 2012:
 -> Boss sending depth 103.891 to worker 7 ...
     64 depths waiting for workers.
-Thu Dec  1 17:24:48 2011:
+Fri Aug 17 00:26:25 2012:
 -> received results from Worker 2
-Thu Dec  1 17:24:48 2011:
+Fri Aug 17 00:26:25 2012:
 -> Boss sending depth 105.405 to worker 2 ...
     63 depths waiting for workers.
-Thu Dec  1 17:24:50 2011:
--> received results from Worker 1
-Thu Dec  1 17:24:50 2011:
--> Boss sending depth 106.918 to worker 1 ...
-    62 depths waiting for workers.
-Thu Dec  1 17:24:51 2011:
--> received results from Worker 9
-Thu Dec  1 17:24:51 2011:
--> Boss sending depth 108.432 to worker 9 ...
-    61 depths waiting for workers.
-Thu Dec  1 17:24:51 2011:
--> received results from Worker 8
-Thu Dec  1 17:24:51 2011:
--> Boss sending depth 109.945 to worker 8 ...
-    60 depths waiting for workers.
-Thu Dec  1 17:24:52 2011:
+Fri Aug 17 00:26:27 2012:
 -> received results from Worker 4
-Thu Dec  1 17:24:52 2011:
--> Boss sending depth 111.459 to worker 4 ...
-    59 depths waiting for workers.
-Thu Dec  1 17:24:52 2011:
--> received results from Worker 7
-Thu Dec  1 17:24:52 2011:
--> Boss sending depth 112.973 to worker 7 ...
-    58 depths waiting for workers.
-Thu Dec  1 17:25:03 2011:
--> received results from Worker 2
-Thu Dec  1 17:25:03 2011:
--> Boss sending depth 114.486 to worker 2 ...
-    57 depths waiting for workers.
-Thu Dec  1 17:25:05 2011:
+Fri Aug 17 00:26:27 2012:
+-> Boss sending depth 106.918 to worker 4 ...
+    62 depths waiting for workers.
+Fri Aug 17 00:26:36 2012:
 -> received results from Worker 1
-Thu Dec  1 17:25:05 2011:
+Fri Aug 17 00:26:36 2012:
+-> Boss sending depth 108.432 to worker 1 ...
+    61 depths waiting for workers.
+Fri Aug 17 00:26:44 2012:
+-> received results from Worker 5
+Fri Aug 17 00:26:44 2012:
+-> Boss sending depth 109.945 to worker 5 ...
+    60 depths waiting for workers.
+Fri Aug 17 00:26:44 2012:
+-> received results from Worker 7
+Fri Aug 17 00:26:44 2012:
+-> Boss sending depth 111.459 to worker 7 ...
+    59 depths waiting for workers.
+Fri Aug 17 00:26:45 2012:
+-> received results from Worker 2
+Fri Aug 17 00:26:45 2012:
+-> Boss sending depth 112.973 to worker 2 ...
+    58 depths waiting for workers.
+Fri Aug 17 00:26:47 2012:
+-> received results from Worker 4
+Fri Aug 17 00:26:47 2012:
+-> Boss sending depth 114.486 to worker 4 ...
+    57 depths waiting for workers.
+Fri Aug 17 00:26:56 2012:
+-> received results from Worker 1
+Fri Aug 17 00:26:56 2012:
 -> Boss sending depth 116.000 to worker 1 ...
     56 depths waiting for workers.
-Thu Dec  1 17:25:06 2011:
--> received results from Worker 8
-Thu Dec  1 17:25:06 2011:
--> Boss sending depth 117.514 to worker 8 ...
+Fri Aug 17 00:27:04 2012:
+-> received results from Worker 5
+Fri Aug 17 00:27:04 2012:
+-> Boss sending depth 117.514 to worker 5 ...
     55 depths waiting for workers.
-Thu Dec  1 17:25:07 2011:
--> received results from Worker 9
-Thu Dec  1 17:25:07 2011:
--> Boss sending depth 119.027 to worker 9 ...
+Fri Aug 17 00:27:04 2012:
+-> received results from Worker 7
+Fri Aug 17 00:27:04 2012:
+-> Boss sending depth 119.027 to worker 7 ...
     54 depths waiting for workers.
-Thu Dec  1 17:25:07 2011:
--> received results from Worker 4
-Thu Dec  1 17:25:07 2011:
--> Boss sending depth 120.541 to worker 4 ...
+Fri Aug 17 00:27:05 2012:
+-> received results from Worker 2
+Fri Aug 17 00:27:05 2012:
+-> Boss sending depth 120.541 to worker 2 ...
     53 depths waiting for workers.
-Thu Dec  1 17:25:08 2011:
--> received results from Worker 7
-Thu Dec  1 17:25:08 2011:
--> Boss sending depth 122.055 to worker 7 ...
-    52 depths waiting for workers.
-Thu Dec  1 17:25:19 2011:
--> received results from Worker 3
-Thu Dec  1 17:25:19 2011:
--> Boss sending depth 123.568 to worker 3 ...
-    51 depths waiting for workers.
-Thu Dec  1 17:25:19 2011:
--> received results from Worker 2
-Thu Dec  1 17:25:19 2011:
--> Boss sending depth 125.082 to worker 2 ...
-    50 depths waiting for workers.
-Thu Dec  1 17:25:20 2011:
--> received results from Worker 1
-Thu Dec  1 17:25:20 2011:
--> Boss sending depth 126.595 to worker 1 ...
-    49 depths waiting for workers.
-Thu Dec  1 17:25:22 2011:
--> received results from Worker 8
-Thu Dec  1 17:25:22 2011:
--> Boss sending depth 128.109 to worker 8 ...
-    48 depths waiting for workers.
-Thu Dec  1 17:25:22 2011:
--> received results from Worker 9
-Thu Dec  1 17:25:22 2011:
--> Boss sending depth 129.623 to worker 9 ...
-    47 depths waiting for workers.
-Thu Dec  1 17:25:23 2011:
+Fri Aug 17 00:27:07 2012:
 -> received results from Worker 4
-Thu Dec  1 17:25:23 2011:
--> Boss sending depth 131.136 to worker 4 ...
-    46 depths waiting for workers.
-Thu Dec  1 17:25:24 2011:
+Fri Aug 17 00:27:07 2012:
+-> Boss sending depth 122.055 to worker 4 ...
+    52 depths waiting for workers.
+Fri Aug 17 00:27:17 2012:
+-> received results from Worker 1
+Fri Aug 17 00:27:17 2012:
+-> Boss sending depth 123.568 to worker 1 ...
+    51 depths waiting for workers.
+Fri Aug 17 00:27:24 2012:
+-> received results from Worker 5
+Fri Aug 17 00:27:24 2012:
+-> Boss sending depth 125.082 to worker 5 ...
+    50 depths waiting for workers.
+Fri Aug 17 00:27:24 2012:
 -> received results from Worker 7
-Thu Dec  1 17:25:24 2011:
--> Boss sending depth 132.650 to worker 7 ...
-    45 depths waiting for workers.
-Thu Dec  1 17:25:34 2011:
--> received results from Worker 3
-Thu Dec  1 17:25:34 2011:
--> Boss sending depth 134.164 to worker 3 ...
-    44 depths waiting for workers.
-Thu Dec  1 17:25:35 2011:
+Fri Aug 17 00:27:24 2012:
+-> Boss sending depth 126.595 to worker 7 ...
+    49 depths waiting for workers.
+Fri Aug 17 00:27:25 2012:
 -> received results from Worker 2
-Thu Dec  1 17:25:35 2011:
+Fri Aug 17 00:27:25 2012:
+-> Boss sending depth 128.109 to worker 2 ...
+    48 depths waiting for workers.
+Fri Aug 17 00:27:27 2012:
+-> received results from Worker 4
+Fri Aug 17 00:27:27 2012:
+-> Boss sending depth 129.623 to worker 4 ...
+    47 depths waiting for workers.
+Fri Aug 17 00:27:37 2012:
+-> received results from Worker 1
+Fri Aug 17 00:27:37 2012:
+-> Boss sending depth 131.136 to worker 1 ...
+    46 depths waiting for workers.
+Fri Aug 17 00:27:44 2012:
+-> received results from Worker 5
+Fri Aug 17 00:27:44 2012:
+-> Boss sending depth 132.650 to worker 5 ...
+    45 depths waiting for workers.
+Fri Aug 17 00:27:44 2012:
+-> received results from Worker 7
+Fri Aug 17 00:27:44 2012:
+-> Boss sending depth 134.164 to worker 7 ...
+    44 depths waiting for workers.
+Fri Aug 17 00:27:45 2012:
+-> received results from Worker 2
+Fri Aug 17 00:27:45 2012:
 -> Boss sending depth 135.677 to worker 2 ...
     43 depths waiting for workers.
-Thu Dec  1 17:25:36 2011:
--> received results from Worker 1
-Thu Dec  1 17:25:36 2011:
--> Boss sending depth 137.191 to worker 1 ...
+Fri Aug 17 00:27:47 2012:
+-> received results from Worker 4
+Fri Aug 17 00:27:47 2012:
+-> Boss sending depth 137.191 to worker 4 ...
     42 depths waiting for workers.
-Thu Dec  1 17:25:37 2011:
--> received results from Worker 8
-Thu Dec  1 17:25:37 2011:
--> Boss sending depth 138.705 to worker 8 ...
+Fri Aug 17 00:27:57 2012:
+-> received results from Worker 1
+Fri Aug 17 00:27:57 2012:
+-> Boss sending depth 138.705 to worker 1 ...
     41 depths waiting for workers.
-Thu Dec  1 17:25:38 2011:
--> received results from Worker 9
-Thu Dec  1 17:25:38 2011:
--> Boss sending depth 140.218 to worker 9 ...
+Fri Aug 17 00:28:04 2012:
+-> received results from Worker 5
+Fri Aug 17 00:28:04 2012:
+-> Boss sending depth 140.218 to worker 5 ...
     40 depths waiting for workers.
-Thu Dec  1 17:25:38 2011:
--> received results from Worker 4
-Thu Dec  1 17:25:38 2011:
--> Boss sending depth 141.732 to worker 4 ...
+Fri Aug 17 00:28:04 2012:
+-> received results from Worker 7
+Fri Aug 17 00:28:04 2012:
+-> Boss sending depth 141.732 to worker 7 ...
     39 depths waiting for workers.
-Thu Dec  1 17:25:39 2011:
--> received results from Worker 7
-Thu Dec  1 17:25:39 2011:
--> Boss sending depth 143.245 to worker 7 ...
+Fri Aug 17 00:28:05 2012:
+-> received results from Worker 2
+Fri Aug 17 00:28:05 2012:
+-> Boss sending depth 143.245 to worker 2 ...
     38 depths waiting for workers.
-Thu Dec  1 17:25:49 2011:
--> received results from Worker 3
-Thu Dec  1 17:25:49 2011:
--> Boss sending depth 144.759 to worker 3 ...
+Fri Aug 17 00:28:07 2012:
+-> received results from Worker 4
+Fri Aug 17 00:28:07 2012:
+-> Boss sending depth 144.759 to worker 4 ...
     37 depths waiting for workers.
-Thu Dec  1 17:25:50 2011:
--> received results from Worker 2
-Thu Dec  1 17:25:50 2011:
--> Boss sending depth 146.273 to worker 2 ...
+Fri Aug 17 00:28:17 2012:
+-> received results from Worker 1
+Fri Aug 17 00:28:17 2012:
+-> Boss sending depth 146.273 to worker 1 ...
     36 depths waiting for workers.
-Thu Dec  1 17:25:51 2011:
--> received results from Worker 1
-Thu Dec  1 17:25:51 2011:
--> Boss sending depth 147.786 to worker 1 ...
+Fri Aug 17 00:28:24 2012:
+-> received results from Worker 5
+Fri Aug 17 00:28:24 2012:
+-> Boss sending depth 147.786 to worker 5 ...
     35 depths waiting for workers.
-Thu Dec  1 17:25:53 2011:
--> received results from Worker 8
-Thu Dec  1 17:25:53 2011:
--> Boss sending depth 149.300 to worker 8 ...
+Fri Aug 17 00:28:24 2012:
+-> received results from Worker 7
+Fri Aug 17 00:28:24 2012:
+-> Boss sending depth 149.300 to worker 7 ...
     34 depths waiting for workers.
-Thu Dec  1 17:25:54 2011:
--> received results from Worker 4
-Thu Dec  1 17:25:54 2011:
--> Boss sending depth 150.814 to worker 4 ...
-    33 depths waiting for workers.
-Thu Dec  1 17:25:54 2011:
--> received results from Worker 9
-Thu Dec  1 17:25:54 2011:
--> Boss sending depth 152.327 to worker 9 ...
-    32 depths waiting for workers.
-Thu Dec  1 17:25:54 2011:
--> received results from Worker 7
-Thu Dec  1 17:25:54 2011:
--> Boss sending depth 153.841 to worker 7 ...
-    31 depths waiting for workers.
-Thu Dec  1 17:26:05 2011:
--> received results from Worker 3
-Thu Dec  1 17:26:05 2011:
--> Boss sending depth 155.355 to worker 3 ...
-    30 depths waiting for workers.
-Thu Dec  1 17:26:05 2011:
+Fri Aug 17 00:28:27 2012:
 -> received results from Worker 2
-Thu Dec  1 17:26:05 2011:
--> Boss sending depth 156.868 to worker 2 ...
-    29 depths waiting for workers.
-Thu Dec  1 17:26:07 2011:
--> received results from Worker 1
-Thu Dec  1 17:26:07 2011:
--> Boss sending depth 158.382 to worker 1 ...
-    28 depths waiting for workers.
-Thu Dec  1 17:26:08 2011:
--> received results from Worker 8
-Thu Dec  1 17:26:08 2011:
--> Boss sending depth 159.895 to worker 8 ...
-    27 depths waiting for workers.
-Thu Dec  1 17:26:09 2011:
+Fri Aug 17 00:28:27 2012:
+-> Boss sending depth 150.814 to worker 2 ...
+    33 depths waiting for workers.
+Fri Aug 17 00:28:29 2012:
 -> received results from Worker 4
-Thu Dec  1 17:26:09 2011:
--> Boss sending depth 161.409 to worker 4 ...
-    26 depths waiting for workers.
-Thu Dec  1 17:26:09 2011:
--> received results from Worker 9
-Thu Dec  1 17:26:09 2011:
--> Boss sending depth 162.923 to worker 9 ...
-    25 depths waiting for workers.
-Thu Dec  1 17:26:09 2011:
+Fri Aug 17 00:28:29 2012:
+-> Boss sending depth 152.327 to worker 4 ...
+    32 depths waiting for workers.
+Fri Aug 17 00:28:37 2012:
+-> received results from Worker 1
+Fri Aug 17 00:28:37 2012:
+-> Boss sending depth 153.841 to worker 1 ...
+    31 depths waiting for workers.
+Fri Aug 17 00:28:44 2012:
+-> received results from Worker 5
+Fri Aug 17 00:28:44 2012:
+-> Boss sending depth 155.355 to worker 5 ...
+    30 depths waiting for workers.
+Fri Aug 17 00:28:44 2012:
 -> received results from Worker 7
-Thu Dec  1 17:26:09 2011:
+Fri Aug 17 00:28:44 2012:
+-> Boss sending depth 156.868 to worker 7 ...
+    29 depths waiting for workers.
+Fri Aug 17 00:28:47 2012:
+-> received results from Worker 2
+Fri Aug 17 00:28:47 2012:
+-> Boss sending depth 158.382 to worker 2 ...
+    28 depths waiting for workers.
+Fri Aug 17 00:28:49 2012:
+-> received results from Worker 4
+Fri Aug 17 00:28:49 2012:
+-> Boss sending depth 159.895 to worker 4 ...
+    27 depths waiting for workers.
+Fri Aug 17 00:28:57 2012:
+-> received results from Worker 1
+Fri Aug 17 00:28:57 2012:
+-> Boss sending depth 161.409 to worker 1 ...
+    26 depths waiting for workers.
+Fri Aug 17 00:29:04 2012:
+-> received results from Worker 5
+Fri Aug 17 00:29:04 2012:
+-> Boss sending depth 162.923 to worker 5 ...
+    25 depths waiting for workers.
+Fri Aug 17 00:29:07 2012:
+-> received results from Worker 7
+Fri Aug 17 00:29:07 2012:
 -> Boss sending depth 164.436 to worker 7 ...
     24 depths waiting for workers.
-Thu Dec  1 17:26:20 2011:
--> received results from Worker 3
-Thu Dec  1 17:26:20 2011:
--> Boss sending depth 165.950 to worker 3 ...
-    23 depths waiting for workers.
-Thu Dec  1 17:26:21 2011:
+Fri Aug 17 00:29:07 2012:
 -> received results from Worker 2
-Thu Dec  1 17:26:21 2011:
--> Boss sending depth 167.464 to worker 2 ...
+Fri Aug 17 00:29:07 2012:
+-> Boss sending depth 165.950 to worker 2 ...
+    23 depths waiting for workers.
+Fri Aug 17 00:29:09 2012:
+-> received results from Worker 4
+Fri Aug 17 00:29:09 2012:
+-> Boss sending depth 167.464 to worker 4 ...
     22 depths waiting for workers.
-Thu Dec  1 17:26:22 2011:
+Fri Aug 17 00:29:19 2012:
 -> received results from Worker 1
-Thu Dec  1 17:26:22 2011:
+Fri Aug 17 00:29:19 2012:
 -> Boss sending depth 168.977 to worker 1 ...
     21 depths waiting for workers.
-Thu Dec  1 17:26:24 2011:
--> received results from Worker 8
-Thu Dec  1 17:26:24 2011:
--> Boss sending depth 170.491 to worker 8 ...
+Fri Aug 17 00:29:25 2012:
+-> received results from Worker 5
+Fri Aug 17 00:29:25 2012:
+-> Boss sending depth 170.491 to worker 5 ...
     20 depths waiting for workers.
-Thu Dec  1 17:26:24 2011:
--> received results from Worker 9
-Thu Dec  1 17:26:24 2011:
--> Boss sending depth 172.005 to worker 9 ...
-    19 depths waiting for workers.
-Thu Dec  1 17:26:25 2011:
+Fri Aug 17 00:29:27 2012:
 -> received results from Worker 7
-Thu Dec  1 17:26:25 2011:
--> Boss sending depth 173.518 to worker 7 ...
+Fri Aug 17 00:29:27 2012:
+-> Boss sending depth 172.005 to worker 7 ...
+    19 depths waiting for workers.
+Fri Aug 17 00:29:27 2012:
+-> received results from Worker 2
+Fri Aug 17 00:29:27 2012:
+-> Boss sending depth 173.518 to worker 2 ...
     18 depths waiting for workers.
-Thu Dec  1 17:26:25 2011:
+Fri Aug 17 00:29:29 2012:
 -> received results from Worker 4
-Thu Dec  1 17:26:25 2011:
+Fri Aug 17 00:29:29 2012:
 -> Boss sending depth 175.032 to worker 4 ...
     17 depths waiting for workers.
-Thu Dec  1 17:26:35 2011:
--> received results from Worker 3
-Thu Dec  1 17:26:35 2011:
--> Boss sending depth 176.545 to worker 3 ...
-    16 depths waiting for workers.
-Thu Dec  1 17:26:37 2011:
--> received results from Worker 2
-Thu Dec  1 17:26:37 2011:
--> Boss sending depth 178.059 to worker 2 ...
-    15 depths waiting for workers.
-Thu Dec  1 17:26:38 2011:
+Fri Aug 17 00:29:39 2012:
 -> received results from Worker 1
-Thu Dec  1 17:26:38 2011:
--> Boss sending depth 179.573 to worker 1 ...
-    14 depths waiting for workers.
-Thu Dec  1 17:26:39 2011:
--> received results from Worker 8
-Thu Dec  1 17:26:39 2011:
--> Boss sending depth 181.086 to worker 8 ...
-    13 depths waiting for workers.
-Thu Dec  1 17:26:40 2011:
--> received results from Worker 9
-Thu Dec  1 17:26:40 2011:
--> Boss sending depth 182.600 to worker 9 ...
-    12 depths waiting for workers.
-Thu Dec  1 17:26:40 2011:
+Fri Aug 17 00:29:39 2012:
+-> Boss sending depth 176.545 to worker 1 ...
+    16 depths waiting for workers.
+Fri Aug 17 00:29:45 2012:
+-> received results from Worker 5
+Fri Aug 17 00:29:45 2012:
+-> Boss sending depth 178.059 to worker 5 ...
+    15 depths waiting for workers.
+Fri Aug 17 00:29:47 2012:
 -> received results from Worker 7
-Thu Dec  1 17:26:40 2011:
--> Boss sending depth 184.114 to worker 7 ...
-    11 depths waiting for workers.
-Thu Dec  1 17:26:40 2011:
--> received results from Worker 4
-Thu Dec  1 17:26:40 2011:
--> Boss sending depth 185.627 to worker 4 ...
-    10 depths waiting for workers.
-Thu Dec  1 17:26:51 2011:
--> received results from Worker 3
-Thu Dec  1 17:26:51 2011:
--> Boss sending depth 187.141 to worker 3 ...
-    9 depths waiting for workers.
-Thu Dec  1 17:26:52 2011:
+Fri Aug 17 00:29:47 2012:
+-> Boss sending depth 179.573 to worker 7 ...
+    14 depths waiting for workers.
+Fri Aug 17 00:29:47 2012:
 -> received results from Worker 2
-Thu Dec  1 17:26:52 2011:
+Fri Aug 17 00:29:47 2012:
+-> Boss sending depth 181.086 to worker 2 ...
+    13 depths waiting for workers.
+Fri Aug 17 00:29:49 2012:
+-> received results from Worker 4
+Fri Aug 17 00:29:49 2012:
+-> Boss sending depth 182.600 to worker 4 ...
+    12 depths waiting for workers.
+Fri Aug 17 00:29:59 2012:
+-> received results from Worker 1
+Fri Aug 17 00:29:59 2012:
+-> Boss sending depth 184.114 to worker 1 ...
+    11 depths waiting for workers.
+Fri Aug 17 00:30:05 2012:
+-> received results from Worker 5
+Fri Aug 17 00:30:05 2012:
+-> Boss sending depth 185.627 to worker 5 ...
+    10 depths waiting for workers.
+Fri Aug 17 00:30:07 2012:
+-> received results from Worker 7
+Fri Aug 17 00:30:07 2012:
+-> Boss sending depth 187.141 to worker 7 ...
+    9 depths waiting for workers.
+Fri Aug 17 00:30:07 2012:
+-> received results from Worker 2
+Fri Aug 17 00:30:07 2012:
 -> Boss sending depth 188.655 to worker 2 ...
     8 depths waiting for workers.
-Thu Dec  1 17:26:53 2011:
--> received results from Worker 1
-Thu Dec  1 17:26:53 2011:
--> Boss sending depth 190.168 to worker 1 ...
+Fri Aug 17 00:30:09 2012:
+-> received results from Worker 4
+Fri Aug 17 00:30:09 2012:
+-> Boss sending depth 190.168 to worker 4 ...
     7 depths waiting for workers.
-Thu Dec  1 17:26:55 2011:
--> received results from Worker 8
-Thu Dec  1 17:26:55 2011:
--> Boss sending depth 191.682 to worker 8 ...
+Fri Aug 17 00:30:22 2012:
+-> received results from Worker 1
+Fri Aug 17 00:30:22 2012:
+-> Boss sending depth 191.682 to worker 1 ...
     6 depths waiting for workers.
-Thu Dec  1 17:26:55 2011:
--> received results from Worker 9
-Thu Dec  1 17:26:55 2011:
--> Boss sending depth 193.195 to worker 9 ...
+Fri Aug 17 00:30:25 2012:
+-> received results from Worker 5
+Fri Aug 17 00:30:25 2012:
+-> Boss sending depth 193.195 to worker 5 ...
     5 depths waiting for workers.
-Thu Dec  1 17:26:56 2011:
+Fri Aug 17 00:30:27 2012:
 -> received results from Worker 7
-Thu Dec  1 17:26:56 2011:
+Fri Aug 17 00:30:27 2012:
 -> Boss sending depth 194.709 to worker 7 ...
     4 depths waiting for workers.
-Thu Dec  1 17:26:56 2011:
--> received results from Worker 4
-Thu Dec  1 17:26:56 2011:
--> Boss sending depth 196.223 to worker 4 ...
+Fri Aug 17 00:30:28 2012:
+-> received results from Worker 2
+Fri Aug 17 00:30:28 2012:
+-> Boss sending depth 196.223 to worker 2 ...
     3 depths waiting for workers.
-Thu Dec  1 17:27:06 2011:
--> received results from Worker 3
-Thu Dec  1 17:27:06 2011:
--> Boss sending depth 197.736 to worker 3 ...
-    2 depths waiting for workers.
-Thu Dec  1 17:27:08 2011:
--> received results from Worker 2
-Thu Dec  1 17:27:08 2011:
--> Boss sending depth 199.250 to worker 2 ...
-    1 depths waiting for workers.
-Thu Dec  1 17:27:08 2011:
--> received results from Worker 1
-Thu Dec  1 17:27:08 2011:
--> Boss sending depth 200.000 to worker 1 ...
-    0 depths waiting for workers.
-Thu Dec  1 17:27:10 2011:
--> received results from Worker 8
-Thu Dec  1 17:27:10 2011:
--> Worker 8 being Terminated
-Thu Dec  1 17:27:10 2011:
--> received results from Worker 9
-Thu Dec  1 17:27:10 2011:
--> Worker 9 being Terminated
-Thu Dec  1 17:27:11 2011:
--> received results from Worker 7
-Thu Dec  1 17:27:11 2011:
--> Worker 7 being Terminated
-Thu Dec  1 17:27:12 2011:
+Fri Aug 17 00:30:30 2012:
 -> received results from Worker 4
-Thu Dec  1 17:27:12 2011:
--> Worker 4 being Terminated
-Thu Dec  1 17:27:21 2011:
--> received results from Worker 3
-Thu Dec  1 17:27:21 2011:
--> Worker 3 being Terminated
-Thu Dec  1 17:27:23 2011:
--> received results from Worker 2
-Thu Dec  1 17:27:23 2011:
--> Worker 2 being Terminated
-Thu Dec  1 17:27:24 2011:
+Fri Aug 17 00:30:30 2012:
+-> Boss sending depth 197.736 to worker 4 ...
+    2 depths waiting for workers.
+Fri Aug 17 00:30:42 2012:
 -> received results from Worker 1
-Thu Dec  1 17:27:24 2011:
--> Worker 1 being Terminated
-Thu Dec  1 17:34:47 2011:
+Fri Aug 17 00:30:42 2012:
+-> Boss sending depth 199.250 to worker 1 ...
+    1 depths waiting for workers.
+Fri Aug 17 00:30:46 2012:
 -> received results from Worker 5
-Thu Dec  1 17:34:47 2011:
+Fri Aug 17 00:30:46 2012:
+-> Boss sending depth 200.000 to worker 5 ...
+    0 depths waiting for workers.
+Fri Aug 17 00:30:48 2012:
+-> received results from Worker 2
+Fri Aug 17 00:30:48 2012:
+-> Worker 2 being Terminated
+Fri Aug 17 00:30:48 2012:
+-> received results from Worker 7
+Fri Aug 17 00:30:48 2012:
+-> Worker 7 being Terminated
+Fri Aug 17 00:30:49 2012:
+-> received results from Worker 4
+Fri Aug 17 00:30:49 2012:
+-> Worker 4 being Terminated
+Fri Aug 17 00:30:58 2012:
+-> received results from Worker 1
+Fri Aug 17 00:30:58 2012:
+-> Worker 1 being Terminated
+Fri Aug 17 00:30:58 2012:
+-> received results from Worker 5
+Fri Aug 17 00:30:58 2012:
 -> Worker 5 being Terminated
-Thu Dec  1 17:39:00 2011:
+Fri Aug 17 00:33:10 2012:
 -> received results from Worker 6
-Thu Dec  1 17:39:00 2011:
+Fri Aug 17 00:33:10 2012:
 -> Worker 6 being Terminated
-Thu Dec  1 17:39:00 2011:
+Fri Aug 17 00:35:12 2012:
+-> received results from Worker 3
+Fri Aug 17 00:35:12 2012:
+-> Worker 3 being Terminated
+Fri Aug 17 00:35:12 2012:
 -> EDKS kernels calculation done... Now saving EDKS log data.
-Thu Dec  1 17:39:00 2011:
+Fri Aug 17 00:35:12 2012:
 -> running build_edks...
-Thu Dec  1 17:39:02 2011:
+Fri Aug 17 00:35:14 2012:
 -> That's all folks !!!...
