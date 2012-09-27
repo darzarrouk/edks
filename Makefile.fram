@@ -1,0 +1,17 @@
+all: sum_layered_sub sum_layered tab4e
+
+sum_layered:
+	cd ./src/sum_layered; make -B -f Makefile.fram
+
+sum_layered_sub:
+	cd ./src/sum_layered_sub; make -B -f Makefile_sub.fram
+
+
+tab4e:
+	cd ./src/tab5R; make -B -f Makefile.fram
+
+clean: 
+	cd ./bin; rm -rf *
+	cd ./src/sum_layered; make clean -f Makefile.fram
+	cd ./src/sum_layered_sub; make clean -f Makefile_sub.fram
+	cd ./src/tab5R; make clean -f Makefile.fram
