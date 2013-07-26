@@ -1,0 +1,76 @@
+--- calcGreenFunctions_SeafloorModel.py	(original)
++++ calcGreenFunctions_SeafloorModel.py	(refactored)
+@@ -16,7 +16,7 @@
+ 
+ import numpy as NP
+ from scipy import interpolate
+-import cPickle
++import pickle
+ from ICM.Logger import LogFile
+ from ICM.Geometry import TriangleCalculator
+ from ICM.Simplices import Point
+@@ -53,7 +53,7 @@
+       line = string.split(line)
+       for i in range(1,9): # all the inner ones are float
+          line[i] = float( line[i] )
+-      Tprop[line[0]] = dict(zip(fields, line))
++      Tprop[line[0]] = dict(list(zip(fields, line)))
+       T_IDs.append(line[0])
+    file.close()
+    
+@@ -70,7 +70,7 @@
+       line[len(fields)-1] = line[len(fields)-1:]
+       if len(line) > len(fields):
+          line[len(fields):] = []
+-      Tpoints[line[0]] = dict(zip(fields, line))
++      Tpoints[line[0]] = dict(list(zip(fields, line)))
+       P_IDs.append(line[0])
+    file.close()
+ 
+@@ -84,7 +84,7 @@
+       line = string.split(line)
+       for i in range(1, len(fields)):
+          line[i] = float( line[i] )
+-      Recv[line[0]] = dict(zip(fields, line))
++      Recv[line[0]] = dict(list(zip(fields, line)))
+       R_IDs.append( line[0] )
+    file.close()
+       
+@@ -159,7 +159,7 @@
+          # compute the subfaults for the triangle
+          # get the maximum Area for the triangle
+          if Amax == None:
+-            print 'Have to specify Amax!' 
++            print('Have to specify Amax!') 
+          else:
+             TriAmax = Amax
+          Ce, Cn, Cz, A  = getReducedTrianglesProp(Tri, TriCS, TriAmax)
+@@ -239,7 +239,7 @@
+    # Gu
+    file = open('Gu.txt','w')
+    Nrows, Ncols = Gu.shape
+-   print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
++   print('Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols))
+    for row in range(0,Nrows):
+       for col in range(0,Ncols):
+          value = '%s ' %(Gu[row][col])
+@@ -489,8 +489,8 @@
+    """  
+    # get the Point instances and coordinates of the master triangle
+    PtList = Tri.getPointsID()
+-   print Pid
+-   print PtList
++   print(Pid)
++   print(PtList)
+    e1, n1, u1 = TriCS.getPointCoord(Pid)
+    e2, n2, u2 = TriCS.getPointCoord(list(set(PtList)-set([Pid]))[0])
+    e3, n3, u3 = TriCS.getPointCoord(list(set(PtList)-set([Pid]))[1])
+@@ -535,7 +535,7 @@
+    from EDKSsubParams import *
+    parNames = ['useRecvDir', 'Amax', 'EDKSunits', 'EDKSfilename', 'prefix']
+    parValues = [ useRecvDir ,  Amax ,  EDKSunits ,  EDKSfilename ,  prefix ]
+-   method_par = dict(zip(parNames, parValues))
++   method_par = dict(list(zip(parNames, parValues)))
+ 
+    calcGreenFunctions_SeafloorModel(TriPropFile, TriPointsFile, ReceiverFile,\
+                                          method_par, plotGeometry)
