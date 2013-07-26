@@ -125,11 +125,13 @@ def layered_disloc_sub(IDs, xs, ys, zs, strike, dip, rake, slip, A, xr, yr, edks
    file.close()
  
    # call sum_layered
+   print "before sum_layered"
    cmd = '%s/sum_layered_sub %s %s %i %i %i %i'%(BIN_EDKS, \
                            edks, prefix, nrec, np, ntsp, nspp)
    print cmd
    os.system(cmd)
-    
+   print "after sum_layered"
+
    # read sum_layered output Greens function
    # ux
    file = open(file_dux, 'rb')

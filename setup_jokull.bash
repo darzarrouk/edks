@@ -6,7 +6,7 @@ source /home/geomod/dev/pythia/setup_jokull.sh
 
 
 # MPI_EDKS and EDKS python wrapper
-export EDKS_HOME='/home/geomod/dev/edks'
+export EDKS_HOME='/home/jjle/dev/edks/edks-jjle'
 export PYTHONPATH=${EDKS_HOME}/MPI_EDKS:$PYTHONPATH
 export PATH=${EDKS_HOME}/MPI_EDKS:$PATH
 export EDKS_BIN=${EDKS_HOME}/bin
@@ -19,5 +19,5 @@ mpi4py_HOME=/home/geomod/dev/mpi4py-1.2.2/glnx64/lib64/python2.6/site-packages
 export PYTHONPATH=${mpi4py_HOME}:${PYTHONPATH}
 
 # ICM package
-export PYTHONPATH=/home/geomod/dev/ICM/src:${PYTHONPATH}
+export PYTHONPATH=/home/jjle/dev/ICM/src-jjle:${PYTHONPATH}
 

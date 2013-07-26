@@ -298,5 +298,4 @@ if __name__ == '__main__':
    parValues = [ useRecvDir ,  Amax ,  EDKSunits ,  EDKSfilename ,  prefix ]
    method_par = dict(zip(parNames, parValues))
 
-   calcGreenFunctions_EDKS_subSquares(SquaresPropFile, ReceiverFile,\
-                                         method_par, plotGeometry)
+   calcGreenFunctions_EDKS_subSquares(SquaresPropFile, ReceiverFile, method_par, plotGeometry)

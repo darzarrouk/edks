@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python26
 """
     by Francisco Hernan Ortega Culaciati, Nov 09, 2011
     Seismological Laboratory
