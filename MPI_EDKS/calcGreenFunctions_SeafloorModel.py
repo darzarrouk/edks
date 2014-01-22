@@ -3,12 +3,12 @@
     by Junle Jiang, May 18, 2013
     Seismological Laboratory
     California Institute of Technology
-    
+
     Created      : May 18, 2013
-    Last modified: 
+    Last modified:
 
     Modification History:
-    
+
 
 
 tested to work with Python 2.7
@@ -56,15 +56,15 @@ def calcGreenFunctions_SeafloorModel(TriPropFile, TriPointsFile, ReceiverFile,\
       Tprop[line[0]] = dict(zip(fields, line))
       T_IDs.append(line[0])
    file.close()
-   
+
    # read the TriPoints file
    Tpoints = {}
    P_IDs = []
    file = open(TriPointsFile, 'r')
    aux = file.readline() # first line is header
    fields = ['id', 'lon', 'lat', 'e',  'n', 'dep', 'No', 'TriIDs'] # uncertain No of triangles
-   for line in file:   
-      line = string.split(line) 
+   for line in file:
+      line = string.split(line)
       for i in range(1,len(fields)-1):
          line[i] = float( line[i] )
       line[len(fields)-1] = line[len(fields)-1:]
@@ -79,7 +79,7 @@ def calcGreenFunctions_SeafloorModel(TriPropFile, TriPointsFile, ReceiverFile,\
    R_IDs = []
    file = open(ReceiverFile, 'r')
    aux = file.readline() # first line is header
-   fields = ['id', 'e', 'n'] 
+   fields = ['id', 'e', 'n']
    for line in file:
       line = string.split(line)
       for i in range(1, len(fields)):
@@ -87,14 +87,14 @@ def calcGreenFunctions_SeafloorModel(TriPropFile, TriPointsFile, ReceiverFile,\
       Recv[line[0]] = dict(zip(fields, line))
       R_IDs.append( line[0] )
    file.close()
-      
+
    # save log
    log.addLine('data successfully loaded ... ')
-   
+
    # assemble the array with the east and north coordinates of the observation points
    eR = []
    nR = []
-   for Rid in R_IDs: 
+   for Rid in R_IDs:
        eR.append(Recv[Rid]['e'])
        nR.append(Recv[Rid]['n'])
 
@@ -139,7 +139,7 @@ def calcGreenFunctions_SeafloorModel(TriPropFile, TriPointsFile, ReceiverFile,\
                       idP3)
          # instantiate Triangle calculator
          Tcalc = TriangleCalculator(TriCS)
-                      
+
          # instantiate the Points
          P1 = Point(idP1)
          P2 = Point(idP2)
@@ -159,7 +159,7 @@ def calcGreenFunctions_SeafloorModel(TriPropFile, TriPointsFile, ReceiverFile,\
          # compute the subfaults for the triangle
          # get the maximum Area for the triangle
          if Amax == None:
-            print 'Have to specify Amax!' 
+            print 'Have to specify Amax!'
          else:
             TriAmax = Amax
          Ce, Cn, Cz, A  = getReducedTrianglesProp(Tri, TriCS, TriAmax)
@@ -169,7 +169,7 @@ def calcGreenFunctions_SeafloorModel(TriPropFile, TriPointsFile, ReceiverFile,\
          aST.extend(A)
          # record the id for point instead of triangle
          idST.extend( [Pid] * len(A) )
-         
+
          # get angles
          # phi, phiDir = Tcalc.strike(Tri)
          # strikeST.extend(phi * NP.ones(len(A)))
@@ -183,11 +183,11 @@ def calcGreenFunctions_SeafloorModel(TriPropFile, TriPointsFile, ReceiverFile,\
 
          if plotGeometry:
             MasterTriangles4Plot.append([Tri, TriCS])
-   
+
          msg = 'Triangle %s has %i subsources...'%(Tid, len(A))
          log.addLine(msg)
-   
-   
+
+
    # Convert units
    Units2meters = method_par['EDKSunits']
    eST = NP.array(eST) * Units2meters
@@ -206,7 +206,7 @@ def calcGreenFunctions_SeafloorModel(TriPropFile, TriPointsFile, ReceiverFile,\
       fig = PL.figure(1)
       s = plot3.Axes3D(fig)
       s.plot3D(eST/Units2meters, nST/Units2meters, -1.0*dST/Units2meters, '.r',\
-		markersize = 2) 
+		markersize = 2)
       for MasterTriangle in MasterTriangles4Plot:
          Mtri, MtriCS = MasterTriangle
          plotTriangle(Mtri, MtriCS, s, color = 'k')
@@ -216,13 +216,13 @@ def calcGreenFunctions_SeafloorModel(TriPropFile, TriPointsFile, ReceiverFile,\
 
    #PL.plot(-nST, eST, '.k', markersize = 2)
    #PL.plot(-nR, eR, 'or')
-   #PL.show() 
-   
+   #PL.show()
+
    # the rest just convert to arrays.
    # strikeST = NP.array(strikeST)
    # dipST = NP.array(dipST)
    slipST = NP.array(slipST)
-   
+
    # run layered_disloc_sub on all the subtriangles
    edks = method_par['EDKSfilename']
    prefix = method_par['prefix']
@@ -233,7 +233,7 @@ def calcGreenFunctions_SeafloorModel(TriPropFile, TriPointsFile, ReceiverFile,\
    Gu = interpTri2Rec(idST, eST, nST, slipST, aST, eR, nR)
 
    # save the GF matrices.
-   
+
    # write the matrices
    log.addLine('writing output matrix...')
    # Gu
@@ -297,25 +297,34 @@ def interpTri2Rec(IDs, xs, ys, slip, A, xr, yr):
    k = 0
    for ind, j in enumerate(sortedListOfFiniteFaultIDs):
       log0.addLine(' Working on patch ' + str(ind) + ': ' + str(j))
-      us = NP.zeros((NumSubSources[j], 3))
+      nSubSrc = NumSubSources[j]
+      Xs = NP.zeros(nSubSrc)
+      Ys = NP.zeros(nSubSrc)
+      us = NP.zeros(nSubSrc)
       ur = NP.zeros(len(xr))
-      for m in range(0, NumSubSources[j]):
-         us[m,:] = [xs[k+m], ys[k+m], slip[k+m]]
-      # print us
+      for m in range(0, nSubSrc):
+         Xs[m] = xs[k+m]
+         Ys[m] = ys[k+m]
+         us[m] = slip[k+m]
+
+      # print Us
       margin = 1000
-      xmin = us[:, 0].min() - margin
-      xmax = us[:, 0].max() + margin
-      ymin = us[:, 1].min() - margin
-      ymax = us[:, 1].max() + margin
+      xmin = Xs.min() - margin
+      xmax = Xs.max() + margin
+      ymin = Ys.min() - margin
+      ymax = Ys.max() + margin
 
-      log0.addLine('before mask')
+      # Bounding regions for the source region
+      log0.addLine(' Before mask')
       mask = (xr > xmin) & (xr < xmax) & (yr > ymin) & (yr < ymax)
-      log0.addLine('after mask ' + str(sum(mask)))
+      log0.addLine(' After mask ' + str(sum(mask)))
 
-      vert = convex_hull(zip(us[:,0], us[:,1]))
-      log0.addLine('finding vert for convex hull' + str(vert))
-      gmask = points_inside_poly(NP.vstack((xr[mask], yr[mask])).T, vert) 
-      log0.addLine('finding points inside polygon' + str(gmask))
+      vert = convex_hull(zip(Xs, Ys))
+      log0.addLine(' Finding vertices for convex hull:' + str(vert))
+
+      # Bounding convex polygons for the receiver region
+      gmask = points_inside_poly(NP.vstack((xr[mask], yr[mask])).T, vert)
+      log0.addLine(' Finding points inside polygon:' + str(gmask))
 
       # if ind==2:
       #   NP.savetxt('test-us.txt', us)
@@ -328,15 +337,20 @@ def interpTri2Rec(IDs, xs, ys, slip, A, xr, yr):
       # corner[3,:] = [xmax, ymax, 0]
       # us = NP.vstack((us, corner))
 
-      log0.addLine('before interp ' + str(NumSubSources[j]))
-      ur0 = ur[mask]
-      ur0[gmask] = interpolate.griddata((us[:,0], us[:,1]), us[:,2], (xr[mask][gmask], yr[mask][gmask]),
-                                      method='cubic', fill_value=0)
-      ur[mask] = ur0
-      log0.addLine('after interp ' + str(ur0))
+      log0.addLine(' Before interpolate, number of sub-sources: ' + str(NumSubSources[j]))
+      ur0 = ur[mask][gmask]
+      xr0 = xr[mask][gmask]
+      yr0 = yr[mask][gmask]
+
+      # ur0[gmask] = interpolate.griddata((us[:,0], us[:,1]), us[:,2], (xr[mask][gmask], yr[mask][gmask]),
+      #                                 method='cubic', fill_value=0)
+      ur0 = interpolate.griddata((Xs, Ys), us, (xr0, yr0), method='cubic', fill_value=0)
+
+      ur[mask][gmask] = ur0
+      log0.addLine(' After interpolate: ' + str(ur0))
       u[:, ind] = ur
       k = k + NumSubSources[j]
-  
+
    # NP.savetxt('Output_sortedIDs.txt',sortedListOfFiniteFaultIDs, fmt='%s')
    # NP.savetxt('Output_NumSubSources.txt',NumSubSources.items(), fmt='%s')
 
@@ -345,61 +359,61 @@ def interpTri2Rec(IDs, xs, ys, slip, A, xr, yr):
 ###
 def convex_hull(points):
     """Computes the convex hull of a set of 2D points.
- 
+
     Input: an iterable sequence of (x, y) pairs representing the points.
     Output: a list of vertices of the convex hull in counter-clockwise order,
       starting from the vertex with the lexicographically smallest coordinates.
     Implements Andrew's monotone chain algorithm. O(n log n) complexity.
     """
- 
+
     # Sort the points lexicographically (tuples are compared lexicographically).
     # Remove duplicates to detect the case we have just one unique point.
     points = sorted(set(points))
- 
+
     # Boring case: no points or a single point, possibly repeated multiple times.
     if len(points) <= 1:
         return points
- 
+
     # 2D cross product of OA and OB vectors, i.e. z-component of their 3D cross product.
     # Returns a positive value, if OAB makes a counter-clockwise turn,
     # negative for clockwise turn, and zero if the points are collinear.
     def cross(o, a, b):
         return (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0])
- 
-    # Build lower hull 
+
+    # Build lower hull
     lower = []
     for p in points:
         while len(lower) >= 2 and cross(lower[-2], lower[-1], p) <= 0:
             lower.pop()
         lower.append(p)
- 
+
     # Build upper hull
     upper = []
     for p in reversed(points):
         while len(upper) >= 2 and cross(upper[-2], upper[-1], p) <= 0:
             upper.pop()
         upper.append(p)
- 
+
     # Concatenation of the lower and upper hulls gives the convex hull.
-    # Last point of each list is omitted because it is repeated at the beginning of the other list. 
+    # Last point of each list is omitted because it is repeated at the beginning of the other list.
     return lower[:-1] + upper[:-1]
 
 
 ###
 def getReducedTrianglesProp(Tri, TriCS, Amax = None, depT2cLTratio = 4.0):
    """
-   get the Triangle and its coordinate system, recursively subdivide it until 
-   all the subdivided triangles have an area less or equal Amax. 
+   get the Triangle and its coordinate system, recursively subdivide it until
+   all the subdivided triangles have an area less or equal Amax.
    Each triangle is subdivided into 4 triangles by adding the center points on
    the edge of the master triangle.
-   
-   This function returns 3 Numpy arrays with the coordinates of the centers of the
-   subdivided triangles (east, north and depth) and its Area 
 
-   if Amax is not given, it will be calculated based on the Saint-Venant principle using 
+   This function returns 3 Numpy arrays with the coordinates of the centers of the
+   subdivided triangles (east, north and depth) and its Area
+
+   if Amax is not given, it will be calculated based on the Saint-Venant principle using
    as a reference the depth of the shallowest vertex of the triangle(depT). Thus, it will
    divide the triangle until the characteristic length of the triangle (cLT) follows:
-   
+
                             depT >= depT2cLTratio * cLT
 
    the default value of depT2cLTratio is 4 ( to be conservative within the Saint-Venant
@@ -426,12 +440,12 @@ def getReducedTrianglesProp(Tri, TriCS, Amax = None, depT2cLTratio = 4.0):
       # the caracteristic length of the Maximum triangle from Saint-venant's principle
       cLT = 1.0 * depT / depT2cLTratio
       DiC = NP.sqrt(3.0) * cLT / 3.0 # diameter of the inscribed circle in equi Tri
-      Amax = NP.pi * DiC * DiC / 4.0  #  The Maximum area of the triangle is the area of 
-                                      # the inscibed circle in an equilateral triangle 
+      Amax = NP.pi * DiC * DiC / 4.0  #  The Maximum area of the triangle is the area of
+                                      # the inscibed circle in an equilateral triangle
                                       # with side equal to cLT
       # calculate the subdivideFlag
-      subdivideFlag = Amax < Area 
-      
+      subdivideFlag = Amax < Area
+
    # to store the triangles center and area
    Ce = []
    Cn = []
@@ -472,10 +486,10 @@ def getReducedTrianglesProp(Tri, TriCS, Amax = None, depT2cLTratio = 4.0):
    return [NP.array(Ce), NP.array(Cn), NP.array(Cz), NP.array(A)]
 
 
-###   
+###
 def splitTriangle(Tri, TriCS):
    """
-   takes the triangle Tri and split it into 4 triangles by adding the midpoints 
+   takes the triangle Tri and split it into 4 triangles by adding the midpoints
    of each side of the triangle.
 
    """
@@ -539,11 +553,11 @@ def splitTriangle(Tri, TriCS):
    return [T1, T2, T3, T4, TCS]
 
 
-###   
+###
 def getWeight4SubTriangles(Tri, TriCS, Pid, Ce, Cn, Cz):
    """
     calculate the weight for each subtriangles given its location in the tent element
-   """  
+   """
    # get the Point instances and coordinates of the master triangle
    PtList = Tri.getPointsID()
    print Pid
@@ -562,7 +576,7 @@ def getWeight4SubTriangles(Tri, TriCS, Pid, Ce, Cn, Cz):
        dist1 = ((n1-n2)*(e3-e2) - (e1-e2)*(n3-n2))/L23
        Cw.append(distp/dist1)
    return Cw
-      
+
 
 ###
 def calcMidPoint(ei, ni, zi, ej, nj, zj):
