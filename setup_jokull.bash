@@ -1,5 +1,6 @@
 # initializing Pythia
 source /home/geomod/dev/pythia/setup_jokull.sh
+# source /home/jjle/dev/pythia/setup_jokull.sh
 
 # INTEL COMPILER
 #export LD_LIBRARY_PATH=/opt/intel/lib/intel64:${LD_LIBRARY_PATH}

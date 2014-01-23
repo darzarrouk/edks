@@ -1,4 +1,5 @@
 #!/usr/bin/env python2.6
+
 """
      by Junle Jiang, May 18, 2013
      Seismological Laboratory
@@ -8,8 +9,6 @@
      Last modified:
 
      Modification History:
-
-
 
 tested to work with Python 2.7
 """
@@ -98,6 +97,9 @@ def calcGreenFunctions_SeafloorModel(TriPropFile, TriPointsFile, ReceiverFile,\
          eR.append(Recv[Rid]['e'])
          nR.append(Recv[Rid]['n'])
 
+    Units2meters = method_par['EDKSunits']
+    eR = NP.array(eR) * Units2meters
+    nR = NP.array(nR) * Units2meters
 
     msg = '%i receivers to compute displacements...' %(len(eR))
     log.addLine(msg)
@@ -110,6 +112,7 @@ def calcGreenFunctions_SeafloorModel(TriPropFile, TriPointsFile, ReceiverFile,\
 
     # calculating Gu
     Gu = NP.zeros((len(R_IDs), len(P_IDs)))
+    log.addLine(" The Shape of Gu.txt: " + str(Gu.shape))
 
     for ind, Pid in enumerate(P_IDs):
         eST = []
@@ -123,8 +126,8 @@ def calcGreenFunctions_SeafloorModel(TriPropFile, TriPointsFile, ReceiverFile,\
         slipST = []
 
         No_nghbr = Tpoints[Pid]['No']
-        # print No_nghbr
         T_nghbr = Tpoints[Pid]['TriIDs']
+
         # calculate for each neighboring triangle
         for Tid in T_nghbr[0:int(No_nghbr)]:
             # initialize coordinate system for triangles
@@ -172,12 +175,6 @@ def calcGreenFunctions_SeafloorModel(TriPropFile, TriPointsFile, ReceiverFile,\
             # record the id for point instead of triangle
             idST.extend( [Pid] * len(A) )
 
-            # get angles
-            # phi, phiDir = Tcalc.strike(Tri)
-            # strikeST.extend(phi * NP.ones(len(A)))
-            # dip, dipDir = Tcalc.dip(Tri)
-            # dipST.extend(dip * NP.ones(len(A)))
-
             ## assign weighted slip
             # slipST.extend(1.0 * NP.ones(len(A)))
             Cw = getWeight4SubTriangles(Tri, TriCS, Pid, Ce, Cn, Cz)
@@ -192,20 +189,10 @@ def calcGreenFunctions_SeafloorModel(TriPropFile, TriPointsFile, ReceiverFile,\
         # Combine sub-sources pertaining to this vertx
 
         # Convert units
-        Units2meters = method_par['EDKSunits']
         eST = NP.array(eST) * Units2meters
         nST = NP.array(nST) * Units2meters
         dST = NP.array(dST) * Units2meters
         aST = NP.array(aST) * Units2meters * Units2meters
-        eR = NP.array(eR) * Units2meters
-        nR = NP.array(nR) * Units2meters
-        # NP.savetxt('test-eST.txt',eST)
-        # NP.savetxt('test-eR.txt',eR)
-        # return
-
-        # the rest just convert to arrays.
-        # strikeST = NP.array(strikeST)
-        # dipST = NP.array(dipST)
         slipST = NP.array(slipST)
 
         # run layered_disloc_sub on all the subtriangles
@@ -214,9 +201,11 @@ def calcGreenFunctions_SeafloorModel(TriPropFile, TriPointsFile, ReceiverFile,\
 
         # interp triangle deformation to observation points
         log.addLine('calculating Seafloor Green functions...')
-        # log.addline('Shape: ' + str(idST.shape) + '; Rev:' + str(eR.shape))
-        Gu0 = interpTri2Rec_sPatch(ind, eST, nST, slipST, aST, eR, nR)
-        Gu[:, ind]= Gu0
+        Gu0 = interpTri2Rec_sPatch(ind, eST, nST, slipST, eR, nR)
+        log.addLine(str(Gu0.shape))
+        log.addLine(str(Gu0.max()))
+        log.addLine(str(Gu0.min()))
+        Gu[:, ind] = Gu0
 
     # End of iteration over vertices
 
@@ -243,7 +232,6 @@ def calcGreenFunctions_SeafloorModel(TriPropFile, TriPointsFile, ReceiverFile,\
 
     # write the matrices
     log.addLine('writing output matrix...')
-    # Gu
     file = open('Gu.txt','w')
     Nrows, Ncols = Gu.shape
     print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
@@ -258,7 +246,7 @@ def calcGreenFunctions_SeafloorModel(TriPropFile, TriPointsFile, ReceiverFile,\
 
 
 ###
-def interpTri2Rec_sPatch(ID, xs, ys, slip, A, xr, yr):
+def interpTri2Rec_sPatch(ID, xs, ys, slip, xr, yr):
     """
     interpolate from tent-like patches to seafloor receiver grid
     """
@@ -268,7 +256,6 @@ def interpTri2Rec_sPatch(ID, xs, ys, slip, A, xr, yr):
 
     nrec = len(xr)
     nsrc = len(xs) # total number of point sources (sub sources)
-    u = NP.zeros(nrec)
 
     from matplotlib.nxutils import points_inside_poly
 
@@ -285,35 +272,32 @@ def interpTri2Rec_sPatch(ID, xs, ys, slip, A, xr, yr):
     # Bounding regions for the source region
     log0.addLine(' Before mask')
     mask = (xr > xmin) & (xr < xmax) & (yr > ymin) & (yr < ymax)
-    log0.addLine(' After mask ' + str(sum(mask)))
+    # log0.addLine(' After mask ' + str(sum(mask)))
 
     vert = convex_hull(zip(xs, ys))
-    log0.addLine(' Finding vertices for convex hull:' + str(vert))
+    # log0.addLine(' Finding vertices for convex hull:' + str(vert))
 
     # Bounding convex polygons for the receiver region
     gmask = points_inside_poly(NP.vstack((xr[mask], yr[mask])).T, vert)
-    log0.addLine(' Finding points inside polygon:' + str(gmask))
+    # log0.addLine(' Finding points inside polygon:' + str(gmask))
 
-    # if ind==2:
-    #    NP.savetxt('test-us.txt', us)
-    #    NP.savetxt('test-ur.txt', NP.vstack((xr[mask], yr[mask])).T)
     # add in corners before interpolation (scipy 0.9)
-    # corner = NP.zeros((4,3))
-    # corner[0,:] = [xmin, ymin, 0]
-    # corner[1,:] = [xmin, ymax, 0]
-    # corner[2,:] = [xmax, ymin, 0]
-    # corner[3,:] = [xmax, ymax, 0]
-    # us = NP.vstack((us, corner))
+    cornerx = NP.array((xmin, xmin, xmax, xmax))
+    cornery = NP.array((ymin, ymax, ymin, ymax))
+    xs   = NP.hstack((xs, cornerx))
+    ys   = NP.hstack((ys, cornery))
+    slip = NP.hstack((slip, cornery*0))
 
     log0.addLine(' Before interpolate, nsrc = %d: ' % (nsrc))
-    ur0 = ur[mask][gmask]
-    xr0 = xr[mask][gmask]
-    yr0 = yr[mask][gmask]
+    ur0 = ur[mask]
+    xr0 = xr[mask]
+    yr0 = yr[mask]
 
-    ur0 = interpolate.griddata((xs, ys), slip, (xr0, yr0), method='cubic', fill_value=0)
+    ur0[gmask] = interpolate.griddata((xs, ys), slip, (xr0[gmask], yr0[gmask]), method='linear', fill_value=0)
 
-    ur[mask][gmask] = ur0
-    log0.addLine(' After interpolate: ' + str(ur0))
+    ur[mask] = ur0
+    log0.addLine(' After interpolate ')
+    # log0.addLine(' After interpolate: ' + str(ur0))
 
     return ur
 
@@ -377,7 +361,7 @@ def interpTri2Rec(IDs, xs, ys, slip, A, xr, yr):
             us[m] = slip[k+m]
 
         # print Us
-        margin = 1000
+        margin = 50000
         xmin = Xs.min() - margin
         xmax = Xs.max() + margin
         ymin = Ys.min() - margin
@@ -389,11 +373,11 @@ def interpTri2Rec(IDs, xs, ys, slip, A, xr, yr):
         log0.addLine(' After mask ' + str(sum(mask)))
 
         vert = convex_hull(zip(Xs, Ys))
-        log0.addLine(' Finding vertices for convex hull:' + str(vert))
+        # log0.addLine(' Finding vertices for convex hull:' + str(vert))
 
         # Bounding convex polygons for the receiver region
         gmask = points_inside_poly(NP.vstack((xr[mask], yr[mask])).T, vert)
-        log0.addLine(' Finding points inside polygon:' + str(gmask))
+        # log0.addLine(' Finding points inside polygon:' + str(gmask))
 
         # if ind==2:
         #    NP.savetxt('test-us.txt', us)
@@ -629,8 +613,8 @@ def getWeight4SubTriangles(Tri, TriCS, Pid, Ce, Cn, Cz):
     """
     # get the Point instances and coordinates of the master triangle
     PtList = Tri.getPointsID()
-    print Pid
-    print PtList
+    # print Pid
+    # print PtList
     e1, n1, u1 = TriCS.getPointCoord(Pid)
     e2, n2, u2 = TriCS.getPointCoord(list(set(PtList)-set([Pid]))[0])
     e3, n3, u3 = TriCS.getPointCoord(list(set(PtList)-set([Pid]))[1])
