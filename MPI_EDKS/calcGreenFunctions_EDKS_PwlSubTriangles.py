@@ -55,21 +55,17 @@ def calcGreenFunctions_EDKS_PwlSubTriangles(TriPropFile, TriPointsFile, Receiver
    file.close()
 
    # read the TriPoints file
-   Tpoints = {}
+   Nodes = {}
    P_IDs = []
    file = open(TriPointsFile, 'r')
    aux = file.readline() # first line is header
    # record number of triangle neighbors and their IDs
-   fields = ['id', 'lon', 'lat', 'e',  'n', 'dep', 'numTr', 'idTr']
-   nf = len(fields)
+   fields = ['id', 'lon', 'lat', 'e',  'n', 'dep']
    for line in file:
       line = string.split(line)
-      for i in range(1,nf-1):
+      for i in range(1,len(fields)):
          line[i] = float( line[i] )
-      line[nf-1] = line[nf-1:]
-      if len(line) > nf:
-         line[nf:] = []
-      Tpoints[line[0]] = dict(zip(fields, line))
+      Nodes[line[0]] = dict(zip(fields, line))
       P_IDs.append(line[0])
    file.close()
 
@@ -92,6 +88,10 @@ def calcGreenFunctions_EDKS_PwlSubTriangles(TriPropFile, TriPointsFile, Receiver
 
    # save log
    log.addLine('data successfully loaded ... ')
+
+   # find triangle neighbors for each node
+   Nodes_TriNb = findTriangleNeighbors4Node(Tprop, T_IDs, P_IDs)
+   g.addLine('find the triangle neighbors for each node point ')
 
    # assemble the array with the east and north coordinates of the observation points
    eR = []
@@ -130,21 +130,21 @@ def calcGreenFunctions_EDKS_PwlSubTriangles(TriPropFile, TriPointsFile, Receiver
    slipST = []
 
    for Pid in P_IDs:
-      No_nghbr = Tpoints[Pid]['numTr']
-      Tr_nghbr = Tpoints[Pid]['idTr']
+      num_TriNb = Nodes_TriNb[Pid]['numTr']
+      id_TriNb  = Nodes_TriNb[Pid]['idTr']
       # calculate for each neighboring triangle
-      for Tid in Tr_nghbr[0:int(No_nghbr)]:
+      for Tid in id_TriNb[0:int(num_TriNb)]:
          # initialize coordinate system for triangles
          TriCS = PointCoordinates(CoordSystemName = 'TriangleCS',\
                             xyzNames = ['E', 'N', 'U'])
          idP1 = Tprop[Tid]['idP1']
          idP2 = Tprop[Tid]['idP2']
          idP3 = Tprop[Tid]['idP3']
-         TriCS.addPoint(Tpoints[idP1]['e'], Tpoints[idP1]['n'], -1.0*Tpoints[idP1]['dep'],\
+         TriCS.addPoint(Nodes[idP1]['e'], Nodes[idP1]['n'], -1.0*Nodes[idP1]['dep'],\
                       idP1)
-         TriCS.addPoint(Tpoints[idP2]['e'], Tpoints[idP2]['n'], -1.0*Tpoints[idP2]['dep'],\
+         TriCS.addPoint(Nodes[idP2]['e'], Nodes[idP2]['n'], -1.0*Nodes[idP2]['dep'],\
                       idP2)
-         TriCS.addPoint(Tpoints[idP3]['e'], Tpoints[idP3]['n'], -1.0*Tpoints[idP3]['dep'],\
+         TriCS.addPoint(Nodes[idP3]['e'], Nodes[idP3]['n'], -1.0*Nodes[idP3]['dep'],\
                       idP3)
          # instantiate Triangle calculator
          Tcalc = TriangleCalculator(TriCS)
@@ -348,6 +348,37 @@ def calcGreenFunctions_EDKS_PwlSubTriangles(TriPropFile, TriPointsFile, Receiver
       file.close()
 
    return
+
+
+###
+def findTriangleNeighbors4Node(Tprop, T_IDs, P_IDs):
+    """
+    find triangle neighbors for each node given three lists:
+    @param [in]:
+        Tprop: containing triangle information including IDs for 3 nodes
+        T_IDs: IDs of triangles   in the order of TriPropFile
+        P_IDs: IDs of node points in the order of TriPointsFile
+    @param [out]:
+        Nodes_TriNb: triangle neighbors (number and IDs) for each node in order of P_IDs
+    @todo
+        more efficient algorithm
+    """
+    Nodes_TriNb = {}
+
+    for Pid in P_IDs:
+        Nodes_TriNb[Pid] = {'numTr':0, 'idTr':[]}
+        for Tid in T_IDs:
+            idP1 = Tprop[Tid]['idP1']
+            idP2 = Tprop[Tid]['idP2']
+            idP3 = Tprop[Tid]['idP3']
+            if (Pid == idP1)|(Pid == idP2)|(Pid == idP3):
+                Nodes_TriNb[Pid]['numTr'] += 1
+                Nodes_TriNb[Pid]['idTr'].append(Tid)
+        print("Point {0:s} has ".format(Pid), \
+              "{1:d} triangle neighbors: ".format(Nodes_TriNb[Pid]['numTr']), \
+              Nodes_TriNb[Pid]['idTr'])
+
+    return Nodes_TriNb
 
 
 ###
