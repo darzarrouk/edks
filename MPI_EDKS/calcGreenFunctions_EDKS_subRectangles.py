@@ -3,12 +3,12 @@
     by Francisco Hernan Ortega Culaciati, Nov 16, 2011
     Seismological Laboratory
     California Institute of Technology
-    
+
     Created      : Nov 16, 2011
-    Last modified: Nov 16, 2011 
+    Last modified: Nov 16, 2011
 
     Modification History:
-    
+
 
 
 tested to work with Python 2.7
@@ -44,24 +44,25 @@ def calcGreenFunctions_EDKS_subRectangles(RectanglesPropFile, ReceiverFile,\
    Rec_IDs = [] # I save the order in the file so I can produce GF in same order
    file = open(RectanglesPropFile, 'r')
    aux = file.readline() # first line is header
-   fields = ['e', 'n', 'dep', 'strike', 'dip', 'area', 'length', 'width', 'id']
+   fields = ['e', 'n', 'dep', 'strike', 'dip', 'length', 'width', 'id']
    for line in file:
       line = string.split(line)
-      for i in range(0,8): # all the left ones are float
+      for i in range(0,7): # all the left ones are float
          line[i] = float( line[i] )
       Rprop[line[-1]] = dict(zip(fields, line))
       Rec_IDs.append(line[-1])
    file.close()
-   
+
    # read the receivers.
    Recv = {}
    R_IDs = []
    file = open(ReceiverFile, 'r')
    aux = file.readline() # first line is header
+   userecvdir = method_par['userecvdir']
    if useRecvDir:
       fields = ['id', 'e', 'n', 'ODirE', 'ODirN', 'ODirU']
    else:
-      fields = ['id', 'e', 'n'] 
+      fields = ['id', 'e', 'n']
    for line in file:
       line = string.split(line)
       for i in range(1, len(fields)):
@@ -69,10 +70,10 @@ def calcGreenFunctions_EDKS_subRectangles(RectanglesPropFile, ReceiverFile,\
       Recv[line[0]] = dict(zip(fields, line))
       R_IDs.append( line[0] )
    file.close()
-      
+
    # save log
    log.addLine('data successfully loaded ... ')
-   
+
    # assemble the array with the east and north coordinates of the observation points
    eR = []
    nR = []
@@ -80,7 +81,7 @@ def calcGreenFunctions_EDKS_subRectangles(RectanglesPropFile, ReceiverFile,\
       ODirE = []
       ODirN = []
       ODirU = []
-   for Rid in R_IDs: 
+   for Rid in R_IDs:
        eR.append(Recv[Rid]['e'])
        nR.append(Recv[Rid]['n'])
        if useRecvDir:
@@ -96,10 +97,13 @@ def calcGreenFunctions_EDKS_subRectangles(RectanglesPropFile, ReceiverFile,\
    # instantiate rectangle calculator
    Rcalc = RectangleCalculator()
 
+   # Amax
+   Amax = method_par['Amax']
+
    if plotGeometry:
       subRectangles4Plot = []
       Rectangles4Plot = []
- 
+
    eSR = []
    nSR = []
    dSR = []
@@ -119,7 +123,7 @@ def calcGreenFunctions_EDKS_subRectangles(RectanglesPropFile, ReceiverFile,\
       dip = Rprop[Rec_id]['dip']
 
       Rec = rectanglePatch( rEc, rNc, rZc, L, W, strike, dip )
-      
+
 
       # compute the subfaults for the rectangle
       subRectangles = Rcalc.getReducedRectangles(Rec, eR, nR, Amax = Amax)
@@ -128,6 +132,7 @@ def calcGreenFunctions_EDKS_subRectangles(RectanglesPropFile, ReceiverFile,\
       dSR.extend([-1.0*subR.Zc for subR in subRectangles])
       aSR.extend([subR.L * subR.W for subR in subRectangles])
       idSR.extend( [Rec_id] * len(subRectangles) )
+      # print len(subRectangles),eSR[-1],nSR[-1],dSR[-1],aSR[-1]
       # get angles
       strikeSR.extend([subR.strike for subR in subRectangles])
       dipSR.extend([subR.dip for subR in subRectangles])
@@ -136,7 +141,7 @@ def calcGreenFunctions_EDKS_subRectangles(RectanglesPropFile, ReceiverFile,\
 
       msg = 'Square %s has %i subsources...'%(Rec_id, len(subRectangles))
       log.addLine(msg)
-   
+
       if plotGeometry:
          subRectangles4Plot.extend(subRectangles)
          Rectangles4Plot.append(Rec)
@@ -151,23 +156,28 @@ def calcGreenFunctions_EDKS_subRectangles(RectanglesPropFile, ReceiverFile,\
    nR = NP.array(nR) * Units2meters
 
    if plotGeometry:
+      import matplotlib
       import pylab as PL
+      matplotlib.use('agg')
       import mpl_toolkits.mplot3d.axes3d as plot3
       fig = PL.figure(1)
       s = plot3.Axes3D(fig)
       for subRectangle in subRectangles4Plot:
-         Rcalc.plotRectangle(s, subRectangle, Rcalc, color = 'r') 
+         Rcalc.plotRectangle(s, subRectangle, Rcalc, color = 'r')
       for MasterRectangle in Rectangles4Plot:
          Rcalc.plotRectangle(s, MasterRectangle, Rcalc, color = 'k')
 
       s.plot(1.0 * eR/Units2meters, 1.0 * nR/Units2meters, 'og')
-      PL.show() 
-   
+      for ii in xrange(0,360,30):
+         s.view_init(elev=10., azim=ii)
+         PL.savefig('movie%03d.png'%(ii))
+      # PL.show()
+
    # the rest just convert to arrays.
    strikeSR = NP.array(strikeSR)
    dipSR = NP.array(dipSR)
    slipSR = NP.array(slipSR)
-   
+
    # run layered_disloc_sub on all the subrectangles
    edks = method_par['EDKSfilename']
    prefix = method_par['prefix']
@@ -177,119 +187,146 @@ def calcGreenFunctions_EDKS_subRectangles(RectanglesPropFile, ReceiverFile,\
    prefixSS = prefix + '_SS_'
    rakeSR = 0.0 * NP.ones(len(eSR))
    GeSS, GnSS, GuSS = layered_disloc_sub(idSR, eSR, nSR, dSR, strikeSR, dipSR,\
-                      rakeSR, slipSR, aSR, eR, nR, edks, prefixSS)  
+                      rakeSR, slipSR, aSR, eR, nR, edks, prefixSS)
 
    # dip slip GFs
    log.addLine('calculating upDip-Slip Green functions...')
    prefixDS = prefix + '_DS_'
-   rakeSR = 90.0 * NP.ones(len(eSR))   
+   rakeSR = 90.0 * NP.ones(len(eSR))
    GeDS, GnDS, GuDS = layered_disloc_sub(idSR, eSR, nSR, dSR, strikeSR, dipSR,\
-                      rakeSR, slipSR, aSR, eR, nR, edks, prefixDS)  
+                      rakeSR, slipSR, aSR, eR, nR, edks, prefixDS)
 
 
    # if useRecvDir is True I need to project the GF matrices
    if useRecvDir:
       G_SS, G_DS = projectGFmatrices(GeSS, GnSS, GuSS, GeDS, GnDS, GuDS,\
- 				     ODirE, ODirN, ODirU)  
- 
+ 				     ODirE, ODirN, ODirU)
+
 
    # save the GF matrices.
-   
-   # write the matrices
-   # GeDS
-   file = open('GeDS.txt','w')
-   Nrows, Ncols = GeDS.shape
-   print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
-   for row in range(0,Nrows):
-      for col in range(0,Ncols):
-         value = '%s ' %(GeDS[row][col])
-         file.write(value)
-      file.write('\n')
-   file.close()
 
-   #GeSS
-   file = open('GeSS.txt','w')
-   Nrows, Ncols = GeSS.shape
-   print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
-   for row in range(0,Nrows):
-      for col in range(0,Ncols):
-         value = '%s ' %(GeSS[row][col])
-         file.write(value)
-      file.write('\n')
-   file.close()
+   # write ASCII matrices
 
-   #####
-   # GnDS
-   file = open('GnDS.txt','w')
-   Nrows, Ncols = GnDS.shape
-   print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
-   for row in range(0,Nrows):
-      for col in range(0,Ncols):
-         value = '%s ' %(GnDS[row][col])
-         file.write(value)
-      file.write('\n')
-   file.close()
+   # # GeDS
+   # file = open('GeDS.txt','w')
+   # Nrows, Ncols = GeDS.shape
+   # print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
+   # for row in range(0,Nrows):
+   #    for col in range(0,Ncols):
+   #       value = '%s ' %(GeDS[row][col])
+   #       file.write(value)
+   #    file.write('\n')
+   # file.close()
 
-   #GnSS
-   file = open('GnSS.txt','w')
-   Nrows, Ncols = GnSS.shape
-   print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
-   for row in range(0,Nrows):
-      for col in range(0,Ncols):
-         value = '%s ' %(GnSS[row][col])
-         file.write(value)
-      file.write('\n')
-   file.close()
+   # #GeSS
+   # file = open('GeSS.txt','w')
+   # Nrows, Ncols = GeSS.shape
+   # print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
+   # for row in range(0,Nrows):
+   #    for col in range(0,Ncols):
+   #       value = '%s ' %(GeSS[row][col])
+   #       file.write(value)
+   #    file.write('\n')
+   # file.close()
 
-   #####
-   # GuDS
-   file = open('GuDS.txt','w')
-   Nrows, Ncols = GuDS.shape
-   print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
-   for row in range(0,Nrows):
-      for col in range(0,Ncols):
-         value = '%s ' %(GuDS[row][col])
-         file.write(value)
-      file.write('\n')
-   file.close()
+   # #####
+   # # GnDS
+   # file = open('GnDS.txt','w')
+   # Nrows, Ncols = GnDS.shape
+   # print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
+   # for row in range(0,Nrows):
+   #    for col in range(0,Ncols):
+   #       value = '%s ' %(GnDS[row][col])
+   #       file.write(value)
+   #    file.write('\n')
+   # file.close()
 
-   #GuSS
-   file = open('GuSS.txt','w')
-   Nrows, Ncols = GuSS.shape
-   print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
-   for row in range(0,Nrows):
-      for col in range(0,Ncols):
-         value = '%s ' %(GuSS[row][col])
-         file.write(value)
-      file.write('\n')
-   file.close()
+   # #GnSS
+   # file = open('GnSS.txt','w')
+   # Nrows, Ncols = GnSS.shape
+   # print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
+   # for row in range(0,Nrows):
+   #    for col in range(0,Ncols):
+   #       value = '%s ' %(GnSS[row][col])
+   #       file.write(value)
+   #    file.write('\n')
+   # file.close()
+
+   # #####
+   # # GuDS
+   # file = open('GuDS.txt','w')
+   # Nrows, Ncols = GuDS.shape
+   # print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
+   # for row in range(0,Nrows):
+   #    for col in range(0,Ncols):
+   #       value = '%s ' %(GuDS[row][col])
+   #       file.write(value)
+   #    file.write('\n')
+   # file.close()
+
+   # #GuSS
+   # file = open('GuSS.txt','w')
+   # Nrows, Ncols = GuSS.shape
+   # print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
+   # for row in range(0,Nrows):
+   #    for col in range(0,Ncols):
+   #       value = '%s ' %(GuSS[row][col])
+   #       file.write(value)
+   #    file.write('\n')
+   # file.close()
+
+   # writing into binary files
+   GeDS = GeDS.astype(NP.float32)
+   GeDS.tofile('%s_GeDS.dat'%prefix)
+
+   GeSS = GeSS.astype(NP.float32)
+   GeSS.tofile('%s_GeSS.dat'%prefix)
+
+   GnDS = GnDS.astype(NP.float32)
+   GnDS.tofile('%s_GnDS.dat'%prefix)
+
+   GnSS = GnSS.astype(NP.float32)
+   GnSS.tofile('%s_GnSS.dat'%prefix)
+
+   GuDS = GuDS.astype(NP.float32)
+   GuDS.tofile('%s_GuDS.dat'%prefix)
+
+   GuSS = GuSS.astype(NP.float32)
+   GuSS.tofile('%s_GuSS.dat'%prefix)
 
    if useRecvDir:
-      #G_SS
-      file = open('G_SS_proj.txt','w')
-      Nrows, Ncols = G_SS.shape
-      print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
-      for row in range(0,Nrows):
-         for col in range(0,Ncols):
-            value = '%s ' %(G_SS[row][col])
-            file.write(value)
-         file.write('\n')
-      file.close()
+      # #G_SS
+      # file = open('G_SS_proj.txt','w')
+      # Nrows, Ncols = G_SS.shape
+      # print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
+      # for row in range(0,Nrows):
+      #    for col in range(0,Ncols):
+      #       value = '%s ' %(G_SS[row][col])
+      #       file.write(value)
+      #    file.write('\n')
+      # file.close()
 
-      #G_DS
-      file = open('G_DS_proj.txt','w')
-      Nrows, Ncols = G_DS.shape
-      print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
-      for row in range(0,Nrows):
-         for col in range(0,Ncols):
-            value = '%s ' %(G_DS[row][col])
-            file.write(value)
-         file.write('\n')
-      file.close()
+      # #G_DS
+      # file = open('G_DS_proj.txt','w')
+      # Nrows, Ncols = G_DS.shape
+      # print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
+      # for row in range(0,Nrows):
+      #    for col in range(0,Ncols):
+      #       value = '%s ' %(G_DS[row][col])
+      #       file.write(value)
+      #    file.write('\n')
+      # file.close()
 
+      G_SS = G_SS.astype(NP.float32)
+      G_SS.tofile('%s_G_SS.dat'%prefix)
 
-   return
+      G_DS = G_DS.astype(NP.float32)
+      G_DS.tofile('%s_G_DS.dat'%prefix)
 
+   if useRecvDir:
+      return GeSS, GeDS, GnSS, GnDS, GuSS, GuDS, G_SS, G_DS
+   else:
+      return GeSS, GeDS, GnSS, GnDS, GuSS, GuDS
 
 if __name__ == '__main__':
 
