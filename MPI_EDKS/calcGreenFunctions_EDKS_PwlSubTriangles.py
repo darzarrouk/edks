@@ -1,15 +1,8 @@
-#!/usr/bin/env python26
+#!/usr/bin/env python
 """
-    by Francisco Hernan Ortega Culaciati, Nov 09, 2011
+    by Junle Jiang, July 26, 2013
     Seismological Laboratory
     California Institute of Technology
-
-    Created      : Nov 09, 2011
-    Last modified: Nov 09, 2011
-
-    Modification History:
-
-
 
 tested to work with Python 2.7
 """
