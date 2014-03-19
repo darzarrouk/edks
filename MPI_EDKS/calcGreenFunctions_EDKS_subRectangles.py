@@ -203,10 +203,7 @@ def calcGreenFunctions_EDKS_subRectangles(RectanglesPropFile, ReceiverFile,\
       G_SS, G_DS = projectGFmatrices(GeSS, GnSS, GuSS, GeDS, GnDS, GuDS,\
  				     ODirE, ODirN, ODirU)
 
-
-   # save the GF matrices.
-
-   # write ASCII matrices
+   # Save the GF matrices in ASCII
 
    # # GeDS
    # file = open('GeDS.txt','w')
@@ -324,7 +321,6 @@ def calcGreenFunctions_EDKS_subRectangles(RectanglesPropFile, ReceiverFile,\
       G_DS = G_DS.astype(NP.float32)
       G_DS.tofile('%s_G_DS.dat'%prefix)
 
-   if useRecvDir:
       return GeSS, GeDS, GnSS, GnDS, GuSS, GuDS, G_SS, G_DS
    else:
       return GeSS, GeDS, GnSS, GnDS, GuSS, GuDS

@@ -240,102 +240,123 @@ def calcGreenFunctions_EDKS_subTriangles(TriPropFile, TriPointsFile, ReceiverFil
       G_SS, G_DS = projectGFmatrices(GeSS, GnSS, GuSS, GeDS, GnDS, GuDS,\
                                      ODirE, ODirN, ODirU)
 
+   # # Save the GF matrices in ASCII
 
+   # # GeDS
+   # file = open('GeDS.txt','w')
+   # Nrows, Ncols = GeDS.shape
+   # print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
+   # for row in range(0,Nrows):
+   #    for col in range(0,Ncols):
+   #       value = '%s ' %(GeDS[row][col])
+   #       file.write(value)
+   #    file.write('\n')
+   # file.close()
 
-   # save the GF matrices.
+   # #GeSS
+   # file = open('GeSS.txt','w')
+   # Nrows, Ncols = GeSS.shape
+   # print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
+   # for row in range(0,Nrows):
+   #    for col in range(0,Ncols):
+   #       value = '%s ' %(GeSS[row][col])
+   #       file.write(value)
+   #    file.write('\n')
+   # file.close()
 
-   # write the matrices
-   # GeDS
-   file = open('GeDS.txt','w')
-   Nrows, Ncols = GeDS.shape
-   print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
-   for row in range(0,Nrows):
-      for col in range(0,Ncols):
-         value = '%s ' %(GeDS[row][col])
-         file.write(value)
-      file.write('\n')
-   file.close()
+   # #####
+   # # GnDS
+   # file = open('GnDS.txt','w')
+   # Nrows, Ncols = GnDS.shape
+   # print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
+   # for row in range(0,Nrows):
+   #    for col in range(0,Ncols):
+   #       value = '%s ' %(GnDS[row][col])
+   #       file.write(value)
+   #    file.write('\n')
+   # file.close()
 
-   #GeSS
-   file = open('GeSS.txt','w')
-   Nrows, Ncols = GeSS.shape
-   print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
-   for row in range(0,Nrows):
-      for col in range(0,Ncols):
-         value = '%s ' %(GeSS[row][col])
-         file.write(value)
-      file.write('\n')
-   file.close()
+   # #GnSS
+   # file = open('GnSS.txt','w')
+   # Nrows, Ncols = GnSS.shape
+   # print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
+   # for row in range(0,Nrows):
+   #    for col in range(0,Ncols):
+   #       value = '%s ' %(GnSS[row][col])
+   #       file.write(value)
+   #    file.write('\n')
+   # file.close()
 
-   #####
-   # GnDS
-   file = open('GnDS.txt','w')
-   Nrows, Ncols = GnDS.shape
-   print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
-   for row in range(0,Nrows):
-      for col in range(0,Ncols):
-         value = '%s ' %(GnDS[row][col])
-         file.write(value)
-      file.write('\n')
-   file.close()
+   # #####
+   # # GuDS
+   # file = open('GuDS.txt','w')
+   # Nrows, Ncols = GuDS.shape
+   # print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
+   # for row in range(0,Nrows):
+   #    for col in range(0,Ncols):
+   #       value = '%s ' %(GuDS[row][col])
+   #       file.write(value)
+   #    file.write('\n')
+   # file.close()
 
-   #GnSS
-   file = open('GnSS.txt','w')
-   Nrows, Ncols = GnSS.shape
-   print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
-   for row in range(0,Nrows):
-      for col in range(0,Ncols):
-         value = '%s ' %(GnSS[row][col])
-         file.write(value)
-      file.write('\n')
-   file.close()
+   # #GuSS
+   # file = open('GuSS.txt','w')
+   # Nrows, Ncols = GuSS.shape
+   # print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
+   # for row in range(0,Nrows):
+   #    for col in range(0,Ncols):
+   #       value = '%s ' %(GuSS[row][col])
+   #       file.write(value)
+   #    file.write('\n')
+   # file.close()
 
-   #####
-   # GuDS
-   file = open('GuDS.txt','w')
-   Nrows, Ncols = GuDS.shape
-   print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
-   for row in range(0,Nrows):
-      for col in range(0,Ncols):
-         value = '%s ' %(GuDS[row][col])
-         file.write(value)
-      file.write('\n')
-   file.close()
+   # writing into binary files
+   GeDS = GeDS.astype(NP.float32)
+   GeDS.tofile('%s_GeDS.dat'%prefix)
 
-   #GuSS
-   file = open('GuSS.txt','w')
-   Nrows, Ncols = GuSS.shape
-   print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
-   for row in range(0,Nrows):
-      for col in range(0,Ncols):
-         value = '%s ' %(GuSS[row][col])
-         file.write(value)
-      file.write('\n')
-   file.close()
+   GeSS = GeSS.astype(NP.float32)
+   GeSS.tofile('%s_GeSS.dat'%prefix)
 
-   # if direction is used.
+   GnDS = GnDS.astype(NP.float32)
+   GnDS.tofile('%s_GnDS.dat'%prefix)
+
+   GnSS = GnSS.astype(NP.float32)
+   GnSS.tofile('%s_GnSS.dat'%prefix)
+
+   GuDS = GuDS.astype(NP.float32)
+   GuDS.tofile('%s_GuDS.dat'%prefix)
+
+   GuSS = GuSS.astype(NP.float32)
+   GuSS.tofile('%s_GuSS.dat'%prefix)
+
    if useRecvDir:
-      #G_SS
-      file = open('G_SS_proj.txt','w')
-      Nrows, Ncols = G_SS.shape
-      print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
-      for row in range(0,Nrows):
-         for col in range(0,Ncols):
-            value = '%s ' %(G_SS[row][col])
-            file.write(value)
-         file.write('\n')
-      file.close()
+      # #G_SS
+      # file = open('G_SS_proj.txt','w')
+      # Nrows, Ncols = G_SS.shape
+      # print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
+      # for row in range(0,Nrows):
+      #    for col in range(0,Ncols):
+      #       value = '%s ' %(G_SS[row][col])
+      #       file.write(value)
+      #    file.write('\n')
+      # file.close()
 
-      #G_DS
-      file = open('G_DS_proj.txt','w')
-      Nrows, Ncols = G_DS.shape
-      print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
-      for row in range(0,Nrows):
-         for col in range(0,Ncols):
-            value = '%s ' %(G_DS[row][col])
-            file.write(value)
-         file.write('\n')
-      file.close()
+      # #G_DS
+      # file = open('G_DS_proj.txt','w')
+      # Nrows, Ncols = G_DS.shape
+      # print 'Nrows = ' + str(Nrows) + ', Ncols = ' + str(Ncols)
+      # for row in range(0,Nrows):
+      #    for col in range(0,Ncols):
+      #       value = '%s ' %(G_DS[row][col])
+      #       file.write(value)
+      #    file.write('\n')
+      # file.close()
+
+      G_SS = G_SS.astype(NP.float32)
+      G_SS.tofile('%s_G_SS.dat'%prefix)
+
+      G_DS = G_DS.astype(NP.float32)
+      G_DS.tofile('%s_G_DS.dat'%prefix)
 
       return GeSS, GeDS, GnSS, GnDS, GuSS, GuDS, G_SS, G_DS
    else:
