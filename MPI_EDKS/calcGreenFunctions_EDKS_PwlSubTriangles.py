@@ -4,6 +4,9 @@
     Seismological Laboratory
     California Institute of Technology
 
+    Revision History:
+
+
 tested to work with Python 2.7
 """
 
@@ -20,7 +23,7 @@ from projectGFmatrices import projectGFmatrices
 
 import string
 
-def calcGreenFunctions_EDKS_tentSubTriangles(TriPropFile, TriPointsFile, ReceiverFile,\
+def calcGreenFunctions_EDKS_PwlSubTriangles(TriPropFile, TriPointsFile, ReceiverFile,\
                                          method_par, plotGeometry):
    """
    method_par has to contain the following info:
@@ -35,16 +38,17 @@ def calcGreenFunctions_EDKS_tentSubTriangles(TriPropFile, TriPointsFile, Receive
    log = LogFile('log.calcEDKSsubGreenFunctions.txt')
    log.clearFile()
    log.addLine('loading data...')
+
    # read TriPropFile
    Tprop = {}
-   T_IDs = [] # I save the order in the file so I can produce GF in same order
+   T_IDs = []
    file = open(TriPropFile, 'r')
    aux = file.readline() # first line is header
    fields = ['id', 'lon', 'lat', 'e', 'n', 'dep', 'strike', 'dip', 'area',\
    'idP1', 'idP2', 'idP3' ]
    for line in file:
       line = string.split(line)
-      for i in range(1,9): # all the inner ones are float
+      for i in range(1,9): # all columns except ids are float
          line[i] = float( line[i] )
       Tprop[line[0]] = dict(zip(fields, line))
       T_IDs.append(line[0])
@@ -55,14 +59,16 @@ def calcGreenFunctions_EDKS_tentSubTriangles(TriPropFile, TriPointsFile, Receive
    P_IDs = []
    file = open(TriPointsFile, 'r')
    aux = file.readline() # first line is header
-   fields = ['id', 'lon', 'lat', 'e',  'n', 'dep', 'TriIDs'] # uncertain No of triangles
+   # record number of triangle neighbors and their IDs
+   fields = ['id', 'lon', 'lat', 'e',  'n', 'dep', 'numTr', 'idTr']
+   nf = len(fields)
    for line in file:
       line = string.split(line)
-      for i in range(1,len(fields)-1):
+      for i in range(1,nf-1):
          line[i] = float( line[i] )
-      line[len(fields)-1] = line[len(fields)-1:]
-      if len(line) > len(fields):
-         line[len(fields):] = []
+      line[nf-1] = line[nf-1:]
+      if len(line) > nf:
+         line[nf:] = []
       Tpoints[line[0]] = dict(zip(fields, line))
       P_IDs.append(line[0])
    file.close()
@@ -124,9 +130,10 @@ def calcGreenFunctions_EDKS_tentSubTriangles(TriPropFile, TriPointsFile, Receive
    slipST = []
 
    for Pid in P_IDs:
-      T_nghbr = Tpoints[Pid]['TriIDs']
+      No_nghbr = Tpoints[Pid]['numTr']
+      Tr_nghbr = Tpoints[Pid]['idTr']
       # calculate for each neighboring triangle
-      for Tid in T_nghbr:
+      for Tid in Tr_nghbr[0:int(No_nghbr)]:
          # initialize coordinate system for triangles
          TriCS = PointCoordinates(CoordSystemName = 'TriangleCS',\
                             xyzNames = ['E', 'N', 'U'])
@@ -247,9 +254,7 @@ def calcGreenFunctions_EDKS_tentSubTriangles(TriPropFile, TriPointsFile, Receive
 
 
 
-   # save the GF matrices.
-
-   # write the matrices
+   # write GF matrices in ASCII format
    # GeDS
    file = open('GeDS.txt','w')
    Nrows, Ncols = GeDS.shape
@@ -343,6 +348,7 @@ def calcGreenFunctions_EDKS_tentSubTriangles(TriPropFile, TriPointsFile, Receive
       file.close()
 
    return
+
 
 ###
 def getAmax4Triangle(Tri, TriCS, eR, nR, depR = 0.0, dist2cLTratio = 4.0):
@@ -532,7 +538,7 @@ def splitTriangle(Tri, TriCS):
 ###
 def getWeight4SubTriangles(Tri, TriCS, Pid, Ce, Cn, Cz):
    """
-    calculate the weight for each subtriangles given its location in the tent element
+    calculate the weight for each subtriangles given its location in the piece-wise linear element
    """
    # get the Point instances and coordinates of the master triangle
    PtList = Tri.getPointsID()
@@ -584,7 +590,7 @@ if __name__ == '__main__':
    parValues = [ useRecvDir ,  Amax ,  EDKSunits ,  EDKSfilename ,  prefix ]
    method_par = dict(zip(parNames, parValues))
 
-   calcGreenFunctions_EDKS_tentSubTriangles(TriPropFile, TriPointsFile, ReceiverFile,\
+   calcGreenFunctions_EDKS_PwlSubTriangles(TriPropFile, TriPointsFile, ReceiverFile,\
                                          method_par, plotGeometry)
 
 
