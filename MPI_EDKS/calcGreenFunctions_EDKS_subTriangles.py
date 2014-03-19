@@ -3,12 +3,14 @@
     by Francisco Hernan Ortega Culaciati, Nov 09, 2011
     Seismological Laboratory
     California Institute of Technology
-    
+
     Created      : Nov 09, 2011
-    Last modified: Nov 09, 2011 
+    Last modified: Mar 18, 2014
 
     Modification History:
-    
+    - Variable scopes are kept local and passed by func arguments only
+    - Compared to subSquare, area column is replaced by length and width
+    - Option of binary outputs in addition to text outputs
 
 
 tested to work with Python 2.7
@@ -38,7 +40,6 @@ def calcGreenFunctions_EDKS_subTriangles(TriPropFile, TriPointsFile, ReceiverFil
       prefix : a name prefix for the output files.
    """
 
-
    log = LogFile('log.calcEDKSsubGreenFunctions.txt')
    log.clearFile()
    log.addLine('loading data...')
@@ -56,14 +57,14 @@ def calcGreenFunctions_EDKS_subTriangles(TriPropFile, TriPointsFile, ReceiverFil
       Tprop[line[0]] = dict(zip(fields, line))
       T_IDs.append(line[0])
    file.close()
-   
+
    # read the TriPoints file
    Tpoints = {}
    file = open(TriPointsFile, 'r')
    aux = file.readline() # first line is header
    fields = ['id', 'lon', 'lat', 'e',  'n', 'dep']
-   for line in file:   
-      line = string.split(line) 
+   for line in file:
+      line = string.split(line)
       for i in range(1,len(fields)):
          line[i] = float( line[i] )
       Tpoints[line[0]] = dict(zip(fields, line))
@@ -74,10 +75,11 @@ def calcGreenFunctions_EDKS_subTriangles(TriPropFile, TriPointsFile, ReceiverFil
    R_IDs = []
    file = open(ReceiverFile, 'r')
    aux = file.readline() # first line is header
+   useRecvDir = method_par['useRecvDir']
    if useRecvDir:
       fields = ['id', 'e', 'n', 'ODirE', 'ODirN', 'ODirU']
    else:
-      fields = ['id', 'e', 'n'] 
+      fields = ['id', 'e', 'n']
    for line in file:
       line = string.split(line)
       for i in range(1, len(fields)):
@@ -85,10 +87,10 @@ def calcGreenFunctions_EDKS_subTriangles(TriPropFile, TriPointsFile, ReceiverFil
       Recv[line[0]] = dict(zip(fields, line))
       R_IDs.append( line[0] )
    file.close()
-      
+
    # save log
    log.addLine('data successfully loaded ... ')
-   
+
    # assemble the array with the east and north coordinates of the observation points
    eR = []
    nR = []
@@ -96,7 +98,7 @@ def calcGreenFunctions_EDKS_subTriangles(TriPropFile, TriPointsFile, ReceiverFil
       ODirE = []
       ODirN = []
       ODirU = []
-   for Rid in R_IDs: 
+   for Rid in R_IDs:
        eR.append(Recv[Rid]['e'])
        nR.append(Recv[Rid]['n'])
        if useRecvDir:
@@ -138,7 +140,7 @@ def calcGreenFunctions_EDKS_subTriangles(TriPropFile, TriPointsFile, ReceiverFil
                    idP3)
       # instantiate Triangle calculator
       Tcalc = TriangleCalculator(TriCS)
-                   
+
       # instantiate the Points
       P1 = Point(idP1)
       P2 = Point(idP2)
@@ -157,6 +159,7 @@ def calcGreenFunctions_EDKS_subTriangles(TriPropFile, TriPointsFile, ReceiverFil
          Tri.reverseOrientation()
       # compute the subfaults for the triangle
       # get the maximum Area for the triangle
+      Amax = method_par['Amax']
       if Amax == None:
          TriAmax = getAmax4Triangle(Tri, TriCS, eR, nR)
       else:
@@ -167,7 +170,7 @@ def calcGreenFunctions_EDKS_subTriangles(TriPropFile, TriPointsFile, ReceiverFil
       dST.extend(-1.0 * Cz)
       aST.extend(A)
       idST.extend( [Tid] * len(A) )
-       # get angles
+      # get angles
       phi, phiDir = Tcalc.strike(Tri)
       strikeST.extend(phi * NP.ones(len(A)))
       dip, dipDir = Tcalc.dip(Tri)
@@ -180,8 +183,8 @@ def calcGreenFunctions_EDKS_subTriangles(TriPropFile, TriPointsFile, ReceiverFil
 
       msg = 'Triangle %s has %i subsources...'%(Tid, len(A))
       log.addLine(msg)
-   
-   
+
+
    # Convert units
    Units2meters = method_par['EDKSunits']
    eST = NP.array(eST) * Units2meters
@@ -197,7 +200,7 @@ def calcGreenFunctions_EDKS_subTriangles(TriPropFile, TriPointsFile, ReceiverFil
       fig = PL.figure(1)
       s = plot3.Axes3D(fig)
       s.plot3D(eST/Units2meters, nST/Units2meters, -1.0*dST/Units2meters, '.r',\
-		markersize = 2) 
+		markersize = 2)
       for MasterTriangle in MasterTriangles4Plot:
          Mtri, MtriCS = MasterTriangle
          plotTriangle(Mtri, MtriCS, s, color = 'k')
@@ -207,13 +210,13 @@ def calcGreenFunctions_EDKS_subTriangles(TriPropFile, TriPointsFile, ReceiverFil
 
    #PL.plot(-nST, eST, '.k', markersize = 2)
    #PL.plot(-nR, eR, 'or')
-   #PL.show() 
-   
+   #PL.show()
+
    # the rest just convert to arrays.
    strikeST = NP.array(strikeST)
    dipST = NP.array(dipST)
    slipST = NP.array(slipST)
-   
+
    # run layered_disloc_sub on all the subtriangles
    edks = method_par['EDKSfilename']
    prefix = method_par['prefix']
@@ -223,14 +226,14 @@ def calcGreenFunctions_EDKS_subTriangles(TriPropFile, TriPointsFile, ReceiverFil
    prefixSS = prefix + '_SS_'
    rakeST = 0.0 * NP.ones(len(eST))
    GeSS, GnSS, GuSS = layered_disloc_sub(idST, eST, nST, dST, strikeST, dipST,\
-                      rakeST, slipST, aST, eR, nR, edks, prefixSS)  
+                      rakeST, slipST, aST, eR, nR, edks, prefixSS)
 
    # dip slip GFs
    log.addLine('calculating upDip-Slip Green functions...')
    prefixDS = prefix + '_DS_'
-   rakeST = 90.0 * NP.ones(len(eST))   
+   rakeST = 90.0 * NP.ones(len(eST))
    GeDS, GnDS, GuDS = layered_disloc_sub(idST, eST, nST, dST, strikeST, dipST,\
-                      rakeST, slipST, aST, eR, nR, edks, prefixDS)  
+                      rakeST, slipST, aST, eR, nR, edks, prefixDS)
 
    # if useRecvDir is True I need to project the GF matrices
    if useRecvDir:
@@ -240,7 +243,7 @@ def calcGreenFunctions_EDKS_subTriangles(TriPropFile, TriPointsFile, ReceiverFil
 
 
    # save the GF matrices.
-   
+
    # write the matrices
    # GeDS
    file = open('GeDS.txt','w')
@@ -334,17 +337,14 @@ def calcGreenFunctions_EDKS_subTriangles(TriPropFile, TriPointsFile, ReceiverFil
          file.write('\n')
       file.close()
 
-
-   return
-
-
-
-   return
+      return GeSS, GeDS, GnSS, GnDS, GuSS, GuDS, G_SS, G_DS
+   else:
+      return GeSS, GeDS, GnSS, GnDS, GuSS, GuDS
 
 ###
 def getAmax4Triangle(Tri, TriCS, eR, nR, depR = 0.0, dist2cLTratio = 4.0):
    """
-   get the maximum area of a triangle so its point source representation is 
+   get the maximum area of a triangle so its point source representation is
    accurate. We do this based on the Saint Venant's principle.
    """
    from ICM.Geometry import TriangleCalculator
@@ -365,29 +365,29 @@ def getAmax4Triangle(Tri, TriCS, eR, nR, depR = 0.0, dist2cLTratio = 4.0):
          minDistP2recv = aux
    # we calculate the maximum area of the triangle by calculating the area of the
    # inscribed circle in an equilateral triangle with a characteristic length cLT
-   # given by the Saint Venant's principle based on the minimum distance between 
+   # given by the Saint Venant's principle based on the minimum distance between
    # the triangle and the receivers.
    cLT = 1.0 * minDistP2recv / dist2cLTratio
    DiC = NP.sqrt(3.0) * cLT / 3.0 # diameter of the inscribed circle in equi Tri
-   Amax = NP.pi * DiC * DiC / 4.0  
+   Amax = NP.pi * DiC * DiC / 4.0
    return Amax
-   
+
 
 ###
 def getReducedTrianglesProp(Tri, TriCS, Amax = None, depT2cLTratio = 4.0):
    """
-   get the Triangle and its coordinate system, recursively subdivide it until 
-   all the subdivided triangles have an area less or equal Amax. 
+   get the Triangle and its coordinate system, recursively subdivide it until
+   all the subdivided triangles have an area less or equal Amax.
    Each triangle is subdivided into 4 triangles by adding the center points on
    the edge of the master triangle.
-   
-   This function returns 3 Numpy arrays with the coordinates of the centers of the
-   subdivided triangles (east, north and depth) and its Area 
 
-   if Amax is not given, it will be calculated based on the Saint-Venant principle using 
+   This function returns 3 Numpy arrays with the coordinates of the centers of the
+   subdivided triangles (east, north and depth) and its Area
+
+   if Amax is not given, it will be calculated based on the Saint-Venant principle using
    as a reference the depth of the shallowest vertex of the triangle(depT). Thus, it will
    divide the triangle until the characteristic length of the triangle (cLT) follows:
-   
+
                             depT >= depT2cLTratio * cLT
 
    the default value of depT2cLTratio is 4 ( to be conservative within the Saint-Venant
@@ -414,12 +414,12 @@ def getReducedTrianglesProp(Tri, TriCS, Amax = None, depT2cLTratio = 4.0):
       # the caracteristic length of the Maximum triangle from Saint-venant's principle
       cLT = 1.0 * depT / depT2cLTratio
       DiC = NP.sqrt(3.0) * cLT / 3.0 # diameter of the inscribed circle in equi Tri
-      Amax = NP.pi * DiC * DiC / 4.0  #  The Maximum area of the triangle is the area of 
-                                      # the inscibed circle in an equilateral triangle 
+      Amax = NP.pi * DiC * DiC / 4.0  #  The Maximum area of the triangle is the area of
+                                      # the inscibed circle in an equilateral triangle
                                       # with side equal to cLT
       # calculate the subdivideFlag
-      subdivideFlag = Amax < Area 
-      
+      subdivideFlag = Amax < Area
+
    # to store the triangles center and area
    Ce = []
    Cn = []
@@ -460,10 +460,10 @@ def getReducedTrianglesProp(Tri, TriCS, Amax = None, depT2cLTratio = 4.0):
    return [NP.array(Ce), NP.array(Cn), NP.array(Cz), NP.array(A)]
 
 
-###   
+###
 def splitTriangle(Tri, TriCS):
    """
-   takes the triangle Tri and split it into 4 triangles by adding the midpoints 
+   takes the triangle Tri and split it into 4 triangles by adding the midpoints
    of each side of the triangle.
 
    """

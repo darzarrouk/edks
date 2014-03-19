@@ -5,10 +5,12 @@
     California Institute of Technology
 
     Created      : Nov 16, 2011
-    Last modified: Nov 16, 2011
+    Last modified: Mar 18, 2014
 
     Modification History:
-
+    - Variable scopes are kept local and passed by func arguments only
+    - Compared to subSquare, area column is replaced by length and width
+    - Option of binary outputs in addition to text outputs
 
 
 tested to work with Python 2.7
@@ -93,7 +95,7 @@ def calcGreenFunctions_EDKS_subRectangles(RectanglesPropFile, ReceiverFile,\
    log.addLine(msg)
 
    # now compute the coordinates of all the sub rectangles
-   log.addLine(' Subdividing 3Dsquare Mesh ')
+   log.addLine(' Subdividing 3DRectangular Mesh ')
    # instantiate rectangle calculator
    Rcalc = RectangleCalculator()
 
@@ -124,7 +126,6 @@ def calcGreenFunctions_EDKS_subRectangles(RectanglesPropFile, ReceiverFile,\
 
       Rec = rectanglePatch( rEc, rNc, rZc, L, W, strike, dip )
 
-
       # compute the subfaults for the rectangle
       subRectangles = Rcalc.getReducedRectangles(Rec, eR, nR, Amax = Amax)
       eSR.extend([subR.Xc for subR in subRectangles])
@@ -139,7 +140,7 @@ def calcGreenFunctions_EDKS_subRectangles(RectanglesPropFile, ReceiverFile,\
       # assign unit slip
       slipSR.extend(1.0 * NP.ones(len(subRectangles)))
 
-      msg = 'Square %s has %i subsources...'%(Rec_id, len(subRectangles))
+      msg = 'Rectangle %s has %i subsources...'%(Rec_id, len(subRectangles))
       log.addLine(msg)
 
       if plotGeometry:
@@ -157,8 +158,8 @@ def calcGreenFunctions_EDKS_subRectangles(RectanglesPropFile, ReceiverFile,\
 
    if plotGeometry:
       import matplotlib
-      import pylab as PL
       matplotlib.use('agg')
+      import pylab as PL
       import mpl_toolkits.mplot3d.axes3d as plot3
       fig = PL.figure(1)
       s = plot3.Axes3D(fig)
