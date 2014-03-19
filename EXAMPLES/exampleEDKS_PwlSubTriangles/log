@@ -1,0 +1,1059 @@
+Point 1   has  3 triangle neighbors: 134, 265, 78
+Point 10  has  1 triangle neighbors: 127
+Point 100 has  6 triangle neighbors: 150, 306, 320, 321, 349, 366
+Point 101 has  5 triangle neighbors: 143, 219, 300, 322, 353
+Point 102 has  6 triangle neighbors: 119, 235, 3, 300, 348, 353
+Point 103 has  6 triangle neighbors: 119, 177, 178, 242, 348, 7
+Point 104 has  6 triangle neighbors: 100, 178, 242, 316, 319, 359
+Point 105 has  6 triangle neighbors: 101, 161, 165, 254, 325, 371
+Point 106 has  5 triangle neighbors: 161, 165, 320, 349, 365
+Point 107 has  6 triangle neighbors: 100, 141, 152, 241, 316, 337
+Point 108 has  6 triangle neighbors: 100, 141, 176, 20, 351, 359
+Point 109 has  5 triangle neighbors: 20, 254, 319, 325, 359
+Point 11  has  3 triangle neighbors: 120, 127, 376
+Point 110 has  5 triangle neighbors: 123, 241, 242, 316, 7
+Point 111 has  7 triangle neighbors: 123, 152, 226, 241, 259, 284, 302
+Point 112 has  6 triangle neighbors: 152, 168, 278, 284, 337, 87
+Point 113 has  6 triangle neighbors: 142, 213, 220, 236, 36, 42
+Point 114 has  6 triangle neighbors: 144, 162, 210, 304, 329, 81
+Point 115 has  6 triangle neighbors: 258, 266, 304, 329, 361, 364
+Point 116 has  5 triangle neighbors: 160, 234, 276, 277, 328
+Point 117 has  5 triangle neighbors: 110, 116, 235, 3, 31
+Point 118 has  6 triangle neighbors: 119, 177, 29, 3, 31, 5
+Point 119 has  6 triangle neighbors: 110, 116, 169, 229, 298, 32
+Point 12  has  3 triangle neighbors: 120, 260, 47
+Point 120 has  6 triangle neighbors: 121, 327, 40, 54, 73, 92
+Point 121 has  7 triangle neighbors: 108, 111, 117, 146, 360, 59, 65
+Point 122 has  7 triangle neighbors: 105, 167, 181, 206, 269, 314, 338
+Point 123 has  7 triangle neighbors: 122, 158, 224, 243, 255, 43, 53
+Point 124 has  7 triangle neighbors: 106, 17, 205, 294, 318, 346, 68
+Point 125 has  6 triangle neighbors: 1, 157, 205, 209, 263, 68
+Point 126 has  6 triangle neighbors: 1, 111, 117, 263, 372, 96
+Point 127 has  7 triangle neighbors: 112, 138, 159, 377, 73, 92, 99
+Point 128 has  6 triangle neighbors: 105, 188, 247, 269, 289, 317
+Point 129 has  5 triangle neighbors: 107, 186, 214, 28, 91
+Point 13  has  3 triangle neighbors: 190, 238, 291
+Point 130 has  6 triangle neighbors: 0, 11, 122, 126, 158, 67
+Point 131 has  6 triangle neighbors: 132, 136, 195, 286, 369, 4
+Point 132 has  7 triangle neighbors: 106, 132, 17, 195, 212, 223, 309
+Point 133 has  6 triangle neighbors: 212, 309, 323, 354, 46, 75
+Point 134 has  6 triangle neighbors: 137, 25, 252, 264, 310, 370
+Point 135 has  4 triangle neighbors: 16, 171, 357, 62
+Point 136 has  3 triangle neighbors: 128, 264, 310
+Point 137 has  7 triangle neighbors: 102, 137, 25, 272, 323, 336, 46
+Point 138 has  6 triangle neighbors: 145, 16, 198, 283, 355, 62
+Point 139 has  5 triangle neighbors: 25, 252, 354, 41, 46
+Point 14  has  4 triangle neighbors: 153, 262, 301, 47
+Point 140 has  7 triangle neighbors: 0, 11, 145, 166, 179, 182, 355
+Point 141 has  7 triangle neighbors: 0, 126, 182, 200, 244, 71, 90
+Point 142 has  7 triangle neighbors: 125, 192, 243, 335, 345, 373, 53
+Point 143 has  5 triangle neighbors: 125, 167, 181, 243, 43
+Point 144 has  5 triangle neighbors: 114, 158, 255, 57, 67
+Point 145 has  5 triangle neighbors: 113, 193, 200, 58, 71
+Point 146 has  5 triangle neighbors: 13, 155, 226, 278, 284
+Point 147 has  5 triangle neighbors: 13, 226, 239, 261, 302
+Point 148 has  6 triangle neighbors: 109, 13, 155, 211, 239, 315
+Point 149 has  6 triangle neighbors: 124, 19, 250, 270, 287, 94
+Point 15  has  4 triangle neighbors: 217, 231, 291, 44
+Point 150 has  5 triangle neighbors: 133, 15, 197, 287, 94
+Point 151 has  7 triangle neighbors: 197, 250, 297, 342, 51, 9, 94
+Point 152 has  5 triangle neighbors: 19, 23, 250, 297, 61
+Point 153 has  5 triangle neighbors: 185, 253, 297, 51, 61
+Point 154 has  6 triangle neighbors: 216, 274, 295, 305, 333, 48
+Point 155 has  5 triangle neighbors: 2, 237, 245, 257, 280
+Point 156 has  5 triangle neighbors: 103, 216, 274, 312, 350
+Point 157 has  6 triangle neighbors: 214, 237, 280, 327, 40, 91
+Point 158 has  5 triangle neighbors: 147, 15, 197, 201, 342
+Point 159 has  5 triangle neighbors: 134, 147, 201, 228, 78
+Point 16  has  4 triangle neighbors: 142, 153, 215, 36
+Point 160 has  6 triangle neighbors: 201, 225, 228, 285, 342, 9
+Point 161 has  2 triangle neighbors: 166, 179
+Point 162 has  7 triangle neighbors: 11, 114, 283, 355, 6, 67, 84
+Point 163 has  6 triangle neighbors: 115, 16, 171, 198, 326, 33
+Point 164 has  7 triangle neighbors: 187, 222, 27, 271, 281, 52, 97
+Point 165 has  5 triangle neighbors: 129, 14, 271, 339, 97
+Point 166 has  6 triangle neighbors: 129, 151, 164, 303, 339, 70
+Point 167 has  5 triangle neighbors: 10, 156, 164, 204, 303
+Point 168 has  6 triangle neighbors: 103, 227, 27, 281, 350, 79
+Point 169 has  5 triangle neighbors: 150, 187, 222, 306, 82
+Point 17  has  2 triangle neighbors: 220, 36
+Point 170 has  6 triangle neighbors: 104, 130, 173, 184, 208, 356
+Point 171 has  6 triangle neighbors: 130, 184, 222, 306, 321, 52
+Point 172 has  7 triangle neighbors: 103, 173, 312, 356, 79, 8, 80
+Point 173 has  5 triangle neighbors: 131, 279, 8, 80, 85
+Point 174 has  5 triangle neighbors: 135, 151, 22, 45, 70
+Point 175 has  5 triangle neighbors: 267, 289, 293, 317, 89
+Point 176 has  6 triangle neighbors: 131, 2, 245, 279, 331, 63
+Point 177 has  6 triangle neighbors: 214, 237, 245, 28, 308, 63
+Point 178 has  6 triangle neighbors: 174, 279, 313, 331, 49, 85
+Point 179 has  6 triangle neighbors: 112, 186, 273, 327, 91, 92
+Point 18  has  3 triangle neighbors: 183, 217, 275
+Point 180 has  5 triangle neighbors: 112, 146, 159, 273, 360
+Point 181 has  6 triangle neighbors: 138, 206, 233, 314, 93, 99
+Point 182 has  6 triangle neighbors: 121, 188, 247, 352, 377, 73
+Point 183 has  5 triangle neighbors: 105, 138, 188, 206, 377
+Point 184 has  5 triangle neighbors: 125, 167, 192, 233, 314
+Point 185 has  6 triangle neighbors: 108, 192, 233, 335, 65, 93
+Point 186 has  5 triangle neighbors: 159, 360, 65, 93, 99
+Point 187 has  5 triangle neighbors: 121, 295, 352, 48, 54
+Point 188 has  6 triangle neighbors: 107, 117, 146, 186, 273, 372
+Point 189 has  5 triangle neighbors: 108, 148, 335, 373, 59
+Point 19  has  4 triangle neighbors: 162, 210, 220, 236
+Point 190 has  6 triangle neighbors: 157, 205, 256, 294, 66, 95
+Point 191 has  5 triangle neighbors: 148, 345, 373, 66, 95
+Point 192 has  5 triangle neighbors: 17, 195, 286, 346, 37
+Point 193 has  5 triangle neighbors: 132, 180, 223, 369, 55
+Point 194 has  6 triangle neighbors: 223, 309, 368, 55, 75, 98
+Point 195 has  7 triangle neighbors: 172, 240, 326, 33, 368, 50, 98
+Point 196 has  5 triangle neighbors: 198, 240, 283, 326, 6
+Point 197 has  5 triangle neighbors: 115, 33, 50, 60, 86
+Point 198 has  7 triangle neighbors: 224, 248, 256, 311, 345, 53, 66
+Point 199 has  6 triangle neighbors: 114, 180, 369, 4, 57, 84
+Point 2   has  3 triangle neighbors: 149, 191, 265
+Point 20  has  3 triangle neighbors: 12, 275, 307
+Point 200 has  6 triangle neighbors: 136, 224, 255, 311, 4, 57
+Point 201 has  5 triangle neighbors: 115, 171, 30, 357, 86
+Point 202 has  7 triangle neighbors: 102, 288, 30, 336, 34, 60, 86
+Point 203 has  4 triangle neighbors: 24, 310, 332, 370
+Point 204 has  5 triangle neighbors: 172, 272, 323, 75, 98
+Point 205 has  5 triangle neighbors: 102, 172, 272, 50, 60
+Point 206 has  5 triangle neighbors: 248, 256, 294, 346, 37
+Point 207 has  5 triangle neighbors: 136, 248, 286, 311, 37
+Point 208 has  4 triangle neighbors: 24, 288, 332, 34
+Point 209 has  5 triangle neighbors: 137, 24, 336, 34, 370
+Point 21  has  3 triangle neighbors: 162, 304, 364
+Point 22  has  4 triangle neighbors: 199, 246, 251, 307
+Point 23  has  4 triangle neighbors: 160, 276, 361, 364
+Point 24  has  3 triangle neighbors: 276, 277, 347
+Point 25  has  3 triangle neighbors: 232, 246, 290
+Point 26  has  3 triangle neighbors: 113, 347, 58
+Point 27  has  3 triangle neighbors: 113, 244, 71
+Point 28  has  3 triangle neighbors: 203, 290, 77
+Point 29  has  3 triangle neighbors: 179, 182, 244
+Point 3   has  3 triangle neighbors: 134, 228, 285
+Point 30  has  2 triangle neighbors: 203, 221
+Point 31  has  4 triangle neighbors: 288, 30, 332, 357
+Point 32  has  6 triangle neighbors: 180, 240, 368, 55, 6, 84
+Point 33  has  7 triangle neighbors: 269, 317, 338, 341, 38, 74, 89
+Point 34  has  6 triangle neighbors: 129, 14, 175, 22, 363, 70
+Point 35  has  6 triangle neighbors: 110, 189, 235, 298, 322, 353
+Point 36  has  7 triangle neighbors: 133, 147, 15, 163, 191, 265, 78
+Point 37  has  5 triangle neighbors: 141, 168, 176, 337, 374
+Point 38  has  6 triangle neighbors: 109, 124, 19, 211, 23, 292
+Point 39  has  6 triangle neighbors: 202, 259, 261, 302, 330, 72
+Point 4   has  3 triangle neighbors: 139, 149, 170
+Point 40  has  7 triangle neighbors: 133, 163, 21, 26, 270, 287, 324
+Point 41  has  7 triangle neighbors: 144, 169, 218, 229, 282, 378, 81
+Point 42  has  7 triangle neighbors: 207, 234, 328, 341, 358, 56, 74
+Point 43  has  7 triangle neighbors: 104, 174, 18, 208, 313, 340, 343
+Point 44  has  7 triangle neighbors: 118, 120, 185, 253, 260, 375, 376
+Point 45  has  6 triangle neighbors: 111, 148, 157, 263, 59, 95
+Point 46  has  8 triangle neighbors: 155, 26, 278, 299, 315, 324, 76, 87
+Point 47  has  6 triangle neighbors: 194, 308, 331, 362, 49, 63
+Point 48  has  7 triangle neighbors: 20, 231, 325, 351, 371, 44, 88
+Point 49  has  7 triangle neighbors: 122, 126, 181, 338, 38, 43, 90
+Point 5   has  3 triangle neighbors: 225, 285, 39
+Point 50  has  2 triangle neighbors: 128, 221
+Point 51  has  6 triangle neighbors: 193, 200, 207, 38, 74, 90
+Point 52  has  7 triangle neighbors: 142, 202, 215, 29, 330, 42, 5
+Point 53  has  5 triangle neighbors: 218, 258, 329, 344, 81
+Point 54  has  6 triangle neighbors: 118, 225, 253, 39, 51, 9
+Point 55  has  7 triangle neighbors: 109, 239, 261, 262, 292, 301, 72
+Point 56  has  3 triangle neighbors: 145, 166, 62
+Point 57  has  7 triangle neighbors: 168, 190, 238, 249, 374, 76, 87
+Point 58  has  6 triangle neighbors: 106, 212, 268, 318, 354, 41
+Point 59  has  7 triangle neighbors: 209, 232, 268, 290, 318, 68, 77
+Point 6   has  3 triangle neighbors: 118, 375, 39
+Point 60  has  7 triangle neighbors: 12, 18, 183, 194, 275, 313, 49
+Point 61  has  8 triangle neighbors: 107, 199, 251, 28, 308, 362, 372, 96
+Point 62  has  6 triangle neighbors: 176, 238, 291, 351, 374, 44
+Point 63  has  6 triangle neighbors: 18, 183, 217, 231, 343, 88
+Point 64  has  8 triangle neighbors: 128, 203, 221, 252, 264, 268, 41, 77
+Point 65  has  5 triangle neighbors: 124, 211, 270, 315, 324
+Point 66  has  7 triangle neighbors: 185, 23, 260, 262, 292, 47, 61
+Point 67  has  6 triangle neighbors: 1, 209, 232, 246, 251, 96
+Point 68  has  6 triangle neighbors: 193, 207, 234, 277, 347, 58
+Point 69  has  5 triangle neighbors: 160, 266, 328, 358, 361
+Point 7   has  3 triangle neighbors: 139, 35, 69
+Point 70  has  6 triangle neighbors: 144, 210, 213, 229, 236, 32
+Point 71  has  6 triangle neighbors: 139, 170, 21, 26, 299, 69
+Point 72  has  5 triangle neighbors: 153, 202, 215, 301, 72
+Point 73  has  5 triangle neighbors: 12, 194, 199, 307, 362
+Point 74  has  5 triangle neighbors: 149, 163, 170, 191, 21
+Point 75  has  6 triangle neighbors: 165, 340, 343, 365, 371, 88
+Point 76  has  5 triangle neighbors: 249, 299, 35, 69, 76
+Point 77  has  6 triangle neighbors: 123, 177, 259, 29, 330, 7
+Point 78  has  7 triangle neighbors: 101, 178, 219, 254, 300, 319, 348
+Point 79  has  7 triangle neighbors: 101, 143, 154, 161, 219, 349, 366
+Point 8   has  3 triangle neighbors: 127, 375, 376
+Point 80  has  6 triangle neighbors: 116, 213, 31, 32, 42, 5
+Point 81  has  6 triangle neighbors: 196, 293, 334, 341, 56, 89
+Point 82  has  7 triangle neighbors: 10, 156, 227, 274, 333, 350, 83
+Point 83  has  5 triangle neighbors: 130, 173, 27, 52, 79
+Point 84  has  7 triangle neighbors: 230, 258, 266, 334, 344, 358, 56
+Point 85  has  6 triangle neighbors: 135, 218, 230, 344, 378, 45
+Point 86  has  6 triangle neighbors: 140, 175, 296, 363, 367, 64
+Point 87  has  6 triangle neighbors: 257, 280, 295, 305, 40, 54
+Point 88  has  7 triangle neighbors: 247, 267, 289, 333, 352, 48, 83
+Point 89  has  6 triangle neighbors: 10, 196, 204, 267, 293, 83
+Point 9   has  3 triangle neighbors: 190, 249, 35
+Point 90  has  6 triangle neighbors: 156, 227, 281, 303, 339 reading EDKS kernels
+ reading the receiver locations
+ reading the patch information
+  selecting sub sources for patch           1
+  Calculating           96  sub sources displacements for patch           1
+  selecting sub sources for patch           2
+  Calculating           16  sub sources displacements for patch           2
+  selecting sub sources for patch           3
+  Calculating           96  sub sources displacements for patch           3
+  selecting sub sources for patch           4
+  Calculating          272  sub sources displacements for patch           4
+  selecting sub sources for patch           5
+  Calculating          240  sub sources displacements for patch           5
+  selecting sub sources for patch           6
+  Calculating          240  sub sources displacements for patch           6
+  selecting sub sources for patch           7
+  Calculating          240  sub sources displacements for patch           7
+  selecting sub sources for patch           8
+  Calculating          192  sub sources displacements for patch           8
+  selecting sub sources for patch           9
+  Calculating           80  sub sources displacements for patch           9
+  selecting sub sources for patch          10
+  Calculating          144  sub sources displacements for patch          10
+  selecting sub sources for patch          11
+  Calculating          192  sub sources displacements for patch          11
+  selecting sub sources for patch          12
+  Calculating          176  sub sources displacements for patch          12
+  selecting sub sources for patch          13
+  Calculating           96  sub sources displacements for patch          13
+  selecting sub sources for patch          14
+  Calculating           80  sub sources displacements for patch          14
+  selecting sub sources for patch          15
+  Calculating          112  sub sources displacements for patch          15
+  selecting sub sources for patch          16
+  Calculating          144  sub sources displacements for patch          16
+  selecting sub sources for patch          17
+  Calculating           84  sub sources displacements for patch          17
+  selecting sub sources for patch          18
+  Calculating           72  sub sources displacements for patch          18
+  selecting sub sources for patch          19
+  Calculating           24  sub sources displacements for patch          19
+  selecting sub sources for patch          20
+  Calculating           20  sub sources displacements for patch          20
+  selecting sub sources for patch          21
+  Calculating           80  sub sources displacements for patch          21
+  selecting sub sources for patch          22
+  Calculating          144  sub sources displacements for patch          22
+  selecting sub sources for patch          23
+  Calculating           96  sub sources displacements for patch          23
+  selecting sub sources for patch          24
+  Calculating          144  sub sources displacements for patch          24
+  selecting sub sources for patch          25
+  Calculating           60  sub sources displacements for patch          25
+  selecting sub sources for patch          26
+  Calculating           88  sub sources displacements for patch          26
+  selecting sub sources for patch          27
+  Calculating          160  sub sources displacements for patch          27
+  selecting sub sources for patch          28
+  Calculating          208  sub sources displacements for patch          28
+  selecting sub sources for patch          29
+  Calculating          160  sub sources displacements for patch          29
+  selecting sub sources for patch          30
+  Calculating           96  sub sources displacements for patch          30
+  selecting sub sources for patch          31
+  Calculating           96  sub sources displacements for patch          31
+  selecting sub sources for patch          32
+  Calculating           76  sub sources displacements for patch          32
+  selecting sub sources for patch          33
+  Calculating           96  sub sources displacements for patch          33
+  selecting sub sources for patch          34
+  Calculating           32  sub sources displacements for patch          34
+  selecting sub sources for patch          35
+  Calculating          192  sub sources displacements for patch          35
+  selecting sub sources for patch          36
+  Calculating          240  sub sources displacements for patch          36
+  selecting sub sources for patch          37
+  Calculating           96  sub sources displacements for patch          37
+  selecting sub sources for patch          38
+  Calculating          112  sub sources displacements for patch          38
+  selecting sub sources for patch          39
+  Calculating           96  sub sources displacements for patch          39
+  selecting sub sources for patch          40
+  Calculating          144  sub sources displacements for patch          40
+  selecting sub sources for patch          41
+  Calculating          112  sub sources displacements for patch          41
+  selecting sub sources for patch          42
+  Calculating          144  sub sources displacements for patch          42
+  selecting sub sources for patch          43
+  Calculating          112  sub sources displacements for patch          43
+  selecting sub sources for patch          44
+  Calculating          288  sub sources displacements for patch          44
+  selecting sub sources for patch          45
+  Calculating           80  sub sources displacements for patch          45
+  selecting sub sources for patch          46
+  Calculating          208  sub sources displacements for patch          46
+  selecting sub sources for patch          47
+  Calculating          256  sub sources displacements for patch          47
+  selecting sub sources for patch          48
+  Calculating          136  sub sources displacements for patch          48
+  selecting sub sources for patch          49
+  Calculating          112  sub sources displacements for patch          49
+  selecting sub sources for patch          50
+  Calculating          128  sub sources displacements for patch          50
+  selecting sub sources for patch          51
+  Calculating          128  sub sources displacements for patch          51
+  selecting sub sources for patch          52
+  Calculating           20  sub sources displacements for patch          52
+  selecting sub sources for patch          53
+  Calculating          176  sub sources displacements for patch          53
+  selecting sub sources for patch          54
+  Calculating          224  sub sources displacements for patch          54
+  selecting sub sources for patch          55
+  Calculating          576  sub sources displacements for patch          55
+  selecting sub sources for patch          56
+  Calculating          384  sub sources displacements for patch          56
+  selecting sub sources for patch          57
+  Calculating          256  sub sources displacements for patch          57
+  selecting sub sources for patch          58
+  Calculating          272  sub sources displacements for patch          58
+  selecting sub sources for patch          59
+  Calculating          448  sub sources displacements for patch          59
+  selecting sub sources for patch          60
+  Calculating          512  sub sources displacements for patch          60
+  selecting sub sources for patch          61
+  Calculating          320  sub sources displacements for patch          61
+  selecting sub sources for patch          62
+  Calculating           96  sub sources displacements for patch          62
+  selecting sub sources for patch          63
+  Calculating           20  sub sources displacements for patch          63
+  selecting sub sources for patch          64
+  Calculating           80  sub sources displacements for patch          64
+  selecting sub sources for patch          65
+  Calculating           24  sub sources displacements for patch          65
+  selecting sub sources for patch          66
+  Calculating          176  sub sources displacements for patch          66
+  selecting sub sources for patch          67
+  Calculating           80  sub sources displacements for patch          67
+  selecting sub sources for patch          68
+  Calculating           52  sub sources displacements for patch          68
+  selecting sub sources for patch          69
+  Calculating          288  sub sources displacements for patch          69
+  selecting sub sources for patch          70
+  Calculating           32  sub sources displacements for patch          70
+  selecting sub sources for patch          71
+  Calculating          352  sub sources displacements for patch          71
+  selecting sub sources for patch          72
+  Calculating           84  sub sources displacements for patch          72
+  selecting sub sources for patch          73
+  Calculating          112  sub sources displacements for patch          73
+  selecting sub sources for patch          74
+  Calculating           80  sub sources displacements for patch          74
+  selecting sub sources for patch          75
+  Calculating           96  sub sources displacements for patch          75
+  selecting sub sources for patch          76
+  Calculating           80  sub sources displacements for patch          76
+  selecting sub sources for patch          77
+  Calculating           96  sub sources displacements for patch          77
+  selecting sub sources for patch          78
+  Calculating           80  sub sources displacements for patch          78
+  selecting sub sources for patch          79
+  Calculating           20  sub sources displacements for patch          79
+  selecting sub sources for patch          80
+  Calculating           96  sub sources displacements for patch          80
+  selecting sub sources for patch          81
+  Calculating           96  sub sources displacements for patch          81
+  selecting sub sources for patch          82
+  Calculating          100  sub sources displacements for patch          82
+  selecting sub sources for patch          83
+  Calculating           32  sub sources displacements for patch          83
+  selecting sub sources for patch          84
+  Calculating           80  sub sources displacements for patch          84
+  selecting sub sources for patch          85
+  Calculating           80  sub sources displacements for patch          85
+  selecting sub sources for patch          86
+  Calculating           24  sub sources displacements for patch          86
+  selecting sub sources for patch          87
+  Calculating           36  sub sources displacements for patch          87
+  selecting sub sources for patch          88
+  Calculating           60  sub sources displacements for patch          88
+  selecting sub sources for patch          89
+  Calculating           36  sub sources displacements for patch          89
+  selecting sub sources for patch          90
+  Calculating           96  sub sources displacements for patch          90
+  selecting sub sources for patch          91
+  Calculating           20  sub sources displacements for patch          91
+  selecting sub sources for patch          92
+  Calculating           72  sub sources displacements for patch          92
+  selecting sub sources for patch          93
+  Calculating           96  sub sources displacements for patch          93
+  selecting sub sources for patch          94
+  Calculating           80  sub sources displacements for patch          94
+  selecting sub sources for patch          95
+  Calculating           80  sub sources displacements for patch          95
+  selecting sub sources for patch          96
+  Calculating           84  sub sources displacements for patch          96
+  selecting sub sources for patch          97
+  Calculating           32  sub sources displacements for patch          97
+  selecting sub sources for patch          98
+  Calculating           68  sub sources displacements for patch          98
+  selecting sub sources for patch          99
+  Calculating           60  sub sources displacements for patch          99
+  selecting sub sources for patch         100
+  Calculating           68  sub sources displacements for patch         100
+  selecting sub sources for patch         101
+  Calculating           64  sub sources displacements for patch         101
+  selecting sub sources for patch         102
+  Calculating           96  sub sources displacements for patch         102
+  selecting sub sources for patch         103
+  Calculating           68  sub sources displacements for patch         103
+  selecting sub sources for patch         104
+  Calculating           68  sub sources displacements for patch         104
+  selecting sub sources for patch         105
+  Calculating           80  sub sources displacements for patch         105
+  selecting sub sources for patch         106
+  Calculating           96  sub sources displacements for patch         106
+  selecting sub sources for patch         107
+  Calculating          112  sub sources displacements for patch         107
+  selecting sub sources for patch         108
+  Calculating          128  sub sources displacements for patch         108
+  selecting sub sources for patch         109
+  Calculating           44  sub sources displacements for patch         109
+  selecting sub sources for patch         110
+  Calculating          112  sub sources displacements for patch         110
+  selecting sub sources for patch         111
+  Calculating          144  sub sources displacements for patch         111
+  selecting sub sources for patch         112
+  Calculating           96  sub sources displacements for patch         112
+  selecting sub sources for patch         113
+  Calculating           48  sub sources displacements for patch         113
+  selecting sub sources for patch         114
+  Calculating           96  sub sources displacements for patch         114
+  selecting sub sources for patch         115
+  Calculating           56  sub sources displacements for patch         115
+  selecting sub sources for patch         116
+  Calculating           76  sub sources displacements for patch         116
+  selecting sub sources for patch         117
+  Calculating           52  sub sources displacements for patch         117
+  selecting sub sources for patch         118
+  Calculating           80  sub sources displacements for patch         118
+  selecting sub sources for patch         119
+  Calculating           68  sub sources displacements for patch         119
+  selecting sub sources for patch         120
+  Calculating           68  sub sources displacements for patch         120
+  selecting sub sources for patch         121
+  Calculating           68  sub sources displacements for patch         121
+  selecting sub sources for patch         122
+  Calculating           40  sub sources displacements for patch         122
+  selecting sub sources for patch         123
+  Calculating           56  sub sources displacements for patch         123
+  selecting sub sources for patch         124
+  Calculating           24  sub sources displacements for patch         124
+  selecting sub sources for patch         125
+  Calculating           64  sub sources displacements for patch         125
+  selecting sub sources for patch         126
+  Calculating           16  sub sources displacements for patch         126
+  selecting sub sources for patch         127
+  Calculating           12  sub sources displacements for patch         127
+  selecting sub sources for patch         128
+  Calculating          144  sub sources displacements for patch         128
+  selecting sub sources for patch         129
+  Calculating           12  sub sources displacements for patch         129
+  selecting sub sources for patch         130
+  Calculating           24  sub sources displacements for patch         130
+  selecting sub sources for patch         131
+  Calculating          192  sub sources displacements for patch         131
+  selecting sub sources for patch         132
+  Calculating           48  sub sources displacements for patch         132
+  selecting sub sources for patch         133
+  Calculating           96  sub sources displacements for patch         133
+  selecting sub sources for patch         134
+  Calculating          128  sub sources displacements for patch         134
+  selecting sub sources for patch         135
+  Calculating           64  sub sources displacements for patch         135
+  selecting sub sources for patch         136
+  Calculating          144  sub sources displacements for patch         136
+  selecting sub sources for patch         137
+  Calculating          160  sub sources displacements for patch         137
+  selecting sub sources for patch         138
+  Calculating           96  sub sources displacements for patch         138
+  selecting sub sources for patch         139
+  Calculating          192  sub sources displacements for patch         139
+  selecting sub sources for patch         140
+  Calculating          256  sub sources displacements for patch         140
+  selecting sub sources for patch         141
+  Calculating           80  sub sources displacements for patch         141
+  selecting sub sources for patch         142
+  Calculating          960  sub sources displacements for patch         142
+  selecting sub sources for patch         143
+  Calculating          192  sub sources displacements for patch         143
+  selecting sub sources for patch         144
+  Calculating           48  sub sources displacements for patch         144
+  selecting sub sources for patch         145
+  Calculating          448  sub sources displacements for patch         145
+  selecting sub sources for patch         146
+  Calculating          112  sub sources displacements for patch         146
+  selecting sub sources for patch         147
+  Calculating           88  sub sources displacements for patch         147
+  selecting sub sources for patch         148
+  Calculating          112  sub sources displacements for patch         148
+  selecting sub sources for patch         149
+  Calculating          400  sub sources displacements for patch         149
+  selecting sub sources for patch         150
+  Calculating           84  sub sources displacements for patch         150
+  selecting sub sources for patch         151
+  Calculating          464  sub sources displacements for patch         151
+  selecting sub sources for patch         152
+  Calculating           72  sub sources displacements for patch         152
+  selecting sub sources for patch         153
+  Calculating          256  sub sources displacements for patch         153
+  selecting sub sources for patch         154
+  Calculating          304  sub sources displacements for patch         154
+  selecting sub sources for patch         155
+  Calculating          192  sub sources displacements for patch         155
+  selecting sub sources for patch         156
+  Calculating          128  sub sources displacements for patch         156
+  selecting sub sources for patch         157
+  Calculating          120  sub sources displacements for patch         157
+  selecting sub sources for patch         158
+  Calculating          112  sub sources displacements for patch         158
+  selecting sub sources for patch         159
+  Calculating           56  sub sources displacements for patch         159
+  selecting sub sources for patch         160
+  Calculating          384  sub sources displacements for patch         160
+  selecting sub sources for patch         161
+  Calculating          832  sub sources displacements for patch         161
+  selecting sub sources for patch         162
+  Calculating          144  sub sources displacements for patch         162
+  selecting sub sources for patch         163
+  Calculating          304  sub sources displacements for patch         163
+  selecting sub sources for patch         164
+  Calculating          192  sub sources displacements for patch         164
+  selecting sub sources for patch         165
+  Calculating          352  sub sources displacements for patch         165
+  selecting sub sources for patch         166
+  Calculating          192  sub sources displacements for patch         166
+  selecting sub sources for patch         167
+  Calculating          112  sub sources displacements for patch         167
+  selecting sub sources for patch         168
+  Calculating          116  sub sources displacements for patch         168
+  selecting sub sources for patch         169
+  Calculating          288  sub sources displacements for patch         169
+  selecting sub sources for patch         170
+  Calculating          192  sub sources displacements for patch         170
+  selecting sub sources for patch         171
+  Calculating          416  sub sources displacements for patch         171
+  selecting sub sources for patch         172
+  Calculating          320  sub sources displacements for patch         172
+  selecting sub sources for patch         173
+  Calculating          832  sub sources displacements for patch         173
+  selecting sub sources for patch         174
+  Calculating          144  sub sources displacements for patch         174
+  selecting sub sources for patch         175
+  Calculating           36  sub sources displacements for patch         175
+  selecting sub sources for patch         176
+  Calculating           32  sub sources displacements for patch         176
+  selecting sub sources for patch         177
+  Calculating           48  sub sources displacements for patch         177
+  selecting sub sources for patch         178
+  Calculating           96  sub sources displacements for patch         178
+  selecting sub sources for patch         179
+  Calculating          240  sub sources displacements for patch         179
+  selecting sub sources for patch         180
+  Calculating          176  sub sources displacements for patch         180
+  selecting sub sources for patch         181
+  Calculating           80  sub sources displacements for patch         181
+  selecting sub sources for patch         182
+  Calculating          176  sub sources displacements for patch         182
+  selecting sub sources for patch         183
+  Calculating           96  sub sources displacements for patch         183
+  selecting sub sources for patch         184
+  Calculating          176  sub sources displacements for patch         184
+  selecting sub sources for patch         185
+  Calculating           96  sub sources displacements for patch         185
+  selecting sub sources for patch         186
+  Calculating          448  sub sources displacements for patch         186
+  selecting sub sources for patch         187
+  Calculating          304  sub sources displacements for patch         187
+  selecting sub sources for patch         188
+  Calculating          144  sub sources displacements for patch         188
+  selecting sub sources for patch         189
+  Calculating           96  sub sources displacements for patch         189
+  selecting sub sources for patch         190
+  Calculating           96  sub sources displacements for patch         190
+  selecting sub sources for patch         191
+  Calculating          112  sub sources displacements for patch         191
+  selecting sub sources for patch         192
+  Calculating           80  sub sources displacements for patch         192
+  selecting sub sources for patch         193
+  Calculating           88  sub sources displacements for patch         193
+  selecting sub sources for patch         194
+  Calculating           96  sub sources displacements for patch         194
+  selecting sub sources for patch         195
+  Calculating          192  sub sources displacements for patch         195
+  selecting sub sources for patch         196
+  Calculating           48  sub sources displacements for patch         196
+  selecting sub sources for patch         197
+  Calculating          112  sub sources displacements for patch         197
+  selecting sub sources for patch         198
+  Calculating           96  sub sources displacements for patch         198
+  selecting sub sources for patch         199
+  Calculating           96  sub sources displacements for patch         199
+  selecting sub sources for patch         200
+  Calculating           96  sub sources displacements for patch         200
+  selecting sub sources for patch         201
+  Calculating          112  sub sources displacements for patch         201
+  selecting sub sources for patch         202
+  Calculating           96  sub sources displacements for patch         202
+  selecting sub sources for patch         203
+  Calculating           76  sub sources displacements for patch         203
+  selecting sub sources for patch         204
+  Calculating           56  sub sources displacements for patch         204
+  selecting sub sources for patch         205
+  Calculating           96  sub sources displacements for patch         205
+  selecting sub sources for patch         206
+  Calculating           96  sub sources displacements for patch         206
+  selecting sub sources for patch         207
+  Calculating          192  sub sources displacements for patch         207
+  selecting sub sources for patch         208
+  Calculating          384  sub sources displacements for patch         208
+  selecting sub sources for patch         209
+  Calculating          192  sub sources displacements for patch         209
+ reading EDKS kernels
+ reading the receiver locations
+ reading the patch information
+  selecting sub sources for patch           1
+  Calculating           96  sub sources displacements for patch           1
+  selecting sub sources for patch           2
+  Calculating           16  sub sources displacements for patch           2
+  selecting sub sources for patch           3
+  Calculating           96  sub sources displacements for patch           3
+  selecting sub sources for patch           4
+  Calculating          272  sub sources displacements for patch           4
+  selecting sub sources for patch           5
+  Calculating          240  sub sources displacements for patch           5
+  selecting sub sources for patch           6
+  Calculating          240  sub sources displacements for patch           6
+  selecting sub sources for patch           7
+  Calculating          240  sub sources displacements for patch           7
+  selecting sub sources for patch           8
+  Calculating          192  sub sources displacements for patch           8
+  selecting sub sources for patch           9
+  Calculating           80  sub sources displacements for patch           9
+  selecting sub sources for patch          10
+  Calculating          144  sub sources displacements for patch          10
+  selecting sub sources for patch          11
+  Calculating          192  sub sources displacements for patch          11
+  selecting sub sources for patch          12
+  Calculating          176  sub sources displacements for patch          12
+  selecting sub sources for patch          13
+  Calculating           96  sub sources displacements for patch          13
+  selecting sub sources for patch          14
+  Calculating           80  sub sources displacements for patch          14
+  selecting sub sources for patch          15
+  Calculating          112  sub sources displacements for patch          15
+  selecting sub sources for patch          16
+  Calculating          144  sub sources displacements for patch          16
+  selecting sub sources for patch          17
+  Calculating           84  sub sources displacements for patch          17
+  selecting sub sources for patch          18
+  Calculating           72  sub sources displacements for patch          18
+  selecting sub sources for patch          19
+  Calculating           24  sub sources displacements for patch          19
+  selecting sub sources for patch          20
+  Calculating           20  sub sources displacements for patch          20
+  selecting sub sources for patch          21
+  Calculating           80  sub sources displacements for patch          21
+  selecting sub sources for patch          22
+  Calculating          144  sub sources displacements for patch          22
+  selecting sub sources for patch          23
+  Calculating           96  sub sources displacements for patch          23
+  selecting sub sources for patch          24
+  Calculating          144  sub sources displacements for patch          24
+  selecting sub sources for patch          25
+  Calculating           60  sub sources displacements for patch          25
+  selecting sub sources for patch          26
+  Calculating           88  sub sources displacements for patch          26
+  selecting sub sources for patch          27
+  Calculating          160  sub sources displacements for patch          27
+  selecting sub sources for patch          28
+  Calculating          208  sub sources displacements for patch          28
+  selecting sub sources for patch          29
+  Calculating          160  sub sources displacements for patch          29
+  selecting sub sources for patch          30
+  Calculating           96  sub sources displacements for patch          30
+  selecting sub sources for patch          31
+  Calculating           96  sub sources displacements for patch          31
+  selecting sub sources for patch          32
+  Calculating           76  sub sources displacements for patch          32
+  selecting sub sources for patch          33
+  Calculating           96  sub sources displacements for patch          33
+  selecting sub sources for patch          34
+  Calculating           32  sub sources displacements for patch          34
+  selecting sub sources for patch          35
+  Calculating          192  sub sources displacements for patch          35
+  selecting sub sources for patch          36
+  Calculating          240  sub sources displacements for patch          36
+  selecting sub sources for patch          37
+  Calculating           96  sub sources displacements for patch          37
+  selecting sub sources for patch          38
+  Calculating          112  sub sources displacements for patch          38
+  selecting sub sources for patch          39
+  Calculating           96  sub sources displacements for patch          39
+  selecting sub sources for patch          40
+  Calculating          144  sub sources displacements for patch          40
+  selecting sub sources for patch          41
+  Calculating          112  sub sources displacements for patch          41
+  selecting sub sources for patch          42
+  Calculating          144  sub sources displacements for patch          42
+  selecting sub sources for patch          43
+  Calculating          112  sub sources displacements for patch          43
+  selecting sub sources for patch          44
+  Calculating          288  sub sources displacements for patch          44
+  selecting sub sources for patch          45
+  Calculating           80  sub sources displacements for patch          45
+  selecting sub sources for patch          46
+  Calculating          208  sub sources displacements for patch          46
+  selecting sub sources for patch          47
+  Calculating          256  sub sources displacements for patch          47
+  selecting sub sources for patch          48
+  Calculating          136  sub sources displacements for patch          48
+  selecting sub sources for patch          49
+  Calculating          112  sub sources displacements for patch          49
+  selecting sub sources for patch          50
+  Calculating          128  sub sources displacements for patch          50
+  selecting sub sources for patch          51
+  Calculating          128  sub sources displacements for patch          51
+  selecting sub sources for patch          52
+  Calculating           20  sub sources displacements for patch          52
+  selecting sub sources for patch          53
+  Calculating          176  sub sources displacements for patch          53
+  selecting sub sources for patch          54
+  Calculating          224  sub sources displacements for patch          54
+  selecting sub sources for patch          55
+  Calculating          576  sub sources displacements for patch          55
+  selecting sub sources for patch          56
+  Calculating          384  sub sources displacements for patch          56
+  selecting sub sources for patch          57
+  Calculating          256  sub sources displacements for patch          57
+  selecting sub sources for patch          58
+  Calculating          272  sub sources displacements for patch          58
+  selecting sub sources for patch          59
+  Calculating          448  sub sources displacements for patch          59
+  selecting sub sources for patch          60
+  Calculating          512  sub sources displacements for patch          60
+  selecting sub sources for patch          61
+  Calculating          320  sub sources displacements for patch          61
+  selecting sub sources for patch          62
+  Calculating           96  sub sources displacements for patch          62
+  selecting sub sources for patch          63
+  Calculating           20  sub sources displacements for patch          63
+  selecting sub sources for patch          64
+  Calculating           80  sub sources displacements for patch          64
+  selecting sub sources for patch          65
+  Calculating           24  sub sources displacements for patch          65
+  selecting sub sources for patch          66
+  Calculating          176  sub sources displacements for patch          66
+  selecting sub sources for patch          67
+  Calculating           80  sub sources displacements for patch          67
+  selecting sub sources for patch          68
+  Calculating           52  sub sources displacements for patch          68
+  selecting sub sources for patch          69
+  Calculating          288  sub sources displacements for patch          69
+  selecting sub sources for patch          70
+  Calculating           32  sub sources displacements for patch          70
+  selecting sub sources for patch          71
+  Calculating          352  sub sources displacements for patch          71
+  selecting sub sources for patch          72
+  Calculating           84  sub sources displacements for patch          72
+  selecting sub sources for patch          73
+  Calculating          112  sub sources displacements for patch          73
+  selecting sub sources for patch          74
+  Calculating           80  sub sources displacements for patch          74
+  selecting sub sources for patch          75
+  Calculating           96  sub sources displacements for patch          75
+  selecting sub sources for patch          76
+  Calculating           80  sub sources displacements for patch          76
+  selecting sub sources for patch          77
+  Calculating           96  sub sources displacements for patch          77
+  selecting sub sources for patch          78
+  Calculating           80  sub sources displacements for patch          78
+  selecting sub sources for patch          79
+  Calculating           20  sub sources displacements for patch          79
+  selecting sub sources for patch          80
+  Calculating           96  sub sources displacements for patch          80
+  selecting sub sources for patch          81
+  Calculating           96  sub sources displacements for patch          81
+  selecting sub sources for patch          82
+  Calculating          100  sub sources displacements for patch          82
+  selecting sub sources for patch          83
+  Calculating           32  sub sources displacements for patch          83
+  selecting sub sources for patch          84
+  Calculating           80  sub sources displacements for patch          84
+  selecting sub sources for patch          85
+  Calculating           80  sub sources displacements for patch          85
+  selecting sub sources for patch          86
+  Calculating           24  sub sources displacements for patch          86
+  selecting sub sources for patch          87
+  Calculating           36  sub sources displacements for patch          87
+  selecting sub sources for patch          88
+  Calculating           60  sub sources displacements for patch          88
+  selecting sub sources for patch          89
+  Calculating           36  sub sources displacements for patch          89
+  selecting sub sources for patch          90
+  Calculating           96  sub sources displacements for patch          90
+  selecting sub sources for patch          91
+  Calculating           20  sub sources displacements for patch          91
+  selecting sub sources for patch          92
+  Calculating           72  sub sources displacements for patch          92
+  selecting sub sources for patch          93
+  Calculating           96  sub sources displacements for patch          93
+  selecting sub sources for patch          94
+  Calculating           80  sub sources displacements for patch          94
+  selecting sub sources for patch          95
+  Calculating           80  sub sources displacements for patch          95
+  selecting sub sources for patch          96
+  Calculating           84  sub sources displacements for patch          96
+  selecting sub sources for patch          97
+  Calculating           32  sub sources displacements for patch          97
+  selecting sub sources for patch          98
+  Calculating           68  sub sources displacements for patch          98
+  selecting sub sources for patch          99
+  Calculating           60  sub sources displacements for patch          99
+  selecting sub sources for patch         100
+  Calculating           68  sub sources displacements for patch         100
+  selecting sub sources for patch         101
+  Calculating           64  sub sources displacements for patch         101
+  selecting sub sources for patch         102
+  Calculating           96  sub sources displacements for patch         102
+  selecting sub sources for patch         103
+  Calculating           68  sub sources displacements for patch         103
+  selecting sub sources for patch         104
+  Calculating           68  sub sources displacements for patch         104
+  selecting sub sources for patch         105
+  Calculating           80  sub sources displacements for patch         105
+  selecting sub sources for patch         106
+  Calculating           96  sub sources displacements for patch         106
+  selecting sub sources for patch         107
+  Calculating          112  sub sources displacements for patch         107
+  selecting sub sources for patch         108
+  Calculating          128  sub sources displacements for patch         108
+  selecting sub sources for patch         109
+  Calculating           44  sub sources displacements for patch         109
+  selecting sub sources for patch         110
+  Calculating          112  sub sources displacements for patch         110
+  selecting sub sources for patch         111
+  Calculating          144  sub sources displacements for patch         111
+  selecting sub sources for patch         112
+  Calculating           96  sub sources displacements for patch         112
+  selecting sub sources for patch         113
+  Calculating           48  sub sources displacements for patch         113
+  selecting sub sources for patch         114
+  Calculating           96  sub sources displacements for patch         114
+  selecting sub sources for patch         115
+  Calculating           56  sub sources displacements for patch         115
+  selecting sub sources for patch         116
+  Calculating           76  sub sources displacements for patch         116
+  selecting sub sources for patch         117
+  Calculating           52  sub sources displacements for patch         117
+  selecting sub sources for patch         118
+  Calculating           80  sub sources displacements for patch         118
+  selecting sub sources for patch         119
+  Calculating           68  sub sources displacements for patch         119
+  selecting sub sources for patch         120
+  Calculating           68  sub sources displacements for patch         120
+  selecting sub sources for patch         121
+  Calculating           68  sub sources displacements for patch         121
+  selecting sub sources for patch         122
+  Calculating           40  sub sources displacements for patch         122
+  selecting sub sources for patch         123
+  Calculating           56  sub sources displacements for patch         123
+  selecting sub sources for patch         124
+  Calculating           24  sub sources displacements for patch         124
+  selecting sub sources for patch         125
+  Calculating           64  sub sources displacements for patch         125
+  selecting sub sources for patch         126
+  Calculating           16  sub sources displacements for patch         126
+  selecting sub sources for patch         127
+  Calculating           12  sub sources displacements for patch         127
+  selecting sub sources for patch         128
+  Calculating          144  sub sources displacements for patch         128
+  selecting sub sources for patch         129
+  Calculating           12  sub sources displacements for patch         129
+  selecting sub sources for patch         130
+  Calculating           24  sub sources displacements for patch         130
+  selecting sub sources for patch         131
+  Calculating          192  sub sources displacements for patch         131
+  selecting sub sources for patch         132
+  Calculating           48  sub sources displacements for patch         132
+  selecting sub sources for patch         133
+  Calculating           96  sub sources displacements for patch         133
+  selecting sub sources for patch         134
+  Calculating          128  sub sources displacements for patch         134
+  selecting sub sources for patch         135
+  Calculating           64  sub sources displacements for patch         135
+  selecting sub sources for patch         136
+  Calculating          144  sub sources displacements for patch         136
+  selecting sub sources for patch         137
+  Calculating          160  sub sources displacements for patch         137
+  selecting sub sources for patch         138
+  Calculating           96  sub sources displacements for patch         138
+  selecting sub sources for patch         139
+  Calculating          192  sub sources displacements for patch         139
+  selecting sub sources for patch         140
+  Calculating          256  sub sources displacements for patch         140
+  selecting sub sources for patch         141
+  Calculating           80  sub sources displacements for patch         141
+  selecting sub sources for patch         142
+  Calculating          960  sub sources displacements for patch         142
+  selecting sub sources for patch         143
+  Calculating          192  sub sources displacements for patch         143
+  selecting sub sources for patch         144
+  Calculating           48  sub sources displacements for patch         144
+  selecting sub sources for patch         145
+  Calculating          448  sub sources displacements for patch         145
+  selecting sub sources for patch         146
+  Calculating          112  sub sources displacements for patch         146
+  selecting sub sources for patch         147
+  Calculating           88  sub sources displacements for patch         147
+  selecting sub sources for patch         148
+  Calculating          112  sub sources displacements for patch         148
+  selecting sub sources for patch         149
+  Calculating          400  sub sources displacements for patch         149
+  selecting sub sources for patch         150
+  Calculating           84  sub sources displacements for patch         150
+  selecting sub sources for patch         151
+  Calculating          464  sub sources displacements for patch         151
+  selecting sub sources for patch         152
+  Calculating           72  sub sources displacements for patch         152
+  selecting sub sources for patch         153
+  Calculating          256  sub sources displacements for patch         153
+  selecting sub sources for patch         154
+  Calculating          304  sub sources displacements for patch         154
+  selecting sub sources for patch         155
+  Calculating          192  sub sources displacements for patch         155
+  selecting sub sources for patch         156
+  Calculating          128  sub sources displacements for patch         156
+  selecting sub sources for patch         157
+  Calculating          120  sub sources displacements for patch         157
+  selecting sub sources for patch         158
+  Calculating          112  sub sources displacements for patch         158
+  selecting sub sources for patch         159
+  Calculating           56  sub sources displacements for patch         159
+  selecting sub sources for patch         160
+  Calculating          384  sub sources displacements for patch         160
+  selecting sub sources for patch         161
+  Calculating          832  sub sources displacements for patch         161
+  selecting sub sources for patch         162
+  Calculating          144  sub sources displacements for patch         162
+  selecting sub sources for patch         163
+  Calculating          304  sub sources displacements for patch         163
+  selecting sub sources for patch         164
+  Calculating          192  sub sources displacements for patch         164
+  selecting sub sources for patch         165
+  Calculating          352  sub sources displacements for patch         165
+  selecting sub sources for patch         166
+  Calculating          192  sub sources displacements for patch         166
+  selecting sub sources for patch         167
+  Calculating          112  sub sources displacements for patch         167
+  selecting sub sources for patch         168
+  Calculating          116  sub sources displacements for patch         168
+  selecting sub sources for patch         169
+  Calculating          288  sub sources displacements for patch         169
+  selecting sub sources for patch         170
+  Calculating          192  sub sources displacements for patch         170
+  selecting sub sources for patch         171
+  Calculating          416  sub sources displacements for patch         171
+  selecting sub sources for patch         172
+  Calculating          320  sub sources displacements for patch         172
+  selecting sub sources for patch         173
+  Calculating          832  sub sources displacements for patch         173
+  selecting sub sources for patch         174
+  Calculating          144  sub sources displacements for patch         174
+  selecting sub sources for patch         175
+  Calculating           36  sub sources displacements for patch         175
+  selecting sub sources for patch         176
+  Calculating           32  sub sources displacements for patch         176
+  selecting sub sources for patch         177
+  Calculating           48  sub sources displacements for patch         177
+  selecting sub sources for patch         178
+  Calculating           96  sub sources displacements for patch         178
+  selecting sub sources for patch         179
+  Calculating          240  sub sources displacements for patch         179
+  selecting sub sources for patch         180
+  Calculating          176  sub sources displacements for patch         180
+  selecting sub sources for patch         181
+  Calculating           80  sub sources displacements for patch         181
+  selecting sub sources for patch         182
+  Calculating          176  sub sources displacements for patch         182
+  selecting sub sources for patch         183
+  Calculating           96  sub sources displacements for patch         183
+  selecting sub sources for patch         184
+  Calculating          176  sub sources displacements for patch         184
+  selecting sub sources for patch         185
+  Calculating           96  sub sources displacements for patch         185
+  selecting sub sources for patch         186
+  Calculating          448  sub sources displacements for patch         186
+  selecting sub sources for patch         187
+  Calculating          304  sub sources displacements for patch         187
+  selecting sub sources for patch         188
+  Calculating          144  sub sources displacements for patch         188
+  selecting sub sources for patch         189
+  Calculating           96  sub sources displacements for patch         189
+  selecting sub sources for patch         190
+  Calculating           96  sub sources displacements for patch         190
+  selecting sub sources for patch         191
+  Calculating          112  sub sources displacements for patch         191
+  selecting sub sources for patch         192
+  Calculating           80  sub sources displacements for patch         192
+  selecting sub sources for patch         193
+  Calculating           88  sub sources displacements for patch         193
+  selecting sub sources for patch         194
+  Calculating           96  sub sources displacements for patch         194
+  selecting sub sources for patch         195
+  Calculating          192  sub sources displacements for patch         195
+  selecting sub sources for patch         196
+  Calculating           48  sub sources displacements for patch         196
+  selecting sub sources for patch         197
+  Calculating          112  sub sources displacements for patch         197
+  selecting sub sources for patch         198
+  Calculating           96  sub sources displacements for patch         198
+  selecting sub sources for patch         199
+  Calculating           96  sub sources displacements for patch         199
+  selecting sub sources for patch         200
+  Calculating           96  sub sources displacements for patch         200
+  selecting sub sources for patch         201
+  Calculating          112  sub sources displacements for patch         201
+  selecting sub sources for patch         202
+  Calculating           96  sub sources displacements for patch         202
+  selecting sub sources for patch         203
+  Calculating           76  sub sources displacements for patch         203
+  selecting sub sources for patch         204
+  Calculating           56  sub sources displacements for patch         204
+  selecting sub sources for patch         205
+  Calculating           96  sub sources displacements for patch         205
+  selecting sub sources for patch         206
+  Calculating           96  sub sources displacements for patch         206
+  selecting sub sources for patch         207
+  Calculating          192  sub sources displacements for patch         207
+  selecting sub sources for patch         208
+  Calculating          384  sub sources displacements for patch         208
+  selecting sub sources for patch         209
+  Calculating          192  sub sources displacements for patch         209
+, 97
+Point 91  has  7 triangle neighbors: 135, 151, 164, 196, 204, 230, 334
+Point 92  has  6 triangle neighbors: 14, 187, 271, 296, 363, 82
+Point 93  has  7 triangle neighbors: 131, 2, 216, 257, 305, 312, 80
+Point 94  has  5 triangle neighbors: 104, 174, 356, 8, 85
+Point 95  has  6 triangle neighbors: 184, 208, 320, 321, 340, 365
+Point 96  has  6 triangle neighbors: 175, 22, 282, 378, 45, 64
+Point 97  has  6 triangle neighbors: 140, 169, 189, 282, 298, 64
+Point 98  has  6 triangle neighbors: 140, 143, 154, 189, 322, 367
+Point 99  has  6 triangle neighbors: 150, 154, 296, 366, 367, 82
+${EDKS_BIN}/sum_layered_sub tohoku_3.edks Post_Seismic_Tohoku__SS_ 520 209 30360 960
+${EDKS_BIN}/sum_layered_sub tohoku_3.edks Post_Seismic_Tohoku__DS_ 520 209 30360 960
+Nrows = 520, Ncols = 209
+Nrows = 520, Ncols = 209
+Nrows = 520, Ncols = 209
+Nrows = 520, Ncols = 209
+Nrows = 520, Ncols = 209
+Nrows = 520, Ncols = 209

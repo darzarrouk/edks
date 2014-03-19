@@ -91,7 +91,7 @@ def calcGreenFunctions_EDKS_PwlSubTriangles(TriPropFile, TriPointsFile, Receiver
 
    # find triangle neighbors for each node
    Nodes_TriNb = findTriangleNeighbors4Node(Tprop, T_IDs, P_IDs)
-   g.addLine('find the triangle neighbors for each node point ')
+   log.addLine('find the triangle neighbors for each node point ')
 
    # assemble the array with the east and north coordinates of the observation points
    eR = []
@@ -132,6 +132,12 @@ def calcGreenFunctions_EDKS_PwlSubTriangles(TriPropFile, TriPointsFile, Receiver
    for Pid in P_IDs:
       num_TriNb = Nodes_TriNb[Pid]['numTr']
       id_TriNb  = Nodes_TriNb[Pid]['idTr']
+      num_subTri = []
+      TNb = [int(i) for i in id_TriNb]
+
+      msg = 'Node {0:>4s} has {1:>2d} triangle neighbors: {2:s}'.format(Pid, num_TriNb, str(TNb)[1:-1])
+      log.addLine(msg)
+
       # calculate for each neighboring triangle
       for Tid in id_TriNb[0:int(num_TriNb)]:
          # initialize coordinate system for triangles
@@ -189,12 +195,13 @@ def calcGreenFunctions_EDKS_PwlSubTriangles(TriPropFile, TriPointsFile, Receiver
          # slipST.extend(1.0 * NP.ones(len(A)))
          Cw = getWeight4SubTriangles(Tri, TriCS, Pid, Ce, Cn, Cz)
          slipST.extend(1.0 * NP.array(Cw))
+         num_subTri.append(len(A))
 
          if plotGeometry:
             MasterTriangles4Plot.append([Tri, TriCS])
 
-         msg = 'Triangle %s has %i subsources...'%(Tid, len(A))
-         log.addLine(msg)
+      msg = '     with subsources: {0:s}'.format(str(num_subTri)[1:-1])
+      log.addLine(msg)
 
 
    # Convert units
@@ -374,9 +381,9 @@ def findTriangleNeighbors4Node(Tprop, T_IDs, P_IDs):
             if (Pid == idP1)|(Pid == idP2)|(Pid == idP3):
                 Nodes_TriNb[Pid]['numTr'] += 1
                 Nodes_TriNb[Pid]['idTr'].append(Tid)
-        print("Point {0:s} has ".format(Pid), \
-              "{1:d} triangle neighbors: ".format(Nodes_TriNb[Pid]['numTr']), \
-              Nodes_TriNb[Pid]['idTr'])
+        Nb = [int(nb) for nb in Nodes_TriNb[Pid]['idTr']]
+        print("Point {0:3s} has {1:2d} triangle neighbors: {2:s}".format(Pid, \
+                Nodes_TriNb[Pid]['numTr'], str(Nb)[1:-1]))
 
     return Nodes_TriNb
 
@@ -573,8 +580,6 @@ def getWeight4SubTriangles(Tri, TriCS, Pid, Ce, Cn, Cz):
    """
    # get the Point instances and coordinates of the master triangle
    PtList = Tri.getPointsID()
-   print Pid
-   print PtList
    e1, n1, u1 = TriCS.getPointCoord(Pid)
    e2, n2, u2 = TriCS.getPointCoord(list(set(PtList)-set([Pid]))[0])
    e3, n3, u3 = TriCS.getPointCoord(list(set(PtList)-set([Pid]))[1])

@@ -1,0 +1,853 @@
+Wed Mar 19 15:00:19 2014:
+-> Log file initialization time
+
+Wed Mar 19 15:00:19 2014:
+-> loading data...
+Wed Mar 19 15:00:19 2014:
+-> data successfully loaded ... 
+Wed Mar 19 15:00:20 2014:
+-> find the triangle neighbors for each node point 
+Wed Mar 19 15:00:20 2014:
+-> 520 receivers to compute displacements...
+Wed Mar 19 15:00:20 2014:
+->  Subdividing triangular Mesh 
+Wed Mar 19 15:00:20 2014:
+-> Node    1 has  3 triangle neighbors: 134, 265, 78
+Wed Mar 19 15:00:20 2014:
+->  with subsources: 16, 64, 16
+Wed Mar 19 15:00:20 2014:
+-> Node   10 has  1 triangle neighbors: 127
+Wed Mar 19 15:00:20 2014:
+->  with subsources: 16
+Wed Mar 19 15:00:20 2014:
+-> Node  100 has  6 triangle neighbors: 150, 306, 320, 321, 349, 366
+Wed Mar 19 15:00:20 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:20 2014:
+-> Node  101 has  5 triangle neighbors: 143, 219, 300, 322, 353
+Wed Mar 19 15:00:20 2014:
+->  with subsources: 64, 64, 64, 64, 16
+Wed Mar 19 15:00:20 2014:
+-> Node  102 has  6 triangle neighbors: 119, 235, 3, 300, 348, 353
+Wed Mar 19 15:00:20 2014:
+->  with subsources: 64, 16, 16, 64, 64, 16
+Wed Mar 19 15:00:20 2014:
+-> Node  103 has  6 triangle neighbors: 119, 177, 178, 242, 348, 7
+Wed Mar 19 15:00:20 2014:
+->  with subsources: 64, 16, 64, 16, 64, 16
+Wed Mar 19 15:00:20 2014:
+-> Node  104 has  6 triangle neighbors: 100, 178, 242, 316, 319, 359
+Wed Mar 19 15:00:20 2014:
+->  with subsources: 64, 64, 16, 16, 64, 16
+Wed Mar 19 15:00:20 2014:
+-> Node  105 has  6 triangle neighbors: 101, 161, 165, 254, 325, 371
+Wed Mar 19 15:00:20 2014:
+->  with subsources: 64, 16, 16, 64, 16, 16
+Wed Mar 19 15:00:20 2014:
+-> Node  106 has  5 triangle neighbors: 161, 165, 320, 349, 365
+Wed Mar 19 15:00:20 2014:
+->  with subsources: 16, 16, 16, 16, 16
+Wed Mar 19 15:00:20 2014:
+-> Node  107 has  6 triangle neighbors: 100, 141, 152, 241, 316, 337
+Wed Mar 19 15:00:20 2014:
+->  with subsources: 64, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:20 2014:
+-> Node  108 has  6 triangle neighbors: 100, 141, 176, 20, 351, 359
+Wed Mar 19 15:00:20 2014:
+->  with subsources: 64, 16, 16, 16, 64, 16
+Wed Mar 19 15:00:20 2014:
+-> Node  109 has  5 triangle neighbors: 20, 254, 319, 325, 359
+Wed Mar 19 15:00:20 2014:
+->  with subsources: 16, 64, 64, 16, 16
+Wed Mar 19 15:00:20 2014:
+-> Node   11 has  3 triangle neighbors: 120, 127, 376
+Wed Mar 19 15:00:20 2014:
+->  with subsources: 16, 16, 64
+Wed Mar 19 15:00:20 2014:
+-> Node  110 has  5 triangle neighbors: 123, 241, 242, 316, 7
+Wed Mar 19 15:00:20 2014:
+->  with subsources: 16, 16, 16, 16, 16
+Wed Mar 19 15:00:20 2014:
+-> Node  111 has  7 triangle neighbors: 123, 152, 226, 241, 259, 284, 302
+Wed Mar 19 15:00:20 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:20 2014:
+-> Node  112 has  6 triangle neighbors: 152, 168, 278, 284, 337, 87
+Wed Mar 19 15:00:20 2014:
+->  with subsources: 16, 16, 16, 16, 16, 64
+Wed Mar 19 15:00:20 2014:
+-> Node  113 has  6 triangle neighbors: 142, 213, 220, 236, 36, 42
+Wed Mar 19 15:00:20 2014:
+->  with subsources: 16, 16, 16, 16, 4, 16
+Wed Mar 19 15:00:20 2014:
+-> Node  114 has  6 triangle neighbors: 144, 162, 210, 304, 329, 81
+Wed Mar 19 15:00:20 2014:
+->  with subsources: 16, 16, 16, 4, 4, 16
+Wed Mar 19 15:00:20 2014:
+-> Node  115 has  6 triangle neighbors: 258, 266, 304, 329, 361, 364
+Wed Mar 19 15:00:20 2014:
+->  with subsources: 4, 4, 4, 4, 4, 4
+Wed Mar 19 15:00:20 2014:
+-> Node  116 has  5 triangle neighbors: 160, 234, 276, 277, 328
+Wed Mar 19 15:00:20 2014:
+->  with subsources: 4, 4, 4, 4, 4
+Wed Mar 19 15:00:20 2014:
+-> Node  117 has  5 triangle neighbors: 110, 116, 235, 3, 31
+Wed Mar 19 15:00:20 2014:
+->  with subsources: 16, 16, 16, 16, 16
+Wed Mar 19 15:00:20 2014:
+-> Node  118 has  6 triangle neighbors: 119, 177, 29, 3, 31, 5
+Wed Mar 19 15:00:20 2014:
+->  with subsources: 64, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:20 2014:
+-> Node  119 has  6 triangle neighbors: 110, 116, 169, 229, 298, 32
+Wed Mar 19 15:00:21 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:21 2014:
+-> Node   12 has  3 triangle neighbors: 120, 260, 47
+Wed Mar 19 15:00:21 2014:
+->  with subsources: 16, 64, 64
+Wed Mar 19 15:00:21 2014:
+-> Node  120 has  6 triangle neighbors: 121, 327, 40, 54, 73, 92
+Wed Mar 19 15:00:21 2014:
+->  with subsources: 16, 4, 4, 4, 16, 16
+Wed Mar 19 15:00:21 2014:
+-> Node  121 has  7 triangle neighbors: 108, 111, 117, 146, 360, 59, 65
+Wed Mar 19 15:00:21 2014:
+->  with subsources: 16, 16, 16, 4, 4, 16, 16
+Wed Mar 19 15:00:21 2014:
+-> Node  122 has  7 triangle neighbors: 105, 167, 181, 206, 269, 314, 338
+Wed Mar 19 15:00:21 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16, 64
+Wed Mar 19 15:00:21 2014:
+-> Node  123 has  7 triangle neighbors: 122, 158, 224, 243, 255, 43, 53
+Wed Mar 19 15:00:21 2014:
+->  with subsources: 64, 16, 16, 16, 16, 64, 16
+Wed Mar 19 15:00:21 2014:
+-> Node  124 has  7 triangle neighbors: 106, 17, 205, 294, 318, 346, 68
+Wed Mar 19 15:00:21 2014:
+->  with subsources: 16, 16, 16, 16, 64, 16, 16
+Wed Mar 19 15:00:21 2014:
+-> Node  125 has  6 triangle neighbors: 1, 157, 205, 209, 263, 68
+Wed Mar 19 15:00:21 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:21 2014:
+-> Node  126 has  6 triangle neighbors: 1, 111, 117, 263, 372, 96
+Wed Mar 19 15:00:21 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:21 2014:
+-> Node  127 has  7 triangle neighbors: 112, 138, 159, 377, 73, 92, 99
+Wed Mar 19 15:00:21 2014:
+->  with subsources: 4, 16, 4, 16, 16, 16, 4
+Wed Mar 19 15:00:21 2014:
+-> Node  128 has  6 triangle neighbors: 105, 188, 247, 269, 289, 317
+Wed Mar 19 15:00:21 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:21 2014:
+-> Node  129 has  5 triangle neighbors: 107, 186, 214, 28, 91
+Wed Mar 19 15:00:21 2014:
+->  with subsources: 16, 4, 4, 4, 4
+Wed Mar 19 15:00:21 2014:
+-> Node   13 has  3 triangle neighbors: 190, 238, 291
+Wed Mar 19 15:00:21 2014:
+->  with subsources: 64, 64, 64
+Wed Mar 19 15:00:21 2014:
+-> Node  130 has  6 triangle neighbors: 0, 11, 122, 126, 158, 67
+Wed Mar 19 15:00:21 2014:
+->  with subsources: 16, 64, 64, 16, 16, 64
+Wed Mar 19 15:00:21 2014:
+-> Node  131 has  6 triangle neighbors: 132, 136, 195, 286, 369, 4
+Wed Mar 19 15:00:21 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:21 2014:
+-> Node  132 has  7 triangle neighbors: 106, 132, 17, 195, 212, 223, 309
+Wed Mar 19 15:00:21 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:21 2014:
+-> Node  133 has  6 triangle neighbors: 212, 309, 323, 354, 46, 75
+Wed Mar 19 15:00:21 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:21 2014:
+-> Node  134 has  6 triangle neighbors: 137, 25, 252, 264, 310, 370
+Wed Mar 19 15:00:21 2014:
+->  with subsources: 16, 16, 16, 64, 16, 16
+Wed Mar 19 15:00:21 2014:
+-> Node  135 has  4 triangle neighbors: 16, 171, 357, 62
+Wed Mar 19 15:00:21 2014:
+->  with subsources: 16, 16, 16, 64
+Wed Mar 19 15:00:21 2014:
+-> Node  136 has  3 triangle neighbors: 128, 264, 310
+Wed Mar 19 15:00:21 2014:
+->  with subsources: 64, 64, 16
+Wed Mar 19 15:00:21 2014:
+-> Node  137 has  7 triangle neighbors: 102, 137, 25, 272, 323, 336, 46
+Wed Mar 19 15:00:21 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:21 2014:
+-> Node  138 has  6 triangle neighbors: 145, 16, 198, 283, 355, 62
+Wed Mar 19 15:00:21 2014:
+->  with subsources: 64, 16, 16, 64, 64, 64
+Wed Mar 19 15:00:21 2014:
+-> Node  139 has  5 triangle neighbors: 25, 252, 354, 41, 46
+Wed Mar 19 15:00:21 2014:
+->  with subsources: 16, 16, 16, 16, 16
+Wed Mar 19 15:00:21 2014:
+-> Node   14 has  4 triangle neighbors: 153, 262, 301, 47
+Wed Mar 19 15:00:22 2014:
+->  with subsources: 16, 64, 64, 64
+Wed Mar 19 15:00:22 2014:
+-> Node  140 has  7 triangle neighbors: 0, 11, 145, 166, 179, 182, 355
+Wed Mar 19 15:00:22 2014:
+->  with subsources: 16, 64, 64, 16, 16, 16, 64
+Wed Mar 19 15:00:22 2014:
+-> Node  141 has  7 triangle neighbors: 0, 126, 182, 200, 244, 71, 90
+Wed Mar 19 15:00:22 2014:
+->  with subsources: 16, 16, 16, 4, 16, 4, 64
+Wed Mar 19 15:00:22 2014:
+-> Node  142 has  7 triangle neighbors: 125, 192, 243, 335, 345, 373, 53
+Wed Mar 19 15:00:22 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:22 2014:
+-> Node  143 has  5 triangle neighbors: 125, 167, 181, 243, 43
+Wed Mar 19 15:00:22 2014:
+->  with subsources: 16, 16, 16, 16, 64
+Wed Mar 19 15:00:22 2014:
+-> Node  144 has  5 triangle neighbors: 114, 158, 255, 57, 67
+Wed Mar 19 15:00:22 2014:
+->  with subsources: 16, 16, 16, 16, 64
+Wed Mar 19 15:00:22 2014:
+-> Node  145 has  5 triangle neighbors: 113, 193, 200, 58, 71
+Wed Mar 19 15:00:22 2014:
+->  with subsources: 4, 4, 4, 4, 4
+Wed Mar 19 15:00:22 2014:
+-> Node  146 has  5 triangle neighbors: 13, 155, 226, 278, 284
+Wed Mar 19 15:00:22 2014:
+->  with subsources: 64, 64, 16, 16, 16
+Wed Mar 19 15:00:22 2014:
+-> Node  147 has  5 triangle neighbors: 13, 226, 239, 261, 302
+Wed Mar 19 15:00:22 2014:
+->  with subsources: 64, 16, 64, 64, 16
+Wed Mar 19 15:00:22 2014:
+-> Node  148 has  6 triangle neighbors: 109, 13, 155, 211, 239, 315
+Wed Mar 19 15:00:22 2014:
+->  with subsources: 256, 64, 64, 64, 64, 64
+Wed Mar 19 15:00:22 2014:
+-> Node  149 has  6 triangle neighbors: 124, 19, 250, 270, 287, 94
+Wed Mar 19 15:00:22 2014:
+->  with subsources: 64, 64, 64, 64, 64, 64
+Wed Mar 19 15:00:22 2014:
+-> Node   15 has  4 triangle neighbors: 217, 231, 291, 44
+Wed Mar 19 15:00:22 2014:
+->  with subsources: 64, 64, 64, 64
+Wed Mar 19 15:00:22 2014:
+-> Node  150 has  5 triangle neighbors: 133, 15, 197, 287, 94
+Wed Mar 19 15:00:22 2014:
+->  with subsources: 64, 16, 64, 64, 64
+Wed Mar 19 15:00:22 2014:
+-> Node  151 has  7 triangle neighbors: 197, 250, 297, 342, 51, 9, 94
+Wed Mar 19 15:00:22 2014:
+->  with subsources: 64, 64, 64, 64, 64, 64, 64
+Wed Mar 19 15:00:22 2014:
+-> Node  152 has  5 triangle neighbors: 19, 23, 250, 297, 61
+Wed Mar 19 15:00:23 2014:
+->  with subsources: 64, 256, 64, 64, 64
+Wed Mar 19 15:00:23 2014:
+-> Node  153 has  5 triangle neighbors: 185, 253, 297, 51, 61
+Wed Mar 19 15:00:23 2014:
+->  with subsources: 64, 64, 64, 64, 64
+Wed Mar 19 15:00:23 2014:
+-> Node  154 has  6 triangle neighbors: 216, 274, 295, 305, 333, 48
+Wed Mar 19 15:00:23 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:23 2014:
+-> Node  155 has  5 triangle neighbors: 2, 237, 245, 257, 280
+Wed Mar 19 15:00:23 2014:
+->  with subsources: 4, 4, 4, 4, 4
+Wed Mar 19 15:00:23 2014:
+-> Node  156 has  5 triangle neighbors: 103, 216, 274, 312, 350
+Wed Mar 19 15:00:23 2014:
+->  with subsources: 16, 16, 16, 16, 16
+Wed Mar 19 15:00:23 2014:
+-> Node  157 has  6 triangle neighbors: 214, 237, 280, 327, 40, 91
+Wed Mar 19 15:00:23 2014:
+->  with subsources: 4, 4, 4, 4, 4, 4
+Wed Mar 19 15:00:23 2014:
+-> Node  158 has  5 triangle neighbors: 147, 15, 197, 201, 342
+Wed Mar 19 15:00:23 2014:
+->  with subsources: 16, 16, 64, 16, 64
+Wed Mar 19 15:00:23 2014:
+-> Node  159 has  5 triangle neighbors: 134, 147, 201, 228, 78
+Wed Mar 19 15:00:23 2014:
+->  with subsources: 16, 16, 16, 16, 16
+Wed Mar 19 15:00:23 2014:
+-> Node   16 has  4 triangle neighbors: 142, 153, 215, 36
+Wed Mar 19 15:00:23 2014:
+->  with subsources: 16, 16, 16, 4
+Wed Mar 19 15:00:23 2014:
+-> Node  160 has  6 triangle neighbors: 201, 225, 228, 285, 342, 9
+Wed Mar 19 15:00:23 2014:
+->  with subsources: 16, 64, 16, 64, 64, 64
+Wed Mar 19 15:00:23 2014:
+-> Node  161 has  2 triangle neighbors: 166, 179
+Wed Mar 19 15:00:23 2014:
+->  with subsources: 16, 16
+Wed Mar 19 15:00:23 2014:
+-> Node  162 has  7 triangle neighbors: 11, 114, 283, 355, 6, 67, 84
+Wed Mar 19 15:00:23 2014:
+->  with subsources: 64, 16, 64, 64, 16, 64, 64
+Wed Mar 19 15:00:23 2014:
+-> Node  163 has  6 triangle neighbors: 115, 16, 171, 198, 326, 33
+Wed Mar 19 15:00:23 2014:
+->  with subsources: 4, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:23 2014:
+-> Node  164 has  7 triangle neighbors: 187, 222, 27, 271, 281, 52, 97
+Wed Mar 19 15:00:23 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:23 2014:
+-> Node  165 has  5 triangle neighbors: 129, 14, 271, 339, 97
+Wed Mar 19 15:00:23 2014:
+->  with subsources: 16, 16, 16, 16, 16
+Wed Mar 19 15:00:23 2014:
+-> Node  166 has  6 triangle neighbors: 129, 151, 164, 303, 339, 70
+Wed Mar 19 15:00:23 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:23 2014:
+-> Node  167 has  5 triangle neighbors: 10, 156, 164, 204, 303
+Wed Mar 19 15:00:23 2014:
+->  with subsources: 16, 16, 16, 16, 16
+Wed Mar 19 15:00:23 2014:
+-> Node  168 has  6 triangle neighbors: 103, 227, 27, 281, 350, 79
+Wed Mar 19 15:00:23 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:23 2014:
+-> Node  169 has  5 triangle neighbors: 150, 187, 222, 306, 82
+Wed Mar 19 15:00:23 2014:
+->  with subsources: 16, 16, 16, 16, 16
+Wed Mar 19 15:00:23 2014:
+-> Node   17 has  2 triangle neighbors: 220, 36
+Wed Mar 19 15:00:23 2014:
+->  with subsources: 16, 4
+Wed Mar 19 15:00:23 2014:
+-> Node  170 has  6 triangle neighbors: 104, 130, 173, 184, 208, 356
+Wed Mar 19 15:00:23 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:23 2014:
+-> Node  171 has  6 triangle neighbors: 130, 184, 222, 306, 321, 52
+Wed Mar 19 15:00:23 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:23 2014:
+-> Node  172 has  7 triangle neighbors: 103, 173, 312, 356, 79, 8, 80
+Wed Mar 19 15:00:23 2014:
+->  with subsources: 16, 16, 16, 16, 16, 4, 16
+Wed Mar 19 15:00:23 2014:
+-> Node  173 has  5 triangle neighbors: 131, 279, 8, 80, 85
+Wed Mar 19 15:00:23 2014:
+->  with subsources: 4, 4, 4, 16, 4
+Wed Mar 19 15:00:23 2014:
+-> Node  174 has  5 triangle neighbors: 135, 151, 22, 45, 70
+Wed Mar 19 15:00:23 2014:
+->  with subsources: 16, 16, 16, 16, 16
+Wed Mar 19 15:00:23 2014:
+-> Node  175 has  5 triangle neighbors: 267, 289, 293, 317, 89
+Wed Mar 19 15:00:24 2014:
+->  with subsources: 16, 16, 16, 16, 16
+Wed Mar 19 15:00:24 2014:
+-> Node  176 has  6 triangle neighbors: 131, 2, 245, 279, 331, 63
+Wed Mar 19 15:00:24 2014:
+->  with subsources: 4, 4, 4, 4, 4, 4
+Wed Mar 19 15:00:24 2014:
+-> Node  177 has  6 triangle neighbors: 214, 237, 245, 28, 308, 63
+Wed Mar 19 15:00:24 2014:
+->  with subsources: 4, 4, 4, 4, 16, 4
+Wed Mar 19 15:00:24 2014:
+-> Node  178 has  6 triangle neighbors: 174, 279, 313, 331, 49, 85
+Wed Mar 19 15:00:24 2014:
+->  with subsources: 16, 4, 16, 4, 16, 4
+Wed Mar 19 15:00:24 2014:
+-> Node  179 has  6 triangle neighbors: 112, 186, 273, 327, 91, 92
+Wed Mar 19 15:00:24 2014:
+->  with subsources: 4, 4, 4, 4, 4, 16
+Wed Mar 19 15:00:24 2014:
+-> Node   18 has  3 triangle neighbors: 183, 217, 275
+Wed Mar 19 15:00:24 2014:
+->  with subsources: 16, 64, 16
+Wed Mar 19 15:00:24 2014:
+-> Node  180 has  5 triangle neighbors: 112, 146, 159, 273, 360
+Wed Mar 19 15:00:24 2014:
+->  with subsources: 4, 4, 4, 4, 4
+Wed Mar 19 15:00:24 2014:
+-> Node  181 has  6 triangle neighbors: 138, 206, 233, 314, 93, 99
+Wed Mar 19 15:00:24 2014:
+->  with subsources: 16, 16, 16, 16, 4, 4
+Wed Mar 19 15:00:24 2014:
+-> Node  182 has  6 triangle neighbors: 121, 188, 247, 352, 377, 73
+Wed Mar 19 15:00:24 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:24 2014:
+-> Node  183 has  5 triangle neighbors: 105, 138, 188, 206, 377
+Wed Mar 19 15:00:24 2014:
+->  with subsources: 16, 16, 16, 16, 16
+Wed Mar 19 15:00:24 2014:
+-> Node  184 has  5 triangle neighbors: 125, 167, 192, 233, 314
+Wed Mar 19 15:00:24 2014:
+->  with subsources: 16, 16, 16, 16, 16
+Wed Mar 19 15:00:24 2014:
+-> Node  185 has  6 triangle neighbors: 108, 192, 233, 335, 65, 93
+Wed Mar 19 15:00:24 2014:
+->  with subsources: 16, 16, 16, 16, 16, 4
+Wed Mar 19 15:00:24 2014:
+-> Node  186 has  5 triangle neighbors: 159, 360, 65, 93, 99
+Wed Mar 19 15:00:24 2014:
+->  with subsources: 4, 4, 16, 4, 4
+Wed Mar 19 15:00:24 2014:
+-> Node  187 has  5 triangle neighbors: 121, 295, 352, 48, 54
+Wed Mar 19 15:00:24 2014:
+->  with subsources: 16, 16, 16, 16, 4
+Wed Mar 19 15:00:24 2014:
+-> Node  188 has  6 triangle neighbors: 107, 117, 146, 186, 273, 372
+Wed Mar 19 15:00:24 2014:
+->  with subsources: 16, 16, 4, 4, 4, 16
+Wed Mar 19 15:00:24 2014:
+-> Node  189 has  5 triangle neighbors: 108, 148, 335, 373, 59
+Wed Mar 19 15:00:24 2014:
+->  with subsources: 16, 4, 16, 16, 16
+Wed Mar 19 15:00:24 2014:
+-> Node   19 has  4 triangle neighbors: 162, 210, 220, 236
+Wed Mar 19 15:00:24 2014:
+->  with subsources: 16, 16, 16, 16
+Wed Mar 19 15:00:24 2014:
+-> Node  190 has  6 triangle neighbors: 157, 205, 256, 294, 66, 95
+Wed Mar 19 15:00:24 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:24 2014:
+-> Node  191 has  5 triangle neighbors: 148, 345, 373, 66, 95
+Wed Mar 19 15:00:24 2014:
+->  with subsources: 4, 16, 16, 16, 16
+Wed Mar 19 15:00:24 2014:
+-> Node  192 has  5 triangle neighbors: 17, 195, 286, 346, 37
+Wed Mar 19 15:00:24 2014:
+->  with subsources: 16, 16, 16, 16, 4
+Wed Mar 19 15:00:24 2014:
+-> Node  193 has  5 triangle neighbors: 132, 180, 223, 369, 55
+Wed Mar 19 15:00:24 2014:
+->  with subsources: 16, 16, 16, 16, 16
+Wed Mar 19 15:00:24 2014:
+-> Node  194 has  6 triangle neighbors: 223, 309, 368, 55, 75, 98
+Wed Mar 19 15:00:24 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:24 2014:
+-> Node  195 has  7 triangle neighbors: 172, 240, 326, 33, 368, 50, 98
+Wed Mar 19 15:00:24 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:24 2014:
+-> Node  196 has  5 triangle neighbors: 198, 240, 283, 326, 6
+Wed Mar 19 15:00:24 2014:
+->  with subsources: 16, 16, 64, 16, 16
+Wed Mar 19 15:00:24 2014:
+-> Node  197 has  5 triangle neighbors: 115, 33, 50, 60, 86
+Wed Mar 19 15:00:24 2014:
+->  with subsources: 4, 16, 16, 4, 4
+Wed Mar 19 15:00:24 2014:
+-> Node  198 has  7 triangle neighbors: 224, 248, 256, 311, 345, 53, 66
+Wed Mar 19 15:00:24 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:24 2014:
+-> Node  199 has  6 triangle neighbors: 114, 180, 369, 4, 57, 84
+Wed Mar 19 15:00:24 2014:
+->  with subsources: 16, 16, 16, 16, 16, 64
+Wed Mar 19 15:00:24 2014:
+-> Node    2 has  3 triangle neighbors: 149, 191, 265
+Wed Mar 19 15:00:24 2014:
+->  with subsources: 16, 16, 64
+Wed Mar 19 15:00:24 2014:
+-> Node   20 has  3 triangle neighbors: 12, 275, 307
+Wed Mar 19 15:00:24 2014:
+->  with subsources: 16, 16, 16
+Wed Mar 19 15:00:24 2014:
+-> Node  200 has  6 triangle neighbors: 136, 224, 255, 311, 4, 57
+Wed Mar 19 15:00:24 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:24 2014:
+-> Node  201 has  5 triangle neighbors: 115, 171, 30, 357, 86
+Wed Mar 19 15:00:24 2014:
+->  with subsources: 4, 16, 16, 16, 4
+Wed Mar 19 15:00:24 2014:
+-> Node  202 has  7 triangle neighbors: 102, 288, 30, 336, 34, 60, 86
+Wed Mar 19 15:00:24 2014:
+->  with subsources: 16, 16, 16, 16, 4, 4, 4
+Wed Mar 19 15:00:24 2014:
+-> Node  203 has  4 triangle neighbors: 24, 310, 332, 370
+Wed Mar 19 15:00:24 2014:
+->  with subsources: 4, 16, 16, 16
+Wed Mar 19 15:00:24 2014:
+-> Node  204 has  5 triangle neighbors: 172, 272, 323, 75, 98
+Wed Mar 19 15:00:24 2014:
+->  with subsources: 16, 16, 16, 16, 16
+Wed Mar 19 15:00:24 2014:
+-> Node  205 has  5 triangle neighbors: 102, 172, 272, 50, 60
+Wed Mar 19 15:00:24 2014:
+->  with subsources: 16, 16, 16, 16, 4
+Wed Mar 19 15:00:24 2014:
+-> Node  206 has  5 triangle neighbors: 248, 256, 294, 346, 37
+Wed Mar 19 15:00:24 2014:
+->  with subsources: 16, 16, 16, 16, 4
+Wed Mar 19 15:00:24 2014:
+-> Node  207 has  5 triangle neighbors: 136, 248, 286, 311, 37
+Wed Mar 19 15:00:24 2014:
+->  with subsources: 16, 16, 16, 16, 4
+Wed Mar 19 15:00:24 2014:
+-> Node  208 has  4 triangle neighbors: 24, 288, 332, 34
+Wed Mar 19 15:00:24 2014:
+->  with subsources: 4, 16, 16, 4
+Wed Mar 19 15:00:24 2014:
+-> Node  209 has  5 triangle neighbors: 137, 24, 336, 34, 370
+Wed Mar 19 15:00:25 2014:
+->  with subsources: 16, 4, 16, 4, 16
+Wed Mar 19 15:00:25 2014:
+-> Node   21 has  3 triangle neighbors: 162, 304, 364
+Wed Mar 19 15:00:25 2014:
+->  with subsources: 16, 4, 4
+Wed Mar 19 15:00:25 2014:
+-> Node   22 has  4 triangle neighbors: 199, 246, 251, 307
+Wed Mar 19 15:00:25 2014:
+->  with subsources: 16, 16, 16, 16
+Wed Mar 19 15:00:25 2014:
+-> Node   23 has  4 triangle neighbors: 160, 276, 361, 364
+Wed Mar 19 15:00:25 2014:
+->  with subsources: 4, 4, 4, 4
+Wed Mar 19 15:00:25 2014:
+-> Node   24 has  3 triangle neighbors: 276, 277, 347
+Wed Mar 19 15:00:25 2014:
+->  with subsources: 4, 4, 4
+Wed Mar 19 15:00:25 2014:
+-> Node   25 has  3 triangle neighbors: 232, 246, 290
+Wed Mar 19 15:00:25 2014:
+->  with subsources: 64, 16, 64
+Wed Mar 19 15:00:25 2014:
+-> Node   26 has  3 triangle neighbors: 113, 347, 58
+Wed Mar 19 15:00:25 2014:
+->  with subsources: 4, 4, 4
+Wed Mar 19 15:00:25 2014:
+-> Node   27 has  3 triangle neighbors: 113, 244, 71
+Wed Mar 19 15:00:25 2014:
+->  with subsources: 4, 16, 4
+Wed Mar 19 15:00:25 2014:
+-> Node   28 has  3 triangle neighbors: 203, 290, 77
+Wed Mar 19 15:00:25 2014:
+->  with subsources: 64, 64, 64
+Wed Mar 19 15:00:25 2014:
+-> Node   29 has  3 triangle neighbors: 179, 182, 244
+Wed Mar 19 15:00:25 2014:
+->  with subsources: 16, 16, 16
+Wed Mar 19 15:00:25 2014:
+-> Node    3 has  3 triangle neighbors: 134, 228, 285
+Wed Mar 19 15:00:25 2014:
+->  with subsources: 16, 16, 64
+Wed Mar 19 15:00:25 2014:
+-> Node   30 has  2 triangle neighbors: 203, 221
+Wed Mar 19 15:00:25 2014:
+->  with subsources: 64, 64
+Wed Mar 19 15:00:25 2014:
+-> Node   31 has  4 triangle neighbors: 288, 30, 332, 357
+Wed Mar 19 15:00:25 2014:
+->  with subsources: 16, 16, 16, 16
+Wed Mar 19 15:00:25 2014:
+-> Node   32 has  6 triangle neighbors: 180, 240, 368, 55, 6, 84
+Wed Mar 19 15:00:25 2014:
+->  with subsources: 16, 16, 16, 16, 16, 64
+Wed Mar 19 15:00:25 2014:
+-> Node   33 has  7 triangle neighbors: 269, 317, 338, 341, 38, 74, 89
+Wed Mar 19 15:00:25 2014:
+->  with subsources: 16, 16, 64, 16, 16, 16, 16
+Wed Mar 19 15:00:25 2014:
+-> Node   34 has  6 triangle neighbors: 129, 14, 175, 22, 363, 70
+Wed Mar 19 15:00:25 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:25 2014:
+-> Node   35 has  6 triangle neighbors: 110, 189, 235, 298, 322, 353
+Wed Mar 19 15:00:25 2014:
+->  with subsources: 16, 64, 16, 16, 64, 16
+Wed Mar 19 15:00:25 2014:
+-> Node   36 has  7 triangle neighbors: 133, 147, 15, 163, 191, 265, 78
+Wed Mar 19 15:00:25 2014:
+->  with subsources: 64, 16, 16, 64, 16, 64, 16
+Wed Mar 19 15:00:25 2014:
+-> Node   37 has  5 triangle neighbors: 141, 168, 176, 337, 374
+Wed Mar 19 15:00:25 2014:
+->  with subsources: 16, 16, 16, 16, 16
+Wed Mar 19 15:00:25 2014:
+-> Node   38 has  6 triangle neighbors: 109, 124, 19, 211, 23, 292
+Wed Mar 19 15:00:25 2014:
+->  with subsources: 256, 64, 64, 64, 256, 256
+Wed Mar 19 15:00:25 2014:
+-> Node   39 has  6 triangle neighbors: 202, 259, 261, 302, 330, 72
+Wed Mar 19 15:00:25 2014:
+->  with subsources: 16, 16, 64, 16, 16, 64
+Wed Mar 19 15:00:25 2014:
+-> Node    4 has  3 triangle neighbors: 139, 149, 170
+Wed Mar 19 15:00:25 2014:
+->  with subsources: 16, 16, 16
+Wed Mar 19 15:00:25 2014:
+-> Node   40 has  7 triangle neighbors: 133, 163, 21, 26, 270, 287, 324
+Wed Mar 19 15:00:26 2014:
+->  with subsources: 64, 64, 64, 64, 64, 64, 64
+Wed Mar 19 15:00:26 2014:
+-> Node   41 has  7 triangle neighbors: 144, 169, 218, 229, 282, 378, 81
+Wed Mar 19 15:00:26 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:26 2014:
+-> Node   42 has  7 triangle neighbors: 207, 234, 328, 341, 358, 56, 74
+Wed Mar 19 15:00:26 2014:
+->  with subsources: 16, 4, 4, 16, 16, 16, 16
+Wed Mar 19 15:00:26 2014:
+-> Node   43 has  7 triangle neighbors: 104, 174, 18, 208, 313, 340, 343
+Wed Mar 19 15:00:26 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:26 2014:
+-> Node   44 has  7 triangle neighbors: 118, 120, 185, 253, 260, 375, 376
+Wed Mar 19 15:00:26 2014:
+->  with subsources: 64, 16, 64, 64, 64, 64, 64
+Wed Mar 19 15:00:26 2014:
+-> Node   45 has  6 triangle neighbors: 111, 148, 157, 263, 59, 95
+Wed Mar 19 15:00:26 2014:
+->  with subsources: 16, 4, 16, 16, 16, 16
+Wed Mar 19 15:00:26 2014:
+-> Node   46 has  8 triangle neighbors: 155, 26, 278, 299, 315, 324, 76, 87
+Wed Mar 19 15:00:26 2014:
+->  with subsources: 64, 64, 16, 64, 64, 64, 64, 64
+Wed Mar 19 15:00:26 2014:
+-> Node   47 has  6 triangle neighbors: 194, 308, 331, 362, 49, 63
+Wed Mar 19 15:00:26 2014:
+->  with subsources: 16, 16, 4, 16, 16, 4
+Wed Mar 19 15:00:26 2014:
+-> Node   48 has  7 triangle neighbors: 20, 231, 325, 351, 371, 44, 88
+Wed Mar 19 15:00:26 2014:
+->  with subsources: 16, 64, 16, 64, 16, 64, 16
+Wed Mar 19 15:00:26 2014:
+-> Node   49 has  7 triangle neighbors: 122, 126, 181, 338, 38, 43, 90
+Wed Mar 19 15:00:26 2014:
+->  with subsources: 64, 16, 16, 64, 16, 64, 64
+Wed Mar 19 15:00:26 2014:
+-> Node    5 has  3 triangle neighbors: 225, 285, 39
+Wed Mar 19 15:00:26 2014:
+->  with subsources: 64, 64, 64
+Wed Mar 19 15:00:26 2014:
+-> Node   50 has  2 triangle neighbors: 128, 221
+Wed Mar 19 15:00:26 2014:
+->  with subsources: 64, 64
+Wed Mar 19 15:00:26 2014:
+-> Node   51 has  6 triangle neighbors: 193, 200, 207, 38, 74, 90
+Wed Mar 19 15:00:26 2014:
+->  with subsources: 4, 4, 16, 16, 16, 64
+Wed Mar 19 15:00:26 2014:
+-> Node   52 has  7 triangle neighbors: 142, 202, 215, 29, 330, 42, 5
+Wed Mar 19 15:00:26 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:26 2014:
+-> Node   53 has  5 triangle neighbors: 218, 258, 329, 344, 81
+Wed Mar 19 15:00:26 2014:
+->  with subsources: 16, 4, 4, 16, 16
+Wed Mar 19 15:00:26 2014:
+-> Node   54 has  6 triangle neighbors: 118, 225, 253, 39, 51, 9
+Wed Mar 19 15:00:27 2014:
+->  with subsources: 64, 64, 64, 64, 64, 64
+Wed Mar 19 15:00:27 2014:
+-> Node   55 has  7 triangle neighbors: 109, 239, 261, 262, 292, 301, 72
+Wed Mar 19 15:00:27 2014:
+->  with subsources: 256, 64, 64, 64, 256, 64, 64
+Wed Mar 19 15:00:27 2014:
+-> Node   56 has  3 triangle neighbors: 145, 166, 62
+Wed Mar 19 15:00:27 2014:
+->  with subsources: 64, 16, 64
+Wed Mar 19 15:00:27 2014:
+-> Node   57 has  7 triangle neighbors: 168, 190, 238, 249, 374, 76, 87
+Wed Mar 19 15:00:27 2014:
+->  with subsources: 16, 64, 64, 16, 16, 64, 64
+Wed Mar 19 15:00:27 2014:
+-> Node   58 has  6 triangle neighbors: 106, 212, 268, 318, 354, 41
+Wed Mar 19 15:00:27 2014:
+->  with subsources: 16, 16, 64, 64, 16, 16
+Wed Mar 19 15:00:27 2014:
+-> Node   59 has  7 triangle neighbors: 209, 232, 268, 290, 318, 68, 77
+Wed Mar 19 15:00:27 2014:
+->  with subsources: 16, 64, 64, 64, 64, 16, 64
+Wed Mar 19 15:00:27 2014:
+-> Node    6 has  3 triangle neighbors: 118, 375, 39
+Wed Mar 19 15:00:27 2014:
+->  with subsources: 64, 64, 64
+Wed Mar 19 15:00:27 2014:
+-> Node   60 has  7 triangle neighbors: 12, 18, 183, 194, 275, 313, 49
+Wed Mar 19 15:00:27 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:27 2014:
+-> Node   61 has  8 triangle neighbors: 107, 199, 251, 28, 308, 362, 372, 96
+Wed Mar 19 15:00:27 2014:
+->  with subsources: 16, 16, 16, 4, 16, 16, 16, 16
+Wed Mar 19 15:00:27 2014:
+-> Node   62 has  6 triangle neighbors: 176, 238, 291, 351, 374, 44
+Wed Mar 19 15:00:27 2014:
+->  with subsources: 16, 64, 64, 64, 16, 64
+Wed Mar 19 15:00:27 2014:
+-> Node   63 has  6 triangle neighbors: 18, 183, 217, 231, 343, 88
+Wed Mar 19 15:00:27 2014:
+->  with subsources: 16, 16, 64, 64, 16, 16
+Wed Mar 19 15:00:27 2014:
+-> Node   64 has  8 triangle neighbors: 128, 203, 221, 252, 264, 268, 41, 77
+Wed Mar 19 15:00:27 2014:
+->  with subsources: 64, 64, 64, 16, 64, 64, 16, 64
+Wed Mar 19 15:00:27 2014:
+-> Node   65 has  5 triangle neighbors: 124, 211, 270, 315, 324
+Wed Mar 19 15:00:28 2014:
+->  with subsources: 64, 64, 64, 64, 64
+Wed Mar 19 15:00:28 2014:
+-> Node   66 has  7 triangle neighbors: 185, 23, 260, 262, 292, 47, 61
+Wed Mar 19 15:00:28 2014:
+->  with subsources: 64, 256, 64, 64, 256, 64, 64
+Wed Mar 19 15:00:28 2014:
+-> Node   67 has  6 triangle neighbors: 1, 209, 232, 246, 251, 96
+Wed Mar 19 15:00:28 2014:
+->  with subsources: 16, 16, 64, 16, 16, 16
+Wed Mar 19 15:00:28 2014:
+-> Node   68 has  6 triangle neighbors: 193, 207, 234, 277, 347, 58
+Wed Mar 19 15:00:28 2014:
+->  with subsources: 4, 16, 4, 4, 4, 4
+Wed Mar 19 15:00:28 2014:
+-> Node   69 has  5 triangle neighbors: 160, 266, 328, 358, 361
+Wed Mar 19 15:00:28 2014:
+->  with subsources: 4, 4, 4, 16, 4
+Wed Mar 19 15:00:28 2014:
+-> Node    7 has  3 triangle neighbors: 139, 35, 69
+Wed Mar 19 15:00:28 2014:
+->  with subsources: 16, 16, 16
+Wed Mar 19 15:00:28 2014:
+-> Node   70 has  6 triangle neighbors: 144, 210, 213, 229, 236, 32
+Wed Mar 19 15:00:28 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:28 2014:
+-> Node   71 has  6 triangle neighbors: 139, 170, 21, 26, 299, 69
+Wed Mar 19 15:00:28 2014:
+->  with subsources: 16, 16, 64, 64, 64, 16
+Wed Mar 19 15:00:28 2014:
+-> Node   72 has  5 triangle neighbors: 153, 202, 215, 301, 72
+Wed Mar 19 15:00:28 2014:
+->  with subsources: 16, 16, 16, 64, 64
+Wed Mar 19 15:00:28 2014:
+-> Node   73 has  5 triangle neighbors: 12, 194, 199, 307, 362
+Wed Mar 19 15:00:28 2014:
+->  with subsources: 16, 16, 16, 16, 16
+Wed Mar 19 15:00:28 2014:
+-> Node   74 has  5 triangle neighbors: 149, 163, 170, 191, 21
+Wed Mar 19 15:00:28 2014:
+->  with subsources: 16, 64, 16, 16, 64
+Wed Mar 19 15:00:28 2014:
+-> Node   75 has  6 triangle neighbors: 165, 340, 343, 365, 371, 88
+Wed Mar 19 15:00:28 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:28 2014:
+-> Node   76 has  5 triangle neighbors: 249, 299, 35, 69, 76
+Wed Mar 19 15:00:28 2014:
+->  with subsources: 16, 64, 16, 16, 64
+Wed Mar 19 15:00:28 2014:
+-> Node   77 has  6 triangle neighbors: 123, 177, 259, 29, 330, 7
+Wed Mar 19 15:00:28 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:28 2014:
+-> Node   78 has  7 triangle neighbors: 101, 178, 219, 254, 300, 319, 348
+Wed Mar 19 15:00:28 2014:
+->  with subsources: 64, 64, 64, 64, 64, 64, 64
+Wed Mar 19 15:00:28 2014:
+-> Node   79 has  7 triangle neighbors: 101, 143, 154, 161, 219, 349, 366
+Wed Mar 19 15:00:28 2014:
+->  with subsources: 64, 64, 64, 16, 64, 16, 16
+Wed Mar 19 15:00:28 2014:
+-> Node    8 has  3 triangle neighbors: 127, 375, 376
+Wed Mar 19 15:00:29 2014:
+->  with subsources: 16, 64, 64
+Wed Mar 19 15:00:29 2014:
+-> Node   80 has  6 triangle neighbors: 116, 213, 31, 32, 42, 5
+Wed Mar 19 15:00:29 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:29 2014:
+-> Node   81 has  6 triangle neighbors: 196, 293, 334, 341, 56, 89
+Wed Mar 19 15:00:29 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:29 2014:
+-> Node   82 has  7 triangle neighbors: 10, 156, 227, 274, 333, 350, 83
+Wed Mar 19 15:00:29 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:29 2014:
+-> Node   83 has  5 triangle neighbors: 130, 173, 27, 52, 79
+Wed Mar 19 15:00:29 2014:
+->  with subsources: 16, 16, 16, 16, 16
+Wed Mar 19 15:00:29 2014:
+-> Node   84 has  7 triangle neighbors: 230, 258, 266, 334, 344, 358, 56
+Wed Mar 19 15:00:29 2014:
+->  with subsources: 16, 4, 4, 16, 16, 16, 16
+Wed Mar 19 15:00:29 2014:
+-> Node   85 has  6 triangle neighbors: 135, 218, 230, 344, 378, 45
+Wed Mar 19 15:00:29 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:29 2014:
+-> Node   86 has  6 triangle neighbors: 140, 175, 296, 363, 367, 64
+Wed Mar 19 15:00:29 2014:
+->  with subsources: 64, 16, 16, 16, 64, 16
+Wed Mar 19 15:00:29 2014:
+-> Node   87 has  6 triangle neighbors: 257, 280, 295, 305, 40, 54
+Wed Mar 19 15:00:29 2014:
+->  with subsources: 4, 4, 16, 16, 4, 4
+Wed Mar 19 15:00:29 2014:
+-> Node   88 has  7 triangle neighbors: 247, 267, 289, 333, 352, 48, 83
+Wed Mar 19 15:00:29 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:29 2014:
+-> Node   89 has  6 triangle neighbors: 10, 196, 204, 267, 293, 83
+Wed Mar 19 15:00:29 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:29 2014:
+-> Node    9 has  3 triangle neighbors: 190, 249, 35
+Wed Mar 19 15:00:29 2014:
+->  with subsources: 64, 16, 16
+Wed Mar 19 15:00:29 2014:
+-> Node   90 has  6 triangle neighbors: 156, 227, 281, 303, 339, 97
+Wed Mar 19 15:00:29 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:29 2014:
+-> Node   91 has  7 triangle neighbors: 135, 151, 164, 196, 204, 230, 334
+Wed Mar 19 15:00:29 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:29 2014:
+-> Node   92 has  6 triangle neighbors: 14, 187, 271, 296, 363, 82
+Wed Mar 19 15:00:29 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:29 2014:
+-> Node   93 has  7 triangle neighbors: 131, 2, 216, 257, 305, 312, 80
+Wed Mar 19 15:00:29 2014:
+->  with subsources: 4, 4, 16, 4, 16, 16, 16
+Wed Mar 19 15:00:29 2014:
+-> Node   94 has  5 triangle neighbors: 104, 174, 356, 8, 85
+Wed Mar 19 15:00:29 2014:
+->  with subsources: 16, 16, 16, 4, 4
+Wed Mar 19 15:00:29 2014:
+-> Node   95 has  6 triangle neighbors: 184, 208, 320, 321, 340, 365
+Wed Mar 19 15:00:29 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:29 2014:
+-> Node   96 has  6 triangle neighbors: 175, 22, 282, 378, 45, 64
+Wed Mar 19 15:00:29 2014:
+->  with subsources: 16, 16, 16, 16, 16, 16
+Wed Mar 19 15:00:29 2014:
+-> Node   97 has  6 triangle neighbors: 140, 169, 189, 282, 298, 64
+Wed Mar 19 15:00:29 2014:
+->  with subsources: 64, 16, 64, 16, 16, 16
+Wed Mar 19 15:00:29 2014:
+-> Node   98 has  6 triangle neighbors: 140, 143, 154, 189, 322, 367
+Wed Mar 19 15:00:29 2014:
+->  with subsources: 64, 64, 64, 64, 64, 64
+Wed Mar 19 15:00:29 2014:
+-> Node   99 has  6 triangle neighbors: 150, 154, 296, 366, 367, 82
+Wed Mar 19 15:00:29 2014:
+->  with subsources: 16, 64, 16, 16, 64, 16
+Wed Mar 19 15:00:38 2014:
+-> calculating Strike-Slip Green functions...
+Wed Mar 19 15:00:45 2014:
+-> calculating upDip-Slip Green functions...
