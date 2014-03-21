@@ -60,7 +60,7 @@ def calcGreenFunctions_EDKS_subRectangles(RectanglesPropFile, ReceiverFile,\
    R_IDs = []
    file = open(ReceiverFile, 'r')
    aux = file.readline() # first line is header
-   userecvdir = method_par['useRecvDir']
+   useRecvDir = method_par['useRecvDir']
    if useRecvDir:
       fields = ['id', 'e', 'n', 'ODirE', 'ODirN', 'ODirU']
    else:
