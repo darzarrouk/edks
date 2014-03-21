@@ -293,6 +293,8 @@ def calcGreenFunctions_EDKS_subSquares(SquaresPropFile, ReceiverFile,\
 
 if __name__ == '__main__':
 
+   import os,sys
+   sys.path.append(os.getcwd())
    from EDKSsubParams import *
    parNames = ['useRecvDir', 'Amax', 'EDKSunits', 'EDKSfilename', 'prefix']
    parValues = [ useRecvDir ,  Amax ,  EDKSunits ,  EDKSfilename ,  prefix ]
