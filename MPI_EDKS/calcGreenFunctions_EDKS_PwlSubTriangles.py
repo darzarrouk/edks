@@ -74,6 +74,7 @@ def calcGreenFunctions_EDKS_PwlSubTriangles(TriPropFile, TriPointsFile, Receiver
    R_IDs = []
    file = open(ReceiverFile, 'r')
    aux = file.readline() # first line is header
+   useRecvDir = method_par['useRecvDir']
    if useRecvDir:
       fields = ['id', 'e', 'n', 'ODirE', 'ODirN', 'ODirU']
    else:
@@ -88,6 +89,9 @@ def calcGreenFunctions_EDKS_PwlSubTriangles(TriPropFile, TriPointsFile, Receiver
 
    # save log
    log.addLine('data successfully loaded ... ')
+
+   # Amax
+   Amax = method_par['Amax']
 
    # find triangle neighbors for each node
    Nodes_TriNb = findTriangleNeighbors4Node(Tprop, T_IDs, P_IDs)

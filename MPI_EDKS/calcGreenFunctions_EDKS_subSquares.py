@@ -58,6 +58,7 @@ def calcGreenFunctions_EDKS_subSquares(SquaresPropFile, ReceiverFile,\
    R_IDs = []
    file = open(ReceiverFile, 'r')
    aux = file.readline() # first line is header
+   useRecvDir = method_par['useRecvDir']
    if useRecvDir:
       fields = ['id', 'e', 'n', 'ODirE', 'ODirN', 'ODirU']
    else:
@@ -73,6 +74,9 @@ def calcGreenFunctions_EDKS_subSquares(SquaresPropFile, ReceiverFile,\
    # save log
    log.addLine('data successfully loaded ... ')
    
+   # Amax
+   Amax = method_par['Amax']
+
    # assemble the array with the east and north coordinates of the observation points
    eR = []
    nR = []
