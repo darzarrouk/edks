@@ -5,10 +5,10 @@
     California Institute of Technology
     
     Created      : Nov 16, 2011
-    Last modified: Nov 16, 2011 
+    Last modified: Mar 28, 2014
 
     Modification History:
-    
+    - Adding options fault_strike, fault_strike_delta, w_ascii, w_bin (Z. Duputel)    
 
 
 tested to work with Python 2.7
@@ -24,8 +24,8 @@ from projectGFmatrices import projectGFmatrices
 
 import string
 
-def calcGreenFunctions_EDKS_subSquares(SquaresPropFile, ReceiverFile,\
-                                         method_par, plotGeometry, w_ascii=True, w_bin=True):
+def calcGreenFunctions_EDKS_subSquares(SquaresPropFile, ReceiverFile, method_par, plotGeometry, 
+                                       fault_strike=None, fault_strike_delta=None, w_ascii=True, w_bin=True):
    """
    method_par has to contain the following info:
       useRecvDir : [False|True]
@@ -33,6 +33,15 @@ def calcGreenFunctions_EDKS_subSquares(SquaresPropFile, ReceiverFile,\
       EDKSunits : float (units to go from current length units to meters)
       EDKSfilename : name of the EDKS file with the kernels.
       prefix : a name prefix for the output files.
+
+   Optional parameters:
+   
+   - "fault_strike" and "fault_strike_delta" (in deg) can be used to ensure similar 
+     orientation of positive dip-slip components accross the fault (usefull for vertical faults):
+        - if fault_strike-fault_strike_delta<=patch_strike<=fault_strike+fault_strike_delta use rake=90
+        - otherwise use rake=90    
+
+   - "w_ascii" and "w_bin": if True write output ascii and binary files
    """
 
 
@@ -120,6 +129,8 @@ def calcGreenFunctions_EDKS_subSquares(SquaresPropFile, ReceiverFile,\
       L = NP.sqrt( Rprop[Rec_id]['area'] )
       W = L
       strike = Rprop[Rec_id]['strike']
+      if strike<0.:
+         strike += 360.
       dip = Rprop[Rec_id]['dip']
 
       Rec = rectanglePatch( rEc, rNc, rZc, L, W, strike, dip )
@@ -187,6 +198,11 @@ def calcGreenFunctions_EDKS_subSquares(SquaresPropFile, ReceiverFile,\
    log.addLine('calculating upDip-Slip Green functions...')
    prefixDS = prefix + '_DS_'
    rakeSR = 90.0 * NP.ones(len(eSR))   
+   # Change sign of dip slip for patches dipping in the "wrong" direction
+   if fault_strike!=None and fault_strike_delta!=None: 
+      strike_dif = (strikeST-fault_strike+180)%360-180
+      i = NP.where(NP.abs(strike_dif)>fault_strike_delta)[0]
+      rakeST[i] *= -1.
    GeDS, GnDS, GuDS = layered_disloc_sub(idSR, eSR, nSR, dSR, strikeSR, dipSR,\
                       rakeSR, slipSR, aSR, eR, nR, edks, prefixDS)  
 
