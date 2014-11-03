@@ -77,10 +77,10 @@ write(*,'(a)') ' reading the patch information'
 call read_patch_sub(prefix, ntsp, x, y, z, strike, dip, rake, area, slip, ident)
 ! need to loop over all patches, get local coordinates and fill single arrays
 do ip = 1, np
-   print *, ' selecting sub sources for patch', ip
+   ! print *, ' selecting sub sources for patch', ip
    call patch2pts_sub(ntsp, nspp, ip, x, y, z, strike, dip, rake, area, slip, ident, xsp, ysp, zsp, M, nsrc)
 
-   print *, ' Calculating ',nsrc, ' sub sources displacements for patch', ip
+   ! print *, ' Calculating ',nsrc, ' sub sources displacements for patch', ip
    call mom2disp_sub(uxs, uys, uzs, xr, yr, xsp, ysp, zsp, edks, M, nsrc)
 
    ! need to sum pts back to patch contributions where arrays are 
