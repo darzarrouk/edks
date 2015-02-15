@@ -25,7 +25,7 @@ from projectGFmatrices import projectGFmatrices
 
 import string
 
-def calcGreenFunctions_EDKS_PwlSubTriangles(TriPropFile, TriPointsFile, ReceiverFile, method_par, plotGeometry, 
+def calcGreenFunctions_EDKS_PwlSubTriangles(TriPropFile, TriPointsFile, ReceiverFile, method_par, plotGeometry,
                                             fault_strike=None, fault_strike_delta=None, w_ascii=True,w_bin=True):
    """
    method_par has to contain the following info:
@@ -36,11 +36,11 @@ def calcGreenFunctions_EDKS_PwlSubTriangles(TriPropFile, TriPointsFile, Receiver
       prefix : a name prefix for the output files.
 
    Optional parameters:
-   
-   - "fault_strike" and "fault_strike_delta" (in deg) can be used to ensure similar 
+
+   - "fault_strike" and "fault_strike_delta" (in deg) can be used to ensure similar
      orientation of positive dip-slip components accross the fault (usefull for vertical faults):
         - if fault_strike-fault_strike_delta<=patch_strike<=fault_strike+fault_strike_delta use rake=90
-        - otherwise use rake=90    
+        - otherwise use rake=90
 
    - "w_ascii" and "w_bin": if True write output ascii and binary files
    """
@@ -267,7 +267,7 @@ def calcGreenFunctions_EDKS_PwlSubTriangles(TriPropFile, TriPointsFile, Receiver
    prefixDS = prefix + '_DS_'
    rakeST = 90.0 * NP.ones(len(eST))
    # Change sign of dip slip for patches dipping in the "wrong" direction
-   if fault_strike!=None and fault_strike_delta!=None: 
+   if fault_strike!=None and fault_strike_delta!=None:
       strike_dif = (strikeST-fault_strike+180)%360-180
       i = NP.where(NP.abs(strike_dif)>fault_strike_delta)[0]
       rakeST[i] *= -1.
@@ -292,12 +292,12 @@ def calcGreenFunctions_EDKS_PwlSubTriangles(TriPropFile, TriPointsFile, Receiver
 
       GnSS = GnSS.astype(NP.float32)
       GnSS.tofile('%s_GnSS.dat'%prefix)
-      
+
       GuDS = GuDS.astype(NP.float32)
       GuDS.tofile('%s_GuDS.dat'%prefix)
-      
+
       GuSS = GuSS.astype(NP.float32)
-      GuSS.tofile('%s_GuSS.dat'%prefix)   
+      GuSS.tofile('%s_GuSS.dat'%prefix)
 
    if w_ascii:  # write GF matrices in ASCII format
       # GeDS
@@ -371,11 +371,11 @@ def calcGreenFunctions_EDKS_PwlSubTriangles(TriPropFile, TriPointsFile, Receiver
 
    # if direction is used.
    if useRecvDir:
-      
+
       if w_bin:    # write GF matrixes into binary files
          G_SS = G_SS.astype(NP.float32)
          G_SS.tofile('%s_G_SS.dat'%prefix)
-         
+
          G_DS = G_DS.astype(NP.float32)
          G_DS.tofile('%s_G_DS.dat'%prefix)
 
@@ -401,8 +401,8 @@ def calcGreenFunctions_EDKS_PwlSubTriangles(TriPropFile, TriPointsFile, Receiver
                file.write(value)
             file.write('\n')
          file.close()
-            
-      return GeSS, GeDS, GnSS, GnDS, GuSS, GuDS, G_SS, G_DS      
+
+      return GeSS, GeDS, GnSS, GnDS, GuSS, GuDS, G_SS, G_DS
 
    else:
 
@@ -632,19 +632,17 @@ def getWeight4SubTriangles(Tri, TriCS, Pid, Ce, Cn, Cz):
    """
    # get the Point instances and coordinates of the master triangle
    PtList = Tri.getPointsID()
-   e1, n1, u1 = TriCS.getPointCoord(Pid)
-   e2, n2, u2 = TriCS.getPointCoord(list(set(PtList)-set([Pid]))[0])
-   e3, n3, u3 = TriCS.getPointCoord(list(set(PtList)-set([Pid]))[1])
+   P1 = TriCS.getPointCoord(Pid)
+   P2 = TriCS.getPointCoord(list(set(PtList)-set([Pid]))[0])
+   P3 = TriCS.getPointCoord(list(set(PtList)-set([Pid]))[1])
 
    Cw = []
    for i in range(0, len(Ce)):
-       ep = Ce[i]
-       np = Cn[i]
-       zp = Cz[i]
-       L23 = ((e3-e2)**2 + (n3-n2)**2)**0.5
-       distp = ((np-n2)*(e3-e2) - (ep-e2)*(n3-n2))/L23
-       dist1 = ((n1-n2)*(e3-e2) - (e1-e2)*(n3-n2))/L23
-       Cw.append(distp/dist1)
+       Pi = NP.array([Ce[i], Cn[i], Cz[i]])
+       L23 = NP.linalg.norm(P2 - P3)
+       dist_i = NP.linalg.norm(NP.cross(Pi-P2, P3-P2))/L23
+       dist_1 = NP.linalg.norm(NP.cross(P1-P2, P3-P2))/L23
+       Cw.append(dist_i/dist_1)
    return Cw
 
 
