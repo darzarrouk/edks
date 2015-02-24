@@ -1,4 +1,6 @@
-subroutine patch2pts_sub(ntsp, nspp, ip, x, y, z, strike, dip, rake, area, slip, ident, xs, ys, zs, M, nsrc) 
+!	Include	'edks.inc'
+subroutine patch2pts_sub(ntsp, nspp, ip, x, y, z, strike, dip, rake, area, &
+                         slip, ident, xs, ys, zs, M, nsrc, tensile) 
 
 use my_interfaces
 use defs_module
@@ -13,8 +15,7 @@ real*4 :: xs(nspp), ys(nspp), zs(nspp), area(ntsp)
 
 real*4 :: strikes, dips, rakes, areas, slips
 
-integer*4 :: ident(ntsp)
-
+integer*4 :: ident(ntsp), tensile
 
 ! needs to parse original monster file to extract the subtriangles for a given master triangle
 xs = 0.0
@@ -40,6 +41,10 @@ nsrc = ipt
 M = 0
 
 ! convert patch mechanism to moment for use in du_layer
-call src2mom(M, o_Area=Areas, o_strike=strikes, o_dip=dips, o_rake=rakes, o_St=slips)
+if (tensile > 0) then
+    call src2mom(M, o_Area=Areas, o_strike=strikes, o_dip=dips, o_Sp=slips, o_nu=0.25)
+else
+    call src2mom(M, o_Area=Areas, o_strike=strikes, o_dip=dips, o_rake=rakes, o_St=slips)
+endif
 
 end subroutine patch2pts_sub

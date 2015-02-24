@@ -1,6 +1,6 @@
 include 'edks.inc'
 
-program sum_layered_sub
+program sum_layered_tensile
 
 use my_interfaces
 use defs_module
@@ -34,7 +34,7 @@ integer*4           :: iargc, narg, tensile
 narg = iargc()
 if(narg .ne. 6) then
    write(*,'(a)') ' '
-   write(*,'(a)') 'Usage: sum_layered_sub edks_name geom_prefix #receivers #patches #ntsp #nspp'
+   write(*,'(a)') 'Usage: sum_layered_tensile edks_name geom_prefix #receivers #patches #ntsp #nspp'
    write(*,'(a)') ' '
    write(*,'(a)') '   - #receivers is the number of receivers'
    write(*,'(a)') '   - #patches is the number of (finite) sources to model'
@@ -65,8 +65,8 @@ allocate( ux(np,nrec)   , uy(np,nrec)    , uz(np,nrec)               )
 allocate( uxs(nspp,nrec), uys(nspp,nrec) , uzs(nspp,nrec)            )
 allocate( xr(nrec)      , yr(nrec)                                  )
 
-! set tensile to 0
-tensile = 0
+! set tensile flag to positive integer
+tensile = 1
 
 ! read in the edks (the greens functions)
 write(*,'(a)') ' reading EDKS kernels'
@@ -98,4 +98,4 @@ end do
 
 call write_disp(prefix, np, nrec, ux, uy, uz)
    
-end program sum_layered_sub
+end program sum_layered_tensile

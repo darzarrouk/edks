@@ -10,18 +10,14 @@ LFLAGS = -frecord-marker=4 ${OPT} -fopenmp
 #FFLAGS = ${OPT} -openmp
 #LFLAGS = ${OPT} -openmp
 
-TARG = sum_layered_sub
-
-OBJS = sum_layered_sub.o \
-	read_edks.o \
+OBJS = read_edks.o \
 	mom2disp_sub.o \
 	src2mom.o \
 	patch2pts_sub.o \
 	write_disp.o \
 	read_patch_sub.o \
+	read_point_sub.o \
 	read_receivers.o
-
-all: $(TARG) $(OBJS)
 
 interfaces.o: interfaces.f90
 	${F90} ${FFLAGS} -c interfaces.f90
@@ -38,6 +34,9 @@ read_receivers.o: read_receivers.f90
 read_patch_sub.o: read_patch_sub.f90
 	${F90} ${FFLAGS} -c read_patch_sub.f90
 
+read_point_sub.o: read_point_sub.f90
+	${F90} ${FFLAGS} -c read_point_sub.f90
+
 src2mom.o: src2mom.f90 interfaces.o
 	${F90} ${FFLAGS} -c src2mom.f90 -o src2mom.o
 
@@ -50,12 +49,29 @@ mom2disp_sub.o: mom2disp_sub.f90 interfaces.o
 sum_layered_sub.o: sum_layered_sub.f90 interfaces.o
 	${F90} ${FFLAGS} -c sum_layered_sub.f90 -o sum_layered_sub.o
 
-$(TARG): $(OBJS)
-	${F90} ${FFLAGS} $(OBJS) -o ${BINDIR}/$(TARG)
+sum_layered_volumetric.o: sum_layered_volumetric.f90 interfaces.o
+	${F90} ${FFLAGS} -c sum_layered_volumetric.f90 -o sum_layered_volumetric.o
+
+sum_layered_tensile.o: sum_layered_tensile.f90 interfaces.o
+	${F90} ${FFLAGS} -c sum_layered_tensile.f90 -o sum_layered_tensile.o
+
+all: sum_layered_sub sum_layered_volumetric sum_layered_tensile
+.PHONY: all
+
+sum_layered_sub: sum_layered_sub.o ${OBJS}
+	${F90} ${FFLAGS} ${OBJS} sum_layered_sub.o -o ${BINDIR}/sum_layered_sub
+
+sum_layered_volumetric: sum_layered_volumetric.o ${OBJS}
+	${F90} ${FFLAGS} ${OBJS} sum_layered_volumetric.o -o ${BINDIR}/sum_layered_volumetric
+
+sum_layered_tensile: sum_layered_tensile.o ${OBJS}
+	${F90} ${FFLAGS} ${OBJS} sum_layered_tensile.o -o ${BINDIR}/sum_layered_tensile
+
+.PHONY: clean
 
 clean:
-		rm -rf *.o *.mod rii_files
+	rm -rf *.o *.mod rii_files
 
-install: $(TARG)
-		mv -f $(TARG) $(BINDIR)
+#install: $(TARG)
+#		mv -f $(TARG) $(BINDIR)
 

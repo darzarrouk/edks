@@ -3,20 +3,20 @@
 		 ( M, o_Mo, o_MomT, o_nu, o_mu,			&
 		 o_Area, o_strike, o_dip, o_rake, o_St, o_Sp, o_deltaV 	)
 
-	Use defs_Module 
+	Use defs_Module
 !	use f90_unix    	!needed on the NAG compiler
 	Implicit None
 	Optional o_Mo, o_MomT, o_nu, o_mu, 				&
 		 o_Area, o_strike, o_dip, o_rake, o_St, o_Sp, o_deltaV
 
 !	Method 1: 	Mo, MomT(1:6),                   nu, mu
-!	Method 2: 	Area, strike, dip, rake, St, Sp, nu		
-!	Method 3: 	Area, strike, dip, rake, St		                                 
-!	Method 4: 	Area, strike, dip,           Sp, nu	
+!	Method 2: 	Area, strike, dip, rake, St, Sp, nu
+!	Method 3: 	Area, strike, dip, rake, St
+!	Method 4: 	Area, strike, dip,           Sp, nu
 !	Method 5: 	DeltaV,                          nu
 
 !	Mandatory output arguments
-	Real, Intent(out)		:: M(6)               
+	Real, Intent(out)		:: M(6)
 
 !	Optional input arguments
 	Real, Intent(in)		:: o_Mo, o_MomT(1:6), o_mu, o_nu
@@ -25,12 +25,12 @@
 	Real, Intent(inout)		:: o_St, o_Sp
 	Real, Intent(in)		:: o_Area, o_DeltaV
 
-!	MECHANISM: 	The  source can be given in several different ways 
+!	MECHANISM: 	The  source can be given in several different ways
 !
-!			in all cases what is given is to be used as the moment 
+!			in all cases what is given is to be used as the moment
 !			for each one of the nsrc sources
 !
-!	Method 1: 	Mo, MomT(1:6), i                 nu, mu   
+!	Method 1: 	Mo, MomT(1:6), i                 nu, mu
 !	Method 2: 	Area, strike, dip, rake, St, Sp, nu
 !	Method 3: 	Area, strike, dip, rake, St
 !	Method 4: 	Area, strike, dip,           Sp, nu
@@ -52,7 +52,7 @@
 !	M(6)
 !
 !	parameters
-	Real,	Parameter	:: M_PI 	= 3.14159265358979 
+	Real,	Parameter	:: M_PI 	= 3.14159265358979
 
 !	local variables
 
@@ -77,6 +77,9 @@
 
         !Counters
         Integer                 :: ix, iy
+
+! Set default value for nu
+      nu = 0.25
 
 ! Source Parametrization
 ! srctype
@@ -146,7 +149,7 @@
 !         seismic moment
 !         Internally M follows the Aki's convention
 !         x: north,  y:  east,    z: down
-!         (Aki = Herrman)  
+!         (Aki = Herrman)
 	If(srctype .Eq. 1) Then
 !               Here     Aki    Harv
 !               M(2) =   Mxx =  Mtt
@@ -175,8 +178,8 @@
 		! moment tensor of a dislocation
 		!lambda * SD*(s.n)Id + mu*SD*s.n'+n.s')
 
-		nor(1)	= -Sin(rad_dip)*Sin(rad_strike) 
-		nor(2)	=  Sin(rad_dip)*Cos(rad_strike) 
+		nor(1)	= -Sin(rad_dip)*Sin(rad_strike)
+		nor(2)	=  Sin(rad_dip)*Cos(rad_strike)
 		nor(3)	= -Cos(rad_dip)
 		sli(1)  =  Cos(rad_rake)*Cos(rad_strike)+Cos(rad_dip)*Sin(rad_rake)*Sin(rad_strike)
 		sli(2)  =  Cos(rad_rake)*Sin(rad_strike)-Cos(rad_dip)*Sin(rad_rake)*Cos(rad_strike)
@@ -193,7 +196,7 @@
 			Do iy=1,3
 				Maki(ix,iy) = Maki(ix,iy) + (nor(ix)*sli(iy)+nor(iy)*sli(ix))
 			End Do
-		End Do	
+		End Do
 
 		M(1) = Maki(3,3)
 		M(2) = Maki(1,1)
@@ -204,7 +207,7 @@
                 M    = Area*M
 	Else
 
-	! moment tensor of an explosion 
+	! moment tensor of an explosion
 	! positive for explosions
 		M(1) 	= DeltaV*2.*(1.+nu)/3./(1.-2.*nu)
 		M(2) 	= M(1)
