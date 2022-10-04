@@ -46,12 +46,14 @@ def EDKSworker(comm, TagIn, TagOut):
    comm.send( {'rank': rank }, dest = 0, tag = TagOut )
    # receive data structure from Boss process
    data = comm.recv(source = 0, tag = TagIn)
-   while data['ActiveProc']:
+
+   while data['ActiveProc'] == True:
       # compute EDKS
       result = edks.runEDKS(data['EDKSparam']) 
       # send the results and rank to Boss
       ToSend = {'rank' : rank, 'result' : result}
       comm.send( ToSend, dest = 0, tag = TagOut )
+      
       # wait for new data and instructions from Boss
       data = comm.recv(source = 0, tag = TagIn) 
       
@@ -89,12 +91,14 @@ def EDKSboss(comm, EDKSparam, TagIn, TagOut):
    results = []
    
    # iterate over depths and send to processes reporting results
-   while (ActiveProcs.values()).count(True) > 0 :
+#   print(ActiveProcs.values())
+   #while (ActiveProcs.values()).count(True) > 0 :
+   while True in ActiveProcs.values():
       # listen for a process reporting results
       # for the moment i dont need to do anything with results.
       dataRECV = comm.recv( source = MPI.ANY_SOURCE, tag = TagIn )
       pRank = dataRECV['rank']
-      if dataRECV.has_key('result'):
+      if 'result' in dataRECV:
          results.append( dataRECV['result'] )         
          Logger.addLine('received results from Worker %i'%(pRank))
       else:
@@ -115,14 +119,14 @@ def EDKSboss(comm, EDKSparam, TagIn, TagOut):
          Logger.addLine("Worker %i being Terminated"%(pRank))
 
       comm.send( ToSend, dest = pRank, tag = TagOut ) 
-   
+
    # return results
    return results
 
 
 
 ###
-def MPI_EDKS(comm, EDKSparam, TagBoss2Worker = 1979, TagWorker2Boss = 28 ):
+def MPI_EDKS(comm, EDKSparam, TagBoss2Worker = 33, TagWorker2Boss = 12 ):
 
    rank = comm.Get_rank()
    size = comm.Get_size()
@@ -130,7 +134,7 @@ def MPI_EDKS(comm, EDKSparam, TagBoss2Worker = 1979, TagWorker2Boss = 28 ):
    if rank == 0 : # I am boss process
       Logger = LogFile('EDKS_status.log') # to keep track of what it is doing 
       Logger.clearFile()
-      if not(EDKSparam.has_key('Logger')):
+      if 'Logger' not in EDKSparam:
          EDKSparam['Logger'] = Logger
       else:
          raise ValueError("EDKS parameter name 'Logger' is a reserved name")
@@ -160,8 +164,8 @@ def MPI_EDKS(comm, EDKSparam, TagBoss2Worker = 1979, TagWorker2Boss = 28 ):
       system(EDKSparam['BIN_build_edks'] + ' ' + logFilename + ' ' + edksFilename)
       Logger.addLine("That's all folks !!!...")
    else : # I am a worker
-
       EDKSworker( comm, TagBoss2Worker, TagWorker2Boss )
+      
 
 
 ###
@@ -188,8 +192,8 @@ if __name__ == '__main__':
       Main(configFilename)
 
    else:
-      print "  usage: \n"
-      print "        " + sys.argv[0] + "  configFile.edks_config"
+      print("  usage: \n")
+      print("        " + sys.argv[0] + "  configFile.edks_config")
       exit()
 
 

@@ -25,14 +25,16 @@ class LogFile:
 
    def clearFile(self):
       import time
-      self.file = open(self.filename,'w')
-      print (time.ctime() + ":\n-> Log file initialization time\n", self.file)
-      self.file.close()
+      with open(self.filename,'w') as fout:
+          fout.write(time.ctime() + ":\n-> Log file initialization time\n")
+      print(time.ctime() + ":\n-> Log file initialization time\n")
+      
 
    def addLine(self,textline):
       import time
-      self.file = open(self.filename,'a')
-      print (time.ctime() + ":", self.file)
-      print ("-> " + textline, self.file)
-      self.file.close()
+      with open(self.filename,'a') as fout:
+          fout.write(time.ctime() + ":\n")
+          fout.write("-> " + textline+"\n")
+      print(time.ctime() + ":")
+      print("-> " + textline)
 

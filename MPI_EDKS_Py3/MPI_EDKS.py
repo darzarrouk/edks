@@ -117,7 +117,7 @@ def EDKSboss(comm, EDKSparam, TagIn, TagOut):
          Logger.addLine("Worker %i being Terminated"%(pRank))
 
       comm.send( ToSend, dest = pRank, tag = TagOut ) 
-   
+      
    # return results
    return results
 
